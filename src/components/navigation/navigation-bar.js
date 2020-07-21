@@ -82,7 +82,9 @@ const NavigationBar = props => {
             </div>
 
             <div className="logout-icon">
-               <FontAwesomeIcon onClick={handleLogout} icon="sign-out-alt" />
+               <NavLink to="/">
+                  <FontAwesomeIcon onClick={handleLogout} icon="sign-out-alt" />
+               </NavLink>
             </div>
          </div>
       </div>
