@@ -32,31 +32,40 @@ export default class Login extends Component {
    handleSubmit(event) {
       event.preventDefault();
 
-      axios.post("http://localhost:5000/user",
-         {
-            email: this.state.email,
-            password: this.state.password
-         }
-      ).then(response => {
-         if (response.data.length > 0) {
-            this.setState({
-               user: response.data
-            })
-
-            console.log('You can come in', this.state.user);
-            Cookies.set("_sb%_user%_session", `%encript%${this.state.user[0].users_id}`, { expires: 15 })
-
-            this.props.handleSuccessfulAuth();
-         } else {
-            this.setState({
-               errorText: "Wrong email or password"
-            })
-         }
-      }).catch(error => {
+      if (this.state.email === "" || this.state.password === "") {
          this.setState({
-            errorText: "An error ocurred"
+            errorText: "You need to complete the information"
          })
-      });
+      } else {
+
+
+
+         axios.post("http://localhost:5000/user",
+            {
+               email: this.state.email,
+               password: this.state.password
+            }
+         ).then(response => {
+            if (response.data.length > 0) {
+               this.setState({
+                  user: response.data
+               })
+
+               console.log('You can come in', this.state.user);
+               Cookies.set("_sb%_user%_session", `%encript%${this.state.user.users_id}`, { expires: 15 })
+
+               this.props.handleSuccessfulAuth();
+            } else {
+               this.setState({
+                  errorText: "Wrong email or password"
+               })
+            }
+         }).catch(error => {
+            this.setState({
+               errorText: "An error ocurred"
+            })
+         });
+      }
    }
 
    render() {
