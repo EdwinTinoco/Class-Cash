@@ -31,8 +31,6 @@ export default class StudentsItem extends Component {
    }
 
    handleBankTotal(studentBankTotal) {
-      console.log('entrando al handleBankTotal', studentBankTotal);
-
       this.setState({
          bankTotal: studentBankTotal
       })
@@ -50,39 +48,41 @@ export default class StudentsItem extends Component {
 
          <div className="students-item-wrapper">
             <div className='student-image'>
-               <Link to={`/student/${students_id}`}>
-                  <img src={Image} alt='students-pic' />
-               </Link>
+               <div className="modal">
+                  <BankModal
+                     handleModalClose={this.handleModalClose}
+                     modalIsOpen={this.state.bankModalIsOpen}
+                     handleBankTotal={this.handleBankTotal}
+                     studentId={students_id}
+                     studentName={Nombre}
+                     studentBankTotal={this.state.bankTotal}
+                  />
+
+                  <div className="button-modal">
+                     <a onClick={this.handleNewBankClick}>
+                        <img src={Image} alt='students-pic' />
+                     </a>
+                  </div>
+               </div>
+
             </div>
 
             <div className='students-info-wrapper'>
                <div className='student-name'>
-                  <Link to={`/student/${students_id}`}>
-                     <p>{Nombre}</p>
-                  </Link>
+                  <p>{Nombre}</p>
                </div>
 
                <div className='student-bank-amount'>
                   <p>${this.state.bankTotal}</p>
                </div>
-            </div>
 
-            <div className="modal">
-               <BankModal
-                  handleModalClose={this.handleModalClose}
-                  modalIsOpen={this.state.bankModalIsOpen}
-                  handleBankTotal={this.handleBankTotal}
-                  studentId={students_id}
-                  studentName={Nombre}
-                  studentBankTotal={this.state.bankTotal}
-               />
-
-               <div className="button-modal">
-                  <a onClick={this.handleNewBankClick}>
-                     <FontAwesomeIcon icon="plus-circle" />
-                  </a>
+               <div className='student-info'>
+                  <Link to={`/student/${students_id}`}>
+                     <p>Student info</p>
+                  </Link>
                </div>
             </div>
+
          </div>
       )
    }
