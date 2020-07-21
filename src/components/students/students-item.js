@@ -1,70 +1,41 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import axios from "axios"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import BankModal from "../modals/modal-bank"
 
 export default class StudentsItem extends Component {
    constructor(props) {
       super(props);
 
       this.state = {
-         amountToChange: "",
-         bankTotal: this.props.item.Total
+         bankTotal: this.props.item.Total,
+         bankModalIsOpen: false
       }
 
-      this.handleChange = this.handleChange.bind(this);
-      this.handleDecrementBankTotal = this.handleDecrementBankTotal.bind(this);
-      this.handleIncrementBankTotal = this.handleIncrementBankTotal.bind(this);
+      this.handleNewBankClick = this.handleNewBankClick.bind(this)
+      this.handleModalClose = this.handleModalClose.bind(this)
+      this.handleBankTotal = this.handleBankTotal.bind(this)
    }
 
-   handleChange(e) {
+   handleModalClose() {
       this.setState({
-         [e.target.name]: e.target.value
+         bankModalIsOpen: false
       })
    }
 
-   handleDecrementBankTotal = () => {
-      let newBankTotal = parseInt(this.state.bankTotal) - parseInt(this.state.amountToChange)
-      console.log(newBankTotal, this.props.item.students_id);
-
-      fetch
-         (`http://localhost:5000/update-bank/${this.props.item.students_id}`,
-            {
-               method: "PATCH",
-               headers: { "Content-Type": "application/json" },
-               body: JSON.stringify({
-                  bank_current_total: newBankTotal
-               })
-            })
-         .then(res => {
-            this.setState({
-               amountToChange: "",
-               bankTotal: newBankTotal
-            })
-         })
-         .catch(err => console.log("handleDecrementBankTotal Error: ", err))
+   handleNewBankClick() {
+      this.setState({
+         bankModalIsOpen: true
+      })
    }
 
-   handleIncrementBankTotal = () => {
-      let newBankTotal = parseInt(this.state.bankTotal) + parseInt(this.state.amountToChange)
-      console.log(newBankTotal, this.props.item.students_id);
+   handleBankTotal(studentBankTotal) {
+      console.log('entrando al handleBankTotal', studentBankTotal);
 
-      fetch
-         (`http://localhost:5000/update-bank/${this.props.item.students_id}`,
-            {
-               method: "PATCH",
-               headers: { "Content-Type": "application/json" },
-               body: JSON.stringify({
-                  bank_current_total: newBankTotal
-               })
-            })
-         .then(res => {
-            this.setState({
-               amountToChange: "",
-               bankTotal: newBankTotal
-            })
-         })
-         .catch(err => console.log("handleIncrementBankTotal Error: ", err))
+      this.setState({
+         bankTotal: studentBankTotal
+      })
    }
 
    render() {
@@ -96,21 +67,22 @@ export default class StudentsItem extends Component {
                </div>
             </div>
 
-            <div className="input">
-               <input
-                  type="text"
-                  placeholder="Type amount"
-                  name="amountToChange"
-                  value={this.state.amountToChange}
-                  onChange={this.handleChange}
+            <div className="modal">
+               <BankModal
+                  handleModalClose={this.handleModalClose}
+                  modalIsOpen={this.state.bankModalIsOpen}
+                  handleBankTotal={this.handleBankTotal}
+                  studentId={students_id}
+                  studentName={Nombre}
+                  studentBankTotal={this.state.bankTotal}
                />
-            </div>
 
-            <div className="buttons">
-               <button type="button" onClick={this.handleDecrementBankTotal}>-</button>
-               <button type="button" onClick={this.handleIncrementBankTotal}>+</button>
+               <div className="button-modal">
+                  <a onClick={this.handleNewBankClick}>
+                     <FontAwesomeIcon icon="plus-circle" />
+                  </a>
+               </div>
             </div>
-
          </div>
       )
    }
