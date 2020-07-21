@@ -12,7 +12,7 @@ export default class Login extends Component {
       super(props);
 
       this.state = {
-         user: [],
+         user: {},
          email: "",
          password: "",
          errorText: ""
@@ -48,7 +48,7 @@ export default class Login extends Component {
          ).then(response => {
             if (response.data.length > 0) {
                this.setState({
-                  user: response.data
+                  user: response.data[0]
                })
 
                console.log('You can come in', this.state.user);
