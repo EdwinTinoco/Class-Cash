@@ -15,9 +15,16 @@ export default function Students(props) {
             setStudents(
                response.data
             )
+            let tempGroupName = ""
+            if (response.data.length > 0) {
+               tempGroupName = response.data[0].grades_groups_name
+            } else {
+               tempGroupName = response.data.grades_groups_name
+            }
+            console.log('groupName', tempGroupName);
 
             setGroupName(
-               response.data[0].grades_groups_name
+               tempGroupName
             )
          })
          .catch(error => {
