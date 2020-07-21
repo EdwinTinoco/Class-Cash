@@ -1,0 +1,32 @@
+.student-detail-main-wrapper{   
+   .student-detail-wrapper{
+      padding-top: 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      .image{
+         text-align: center;
+
+         img{
+            width: 400px;
+            height: 400px;
+            border-radius: 5px;
+         }
+      }
+
+      .details{
+         .student-name{
+            font-size: 2em;
+         }
+
+         .bank-total{
+            font-size: 1.6em;
+         }
+
+         .parents-info{
+            margin-top: 40px;
+         }
+         
+      }
+   }
+}

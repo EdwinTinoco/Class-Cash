@@ -1,0 +1,9 @@
+@media (max-width: 615px){
+
+   // Home Page Media Queries
+   .students-main-wrapper{
+      .students-items-wrapper{
+         grid-template-columns: 1fr 1fr;
+      }
+   }
+}

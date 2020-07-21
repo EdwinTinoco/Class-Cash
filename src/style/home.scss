@@ -1,0 +1,52 @@
+.home-main-wrapper{
+   .navbar{
+      background-color: #1c5a5a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .left-column{
+         img{
+            margin-left: 20px;
+            height: 60px;
+            width: 70px;
+         }
+      }
+
+      .right-column{
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+
+         .auth{
+            margin-right: 10px;
+
+            a{
+               text-decoration: none;
+               color: black;
+               font-size: 1.2em;
+            }
+         }
+
+         a{
+            text-decoration: none;
+            color: black;
+            font-size: 1.2em;
+
+            .sign-up{
+               margin-left: 10px;
+               margin-right: 20px;
+               background-color: rgb(45, 223, 230);
+               padding: 5px 7px;
+               border-radius: 5px;
+               transition: 0.3s ease-in-out;
+
+               &:hover{
+                  background-color: #6b8a8b;
+               }
+
+            }
+         }
+      }
+   }
+}
