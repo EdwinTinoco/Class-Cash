@@ -1,0 +1,15 @@
+.footer-main-wrapper{
+   margin-top: 80px;
+   background-color: $minion-yellow;   
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+
+   .copyright{
+      text-align: center;
+
+      p{
+         font-size: 1em;
+      }
+   }
+}

@@ -47,7 +47,9 @@ export default function Students(props) {
 
    return (
       <div className="students-main-wrapper">
-         {groupName}
+         <div className="group-name-title">
+            <p >Group: {groupName}</p>
+         </div>
 
          <div className="students-items-wrapper">
             {studentsItems()}

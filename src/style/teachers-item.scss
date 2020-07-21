@@ -1,0 +1,19 @@
+.grades-groups-item-wrapper{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   .grades-groups-links-wrapper{  
+      margin-bottom: 20px;    
+      a{         
+         text-decoration: none;
+         font-size: 2.5em;
+         color: $magenta-crayola;
+         transition: 0.3s ease-in-out;
+
+         &:hover{
+            color: $capri;
+         }
+      }
+   }
+}

@@ -10,12 +10,13 @@ export default class GradeAndGroupsItem extends Component {
    render() {
       return (
          <div className="grades-groups-item-wrapper">
+
             <div className='grades-groups-links-wrapper'>
                <Link to={`/students-home/${this.props.item.grades_groups_id}`}>
-                  {this.props.item.grades_groups_id}
                   {this.props.item.grades_groups_name}
                </Link>
             </div>
+
          </div>
       )
    }

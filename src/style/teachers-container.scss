@@ -1,0 +1,27 @@
+.grade-groups-main-wrapper{  
+
+   .teacher-info{
+      background-color: #ebf0ee;
+      padding: 20px 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+
+      p{
+         font-size: 2.5em;
+         color: $capri;
+         padding: 0px 15px;
+      }
+   }
+
+   .title{
+      margin-top: 40px;
+      text-align: center;
+
+      p{
+         font-size: 2.5em;
+         color: $amethyst;
+      }
+   }
+}

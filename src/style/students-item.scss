@@ -1,73 +1,82 @@
-.students-main-wrapper{
-   margin-top: 30px;
-
-   .students-items-wrapper{
-      margin: 10px 30px;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-gap: 10px;
-
-      .students-item-wrapper{
+.students-home-wrapper{
+   .students-main-wrapper{    
+      .group-name-title{
          text-align: center;
-         padding-top: 30px;
-         border: 1.5px solid #1452c5;
-         border-radius: 5px;
+         background-color: #ebf0ee;
+         font-size: 1.3em;
+         color: $capri;
+         height: 50px;
+         padding: 1px 0px;
+      }
 
-         .student-image{
-            img{
-               width: 150px;
-               height: 150px;
-               border-radius: 5px;
-               transition: transform 0.3s;
-               cursor: pointer;
-   
-               &:hover{
-                  -ms-transform: scale(1.1); /* IE 9 */
-                  -webkit-transform: scale(1.1); /* Safari 3-8 */
-                  transform: scale(1.1); 
-                  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.4);
-               }
-            }
-         }
+      .students-items-wrapper{
+         margin: 10px 30px;
+         display: grid;
+         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+         grid-gap: 10px;
 
-         .students-info-wrapper{            
-            .student-name{
-               font-size: 1.2em;
-               
-               a{
-                  text-decoration: none;
-                  color: black;
-   
+         .students-item-wrapper{
+            text-align: center;
+            padding-top: 30px;
+            border: 1.5px solid #1452c5;
+            border-radius: 5px;
+
+            .student-image{
+               img{
+                  width: 150px;
+                  height: 150px;
+                  border-radius: 5px;
+                  transition: transform 0.3s;
+                  cursor: pointer;
+      
                   &:hover{
-                     color: brown;
+                     -ms-transform: scale(1.1); /* IE 9 */
+                     -webkit-transform: scale(1.1); /* Safari 3-8 */
+                     transform: scale(1.1); 
+                     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.4);
                   }
                }
             }
 
-            .student-bank-amount{
-               font-size: 1.5em;
-            }
-         }
+            .students-info-wrapper{            
+               .student-name{
+                  font-size: 1.2em;
+                  
+                  a{
+                     text-decoration: none;
+                     color: black;
+      
+                     &:hover{
+                        color: brown;
+                     }
+                  }
+               }
 
-         .input{
-            input{
-               width: 150px;
-               padding: 5px 10px;
-               font-size: 1.2em;
+               .student-bank-amount{
+                  font-size: 1.5em;
+               }
             }
-         }
 
-         .buttons{
-            margin-top: 15px;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-            button{               
-               margin: 0px 10px;
-               padding: 10px 35px;
-               font-size: 1.8em;
+            .input{
+               input{
+                  width: 150px;
+                  padding: 5px 10px;
+                  font-size: 1.2em;
+               }
+            }
+
+            .buttons{
+               margin-top: 15px;
+               margin-bottom: 15px;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               
+               button{               
+                  margin: 0px 10px;
+                  padding: 10px 35px;
+                  font-size: 1.8em;
+               }
             }
          }
       }
