@@ -5,21 +5,18 @@ import StudentsItem from "./students-item"
 
 export default function Students(props) {
    const [students, setStudents] = useState([])
-   const [group, setGroup] = useState("")
+   const [groupName, setGroupName] = useState("")
 
    const getStudentsItems = () => {
-      // console.log('params', props.match.params.slug);
-
-
-      axios.get(`http://localhost:5000/students/${2}`)
+      axios.get(`http://localhost:5000/students/${props.groupId}`)
          .then(response => {
-            console.log("hola", response.data)
+            console.log("class", response.data)
 
             setStudents(
                response.data
             )
 
-            setGroup(
+            setGroupName(
                response.data[0].grades_groups_name
             )
          })
@@ -43,7 +40,8 @@ export default function Students(props) {
 
    return (
       <div className="students-main-wrapper">
-         {group}
+         {groupName}
+
          <div className="students-items-wrapper">
             {studentsItems()}
          </div>

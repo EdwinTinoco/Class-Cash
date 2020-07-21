@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 
 import GradeAndGroupsItem from "./teachers-item"
 
-export default function TeachersContainer(props) {
+export default function TeachersContainer() {
    const [gradesGroups, setGradesGroups] = useState([])
    const [oneItem, setOneItem] = useState({})
    const [error, setError] = useState("")
