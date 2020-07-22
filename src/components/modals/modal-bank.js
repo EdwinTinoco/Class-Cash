@@ -101,12 +101,14 @@ export default class BankModal extends Component {
             isOpen={this.props.modalIsOpen}
          >
             <div className="modal-main-wrapper">
-               <div className='student-name'>
-                  <p>{this.props.studentName}</p>
-               </div>
+               <div className="student-info">
+                  <div className='student-name'>
+                     <p>{this.props.studentName}</p>
+                  </div>
 
-               <div className='student-bank-amount'>
-                  <p>${this.state.studentBankTotal}</p>
+                  <div className='student-bank-amount'>
+                     <p>${this.state.studentBankTotal}</p>
+                  </div>
                </div>
 
                <div className="radio-inputs">

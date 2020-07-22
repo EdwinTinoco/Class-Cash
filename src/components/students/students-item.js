@@ -76,7 +76,7 @@ export default class StudentsItem extends Component {
                   <p>${this.state.bankTotal}</p>
                </div>
 
-               <div className='student-info'>
+               <div className='student-info-link'>
                   <Link to={`/student/${students_id}`}>
                      <p>Student info</p>
                   </Link>
