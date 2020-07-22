@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
 
-// import BlogForm from "../blog/blog-form"
+import StudentsBank from "../students/students-bank"
 
 ReactModal.setAppElement(".app-wrapper");
 
@@ -30,7 +30,7 @@ export default class BankModal extends Component {
          }
       }
 
-      this.handleChange = this.handleChange.bind(this);
+      // this.handleChange = this.handleChange.bind(this);
       this.handleDecrementBankTotal = this.handleDecrementBankTotal.bind(this);
       this.handleIncrementBankTotal = this.handleIncrementBankTotal.bind(this);
    }
@@ -90,7 +90,6 @@ export default class BankModal extends Component {
    }
 
 
-
    render() {
       return (
          <ReactModal
@@ -100,100 +99,13 @@ export default class BankModal extends Component {
             }}
             isOpen={this.props.modalIsOpen}
          >
-            <div className="modal-main-wrapper">
-               <div className="student-info">
-                  <div className='student-name'>
-                     <p>{this.props.studentName}</p>
-                  </div>
 
-                  <div className='student-bank-amount'>
-                     <p>${this.state.studentBankTotal}</p>
-                  </div>
-               </div>
+            <StudentsBank
+               studentId={this.state.studentId}
+               studentName={this.state.studentName}
+               studentBankTotal={this.state.studentBankTotal}
+            />
 
-               <div className="radio-inputs">
-                  <div className="radio">
-                     <label>
-                        <input
-                           type="radio"
-                           value="1"
-                           checked={this.state.selectedOption === '1'}
-                           onChange={this.handleChange}
-                        />
-                        $1
-                     </label>
-                  </div>
-
-                  <div className="radio">
-                     <label>
-                        <input
-                           type="radio"
-                           value="5"
-                           checked={this.state.selectedOption === '5'}
-                           onChange={this.handleChange}
-                        />
-                        $5
-                     </label>
-                  </div>
-
-                  <div className="radio">
-                     <label>
-                        <input
-                           type="radio"
-                           value="10"
-                           checked={this.state.selectedOption === '10'}
-                           onChange={this.handleChange}
-                        />
-                        $10
-                     </label>
-                  </div>
-
-                  <div className="radio">
-                     <label>
-                        <input
-                           type="radio"
-                           value="20"
-                           checked={this.state.selectedOption === '20'}
-                           onChange={this.handleChange}
-                        />
-                        $20
-                     </label>
-                  </div>
-
-                  <div className="radio">
-                     <label>
-                        <input
-                           type="radio"
-                           value="50"
-                           checked={this.state.selectedOption === '50'}
-                           onChange={this.handleChange}
-                        />
-                        $50
-                     </label>
-                  </div>
-
-                  <div className="radio">
-                     <label>
-                        <input
-                           type="radio"
-                           value="100"
-                           checked={this.state.selectedOption === '100'}
-                           onChange={this.handleChange}
-                        />
-                        $100
-                     </label>
-                  </div>
-               </div>
-
-               <div className="buttons-inc-dec">
-                  <button type="button" onClick={this.handleDecrementBankTotal}>-</button>
-                  <button type="button" onClick={this.handleIncrementBankTotal}>+</button>
-               </div>
-
-               <div className="button-close-modal">
-                  <button type="button" onClick={this.props.handleModalClose}>Close</button>
-               </div>
-            </div>
          </ReactModal>
       )
    }
