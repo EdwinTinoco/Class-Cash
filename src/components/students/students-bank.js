@@ -11,12 +11,30 @@ export default class StudentsBank extends Component {
       }
 
       this.handleChange = this.handleChange.bind(this);
+      this.handleDecrementBankTotal = this.handleDecrementBankTotal.bind(this);
+      this.handleIncrementBankTotal = this.handleIncrementBankTotal.bind(this);
    }
 
    handleChange(e) {
       this.setState({
          selectedOption: e.target.value
       })
+   }
+
+   handleDecrementBankTotal() {
+      this.setState({
+         studentBankTotal: parseInt(this.state.studentBankTotal) - parseInt(this.state.selectedOption)
+      })
+
+      this.props.handleDecrementBankTotal(this.state.selectedOption)
+   }
+
+   handleIncrementBankTotal() {
+      this.setState({
+         studentBankTotal: parseInt(this.state.studentBankTotal) + parseInt(this.state.selectedOption)
+      })
+
+      this.props.handleIncrementBankTotal(this.state.selectedOption)
    }
 
    render() {

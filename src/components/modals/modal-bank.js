@@ -12,8 +12,7 @@ export default class BankModal extends Component {
       this.state = {
          studentId: this.props.studentId,
          studentName: this.props.studentName,
-         studentBankTotal: this.props.studentBankTotal,
-         selectedOption: ""
+         studentBankTotal: this.props.studentBankTotal
       }
 
       this.customStyles = {
@@ -30,19 +29,13 @@ export default class BankModal extends Component {
          }
       }
 
-      // this.handleChange = this.handleChange.bind(this);
       this.handleDecrementBankTotal = this.handleDecrementBankTotal.bind(this);
       this.handleIncrementBankTotal = this.handleIncrementBankTotal.bind(this);
    }
 
-   handleChange(e) {
-      this.setState({
-         selectedOption: e.target.value
-      })
-   }
 
-   handleDecrementBankTotal = () => {
-      let newBankTotal = parseInt(this.state.studentBankTotal) - parseInt(this.state.selectedOption)
+   handleDecrementBankTotal = (selectedOption) => {
+      let newBankTotal = parseInt(this.state.studentBankTotal) - parseInt(selectedOption)
       console.log(newBankTotal, this.state.studentId);
 
       fetch
@@ -65,8 +58,8 @@ export default class BankModal extends Component {
          .catch(err => console.log("handleDecrementBankTotal Error: ", err))
    }
 
-   handleIncrementBankTotal = () => {
-      let newBankTotal = parseInt(this.state.studentBankTotal) + parseInt(this.state.selectedOption)
+   handleIncrementBankTotal = (selectedOption) => {
+      let newBankTotal = parseInt(this.state.studentBankTotal) + parseInt(selectedOption)
       console.log(newBankTotal, this.state.studentId);
 
       fetch
@@ -101,9 +94,10 @@ export default class BankModal extends Component {
          >
 
             <StudentsBank
-               studentId={this.state.studentId}
                studentName={this.state.studentName}
                studentBankTotal={this.state.studentBankTotal}
+               handleDecrementBankTotal={this.handleDecrementBankTotal}
+               handleIncrementBankTotal={this.handleIncrementBankTotal}
             />
 
          </ReactModal>
