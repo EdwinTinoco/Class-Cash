@@ -1,9 +1,174 @@
 .modal-main-wrapper{
+   margin: 0px;
+
    .student-info{
+      text-align: center;
+
       .student-name{
          background-color: #ebf0ee;
          color: $magenta-crayola;
+         font-size: 1.5em;         
+         padding: 10px;
       }
+
+      .student-bank-amount{
+         margin: 0px;
+         color: $capri;
+         font-size: 2.5em;
+         font-weight: bold;
+      }
+   }
+
+   .select-title{
+      text-align: center;
+   }
+
+   .radio-inputs{
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      .left-column{
+         text-align: center;
+
+         .radio{
+            margin: 20px 0px;
+   
+            input[type="radio"] {
+               opacity: 0;
+               position: fixed;
+               width: 0px;
+            }
+   
+            label {
+               display: inline-block;
+               background-color: $amethyst;
+               padding: 12px 60px;
+               font-size: 1.6em;
+               color: whitesmoke;
+               border: 1px solid $amethyst;
+               border-radius: 10px;
+               transition: 0.3s ease-in-out;
+   
+               &:hover {
+                  cursor: pointer;
+                  background-color: $green-crayola;
+                  border: 1px solid $green-crayola;
+                }
+            }
+   
+            // input[type="radio"]:focus + label {
+            //    border: 2px dashed #444;
+            // }
+   
+            input[type="radio"]:checked + label {
+               background-color: $capri;
+               border: 1px solid $capri;
+            }
+         }
+      }    
+      
+      .right-column{
+         text-align: center;
+
+         .radio{
+            margin: 20px 0px;
+   
+            input[type="radio"] {
+               opacity: 0;
+               position: fixed;
+               width: 0px;
+            }
+   
+            label {
+               display: inline-block;
+               background-color: $amethyst;
+               padding: 12px 60px;
+               font-size: 1.6em;
+               color: whitesmoke;
+               border: 1px solid $amethyst;
+               border-radius: 10px;
+               transition: 0.3s ease-in-out;
+   
+               &:hover {
+                  cursor: pointer;
+                  background-color: $green-crayola;
+                  border: 1px solid $green-crayola;
+                }
+            }
+   
+            // input[type="radio"]:focus + label {
+            //    border: 2px dashed #444;
+            // }
+   
+            input[type="radio"]:checked + label {
+               background-color: $capri;
+               border: 1px solid $capri;
+            }
+         }
+      }  
+   }
+
+   .buttons-inc-dec{
+      text-align: center;
+
+      button{                
+         background-color: $magenta-crayola;
+         border: 1px solid $magenta-crayola;
+         border-radius: 5px;
+         padding: 3px 50px;
+         font-size: 3em;    
+         color: $green-crayola;     
+         transition: all 0.3s ease-in-out;
+         outline: none;
+         margin: 0px 15px;
+
+         &:hover{
+            cursor: pointer;
+            background-color: $amethyst;
+            border: 1px solid $amethyst;
+            outline: none;
+         }     
+      }
+
+      .message{
+         text-align: center;
+         position: absolute;
+         
+         p{
+            text-align: center;
+            font-size: 1.2em;
+            color: $capri;
+            padding: 5px;
+         }
+      }
+
+   }
+
+   .button-close-modal{
+      margin-top: 50px;
+      background-color: #ebf0ee;
+      padding: 16px 0px;
+
+      button{                
+         background-color: $magenta-crayola;
+         border: 1px solid $magenta-crayola;
+         border-radius: 5px;
+         padding: 5px 30px;
+         font-size: 1em;    
+         color: $green-crayola;     
+         transition: all 0.3s ease-in-out;
+         outline: none;
+         margin: 0px 15px;
+
+         &:hover{
+            cursor: pointer;
+            background-color: $amethyst;
+            border: 1px solid $amethyst;
+            outline: none;
+         }     
+      }
+
    }
 }
       
