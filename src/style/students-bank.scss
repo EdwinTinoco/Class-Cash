@@ -4,17 +4,32 @@
    .student-info{
       text-align: center;
 
-      .student-name{
-         background-color: #ebf0ee;
-         color: $magenta-crayola;
-         font-size: 1.5em;         
-         padding: 10px;
+      .student-name-image{         
+         display: flex;
+         justify-content: center;
+         align-items: center;
+
+         .student-image{
+            img{
+               margin-right: 10px;
+               width: 70px;
+               height: 80px;
+               border-radius: 5px
+            }
+         }
+
+         .student-name{            
+            color: $magenta-crayola;
+            font-size: 1.5em;         
+            padding: 3px;
+         }
       }
 
       .student-bank-amount{
+         background-color: #ebf0ee;
          margin: 0px;
          color: $capri;
-         font-size: 2.5em;
+         font-size: 2em;
          font-weight: bold;
       }
    }
@@ -24,7 +39,7 @@
    }
 
    .radio-inputs{
-      margin-bottom: 20px;
+      margin-bottom: 5px;
       display: grid;
       grid-template-columns: 1fr 1fr;
 
@@ -32,7 +47,7 @@
          text-align: center;
 
          .radio{
-            margin: 20px 0px;
+            margin: 10px 0px;
    
             input[type="radio"] {
                opacity: 0;
@@ -44,7 +59,7 @@
                display: inline-block;
                background-color: $amethyst;
                padding: 12px 60px;
-               font-size: 1.6em;
+               font-size: 1.3em;
                color: whitesmoke;
                border: 1px solid $amethyst;
                border-radius: 10px;
@@ -68,7 +83,7 @@
          text-align: center;
 
          .radio{
-            margin: 20px 0px;
+            margin: 10px 0px;
    
             input[type="radio"] {
                opacity: 0;
@@ -80,7 +95,7 @@
                display: inline-block;
                background-color: $amethyst;
                padding: 12px 60px;
-               font-size: 1.6em;
+               font-size: 1.3em;
                color: whitesmoke;
                border: 1px solid $amethyst;
                border-radius: 10px;
@@ -109,7 +124,7 @@
          border: 1px solid $magenta-crayola;
          border-radius: 5px;
          padding: 3px 50px;
-         font-size: 3em;    
+         font-size: 2em;    
          color: $green-crayola;     
          transition: all 0.3s ease-in-out;
          outline: none;
@@ -129,7 +144,7 @@
          
          p{
             text-align: center;
-            font-size: 1.2em;
+            font-size: 1em;
             color: $capri;
             padding: 5px;
          }
@@ -138,15 +153,15 @@
    }
 
    .button-close-modal{
-      margin-top: 50px;
+      margin-top: 30px;
       background-color: #ebf0ee;
-      padding: 16px 0px;
+      padding: 20px 0px;
 
       button{                
          background-color: $magenta-crayola;
          border: 1px solid $magenta-crayola;
          border-radius: 5px;
-         padding: 5px 30px;
+         padding: 3px 30px;
          font-size: 1em;    
          color: $green-crayola;     
          transition: all 0.3s ease-in-out;

@@ -55,6 +55,7 @@ export default class StudentsItem extends Component {
                      handleBankTotal={this.handleBankTotal}
                      studentId={students_id}
                      studentName={Nombre}
+                     studentImage={Image}
                      studentBankTotal={this.state.bankTotal}
                   />
 

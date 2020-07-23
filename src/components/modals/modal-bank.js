@@ -12,6 +12,7 @@ export default class BankModal extends Component {
       this.state = {
          studentId: this.props.studentId,
          studentName: this.props.studentName,
+         studentImage: this.props.studentImage,
          studentBankTotal: this.props.studentBankTotal
       }
 
@@ -22,8 +23,8 @@ export default class BankModal extends Component {
             rigth: "auto",
             marginRight: "-50%",
             transform: "translate(-50%, -50%)",
-            width: "700px",
-            height: "780px"
+            width: "600px",
+            height: "580px"
          },
          overlay: {
             backgroundColor: "rgba(1, 1, 1, 0.75)"
@@ -96,6 +97,7 @@ export default class BankModal extends Component {
 
             <StudentsBank
                studentName={this.state.studentName}
+               studentImage={this.state.studentImage}
                studentBankTotal={this.state.studentBankTotal}
                handleDecrementBankTotal={this.handleDecrementBankTotal}
                handleIncrementBankTotal={this.handleIncrementBankTotal}

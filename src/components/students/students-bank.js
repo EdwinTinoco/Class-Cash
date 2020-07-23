@@ -47,16 +47,23 @@ export default class StudentsBank extends Component {
       return (
          <div className="modal-main-wrapper">
             <div className="student-info">
-               <div className='student-name'>
-                  <p>{this.props.studentName}</p>
+               <div className="student-name-image">
+                  <div className="student-image">
+                     <img src={this.props.studentImage} alt='students-pic' />
+                  </div>
+
+                  <div className='student-name'>
+                     <p>{this.props.studentName}</p>
+                  </div>
                </div>
 
                <div className='student-bank-amount'>
                   <p>${this.state.studentBankTotal}</p>
                </div>
             </div>
+
             <div className="select-title">
-               <h2>Select one option</h2>
+               <p>Select one option</p>
             </div>
 
             <div className="radio-inputs">

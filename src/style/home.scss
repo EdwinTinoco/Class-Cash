@@ -1,6 +1,6 @@
 .home-main-wrapper{
    .navbar{
-      background-color: #1c5a5a;
+      background-color: $green-crayola;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -23,26 +23,32 @@
 
             a{
                text-decoration: none;
-               color: black;
-               font-size: 1.2em;
+               color: $magenta-crayola;
+               font-size: 1em;
+               transition: 0.3s ease-in-out;
+
+               &:hover{
+                  color: #6b8a8b;
+               }
             }
          }
 
          a{
             text-decoration: none;
             color: black;
-            font-size: 1.2em;
+            font-size: 1em;
 
             .sign-up{
                margin-left: 10px;
                margin-right: 20px;
-               background-color: rgb(45, 223, 230);
-               padding: 5px 7px;
+               background-color: $magenta-crayola;
+               color: whitesmoke;
+               padding: 2px 4px;
                border-radius: 5px;
                transition: 0.3s ease-in-out;
 
                &:hover{
-                  background-color: #6b8a8b;
+                  background-color: $amethyst;
                }
 
             }
