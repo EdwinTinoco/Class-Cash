@@ -9,7 +9,7 @@ export default function StudentDetail(props) {
    const [studentItem, setStudentItem] = useState({})
 
    const getStudentItem = () => {
-      axios.get(`http://localhost:5000/student/${props.match.params.slug}`)
+      axios.get(`https://class-cash-api-ejlt.herokuapp.com/student/${props.match.params.slug}`)
          .then(response => {
             setStudentItem(response.data[0])
          }).catch(error => {

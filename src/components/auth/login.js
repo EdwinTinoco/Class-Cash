@@ -40,7 +40,7 @@ export default class Login extends Component {
 
 
 
-         axios.post("http://localhost:5000/user",
+         axios.post("https://class-cash-api-ejlt.herokuapp.com/user",
             {
                email: this.state.email,
                password: this.state.password
@@ -126,7 +126,6 @@ export default class Login extends Component {
                </div>
 
             </div>
-
 
             <Footer />
          </div>

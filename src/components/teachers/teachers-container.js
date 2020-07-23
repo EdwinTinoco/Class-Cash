@@ -29,7 +29,7 @@ export default function TeachersContainer() {
 
       let userId = userIdArr.join('')
 
-      axios.get(`http://localhost:5000/grades-groups/${userId}`)
+      axios.get(`https://class-cash-api-ejlt.herokuapp.com/grades-groups/${userId}`)
          .then(response => {
             console.log('response groups', response.data);
 

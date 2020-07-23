@@ -8,7 +8,7 @@ export default function Students(props) {
    const [groupName, setGroupName] = useState("")
 
    const getStudentsItems = () => {
-      axios.get(`http://localhost:5000/students/${props.groupId}`)
+      axios.get(`https://class-cash-api-ejlt.herokuapp.com/students/${props.groupId}`)
          .then(response => {
             console.log("class", response.data)
 

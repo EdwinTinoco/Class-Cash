@@ -34,7 +34,7 @@ const NavigationBar = props => {
 
       let userId = userIdArr.join('')
 
-      axios.get(`http://localhost:5000/user/${userId}`)
+      axios.get(`https://class-cash-api-ejlt.herokuapp.com/user/${userId}`)
          .then(response => {
             console.log('response navbar', response.data);
 
