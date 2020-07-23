@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import Logo from '../../../static/assets/images/logo/Students-Bank-transparent.png'
+import Logo from '../../../static/assets/images/logo/class-cash-logo.png'
 import Footer from "../footer/footer"
 
 export default class Home extends Component {
@@ -32,6 +32,12 @@ export default class Home extends Component {
                         Sign Up
                   </div>
                   </Link>
+               </div>
+            </div>
+
+            <div className="content">
+               <div className="logo">
+                  <img src={Logo} alt='Logo' />
                </div>
             </div>
 

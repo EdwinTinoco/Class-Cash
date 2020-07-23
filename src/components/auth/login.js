@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Cookies from 'js-cookie'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Logo from '../../../static/assets/images/logo/Students-Bank-transparent.png'
+import Logo from '../../../static/assets/images/logo/class-cash-logo.png'
 import Footer from "../footer/footer"
 
 export default class Login extends Component {

@@ -1,5 +1,6 @@
 .signup-main-wrapper{  
    .have-an-account{
+      background-color: $green-crayola;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -23,14 +24,14 @@
    }
 
    .signup-form-wrapper{
-      margin-top: 70px;
+      margin-top: 40px;
       display: grid;
       grid-template-columns: 1fr 1fr;
 
       .left-side{
          .logo{
             img{        
-               height: 700px;
+               height: 600px;
                width: 700px;
             }
          }

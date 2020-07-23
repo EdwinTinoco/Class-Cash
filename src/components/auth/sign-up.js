@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom";
 
-import Logo from '../../../static/assets/images/logo/Students-Bank-transparent.png'
+import Logo from '../../../static/assets/images/logo/class-cash-logo.png'
 import Footer from "../footer/footer"
 
 
