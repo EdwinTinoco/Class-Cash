@@ -43,7 +43,7 @@ export default function StudentDetail(props) {
 
          <div className="student-detail-wrapper">
             <div className="image">
-               <img src={students_image_url} />
+               <img src={students_image_url} alt="student image" />
             </div>
             <div className="details">
                <div className="student-name">
