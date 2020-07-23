@@ -51,9 +51,9 @@ export default function App(props) {
             <ProtectedSignUp path="/signup" user={userCookie} component={SignUp} />
             <ProtectedAuth path="/auth" user={userCookie} component={Auth} />
 
-            <Route path="/teachers-home" component={TeachersHome} />
+            <ProtectedTeachersHome path="/teachers-home" component={TeachersHome} />
 
-            <Route exact path="/students-home/:slug" component={StudentsHome} />
+            <ProtectedStudentsHome exact path="/students-home/:slug" component={StudentsHome} />
             <Route exact path="/student/:slug" component={StudentDetail} />
 
             <Route component={NoMatch} />
@@ -117,37 +117,41 @@ const ProtectedSignUp = ({ user, component: Component, ...rest }) => {
   )
 }
 
-// const ProtectedTeachersHome = ({ user, component: Component, ...rest }) => {
-//   console.log("from protected teachers home", user)
-//   return (
-//     <Route
-//       {...rest}
-//       render={props => user !== "" ?
-//         (
-//           <Component {...props} />
-//         ) :
-//         (
-//           <Redirect to="/" />
-//         )
-//       }
-//     />
-//   )
-// }
+const ProtectedTeachersHome = ({ component: Component, ...rest }) => {
+  let currentUser = Cookies.get("_sb%_user%_session")
+  console.log("from protected teachers home", currentUser)
 
-// const ProtectedStudentsHome = ({ user, component: Component, ...rest }) => {
-//   console.log("from protected students home", user)
-//   return (
-//     <Route
-//       {...rest}
-//       render={props => user !== "" ?
-//         (
-//           <Component {...props} />
-//         ) :
-//         (
-//           <Redirect to="/" />
-//         )
-//       }
-//     />
-//   )
-// }
+  return (
+    <Route
+      {...rest}
+      render={props => currentUser !== "" && currentUser !== undefined ?
+        (
+          <Component {...props} />
+        ) :
+        (
+          <Redirect to="/" />
+        )
+      }
+    />
+  )
+}
+
+const ProtectedStudentsHome = ({ component: Component, ...rest }) => {
+  let currentUser = Cookies.get("_sb%_user%_session")
+  console.log("from protected students home", currentUser)
+
+  return (
+    <Route
+      {...rest}
+      render={props => currentUser !== "" && currentUser !== undefined ?
+        (
+          <Component {...props} />
+        ) :
+        (
+          <Redirect to="/" />
+        )
+      }
+    />
+  )
+}
 
