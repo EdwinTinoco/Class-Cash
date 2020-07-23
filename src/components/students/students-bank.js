@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class StudentsBank extends Component {
    constructor(props) {
@@ -14,6 +15,7 @@ export default class StudentsBank extends Component {
       this.handleChange = this.handleChange.bind(this);
       this.handleDecrementBankTotal = this.handleDecrementBankTotal.bind(this);
       this.handleIncrementBankTotal = this.handleIncrementBankTotal.bind(this);
+      this.handleModalClose = this.handleModalClose.bind(this)
    }
 
    handleChange(e) {
@@ -21,6 +23,10 @@ export default class StudentsBank extends Component {
          selectedOption: e.target.value,
          message: ""
       })
+   }
+
+   handleModalClose() {
+      this.props.handleModalClose()
    }
 
    handleDecrementBankTotal() {
@@ -139,8 +145,18 @@ export default class StudentsBank extends Component {
             </div>
 
             <div className="buttons-inc-dec">
-               <button type="button" onClick={this.handleDecrementBankTotal}>-</button>
-               <button type="button" onClick={this.handleIncrementBankTotal}>+</button>
+               <button type="button" onClick={this.handleDecrementBankTotal}>
+                  <div className="icon">
+                     <FontAwesomeIcon icon="minus-circle" />
+                  </div>
+               </button>
+
+               <button type="button" onClick={this.handleIncrementBankTotal}>
+                  <div className="icon">
+                     <FontAwesomeIcon icon="plus-circle" />
+                  </div>
+               </button>
+
 
                <div className="message">
                   <p>{this.state.message}</p>
@@ -150,7 +166,7 @@ export default class StudentsBank extends Component {
             <hr />
 
             <div className="button-close-modal">
-               <button type="button" onClick={this.props.handleModalClose}>Close</button>
+               <button type="button" onClick={this.handleModalClose}>Close</button>
             </div>
          </div>
       )

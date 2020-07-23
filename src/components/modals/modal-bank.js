@@ -33,6 +33,11 @@ export default class BankModal extends Component {
 
       this.handleDecrementBankTotal = this.handleDecrementBankTotal.bind(this);
       this.handleIncrementBankTotal = this.handleIncrementBankTotal.bind(this);
+      this.handleModalClose = this.handleModalClose.bind(this)
+   }
+
+   handleModalClose() {
+      this.props.handleModalClose()
    }
 
 
@@ -101,6 +106,7 @@ export default class BankModal extends Component {
                studentBankTotal={this.state.studentBankTotal}
                handleDecrementBankTotal={this.handleDecrementBankTotal}
                handleIncrementBankTotal={this.handleIncrementBankTotal}
+               handleModalClose={this.handleModalClose}
             />
 
          </ReactModal>
