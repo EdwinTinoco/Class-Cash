@@ -68,7 +68,7 @@ const NavigationBar = props => {
             </div>
 
             <div className="nav-link-wrapper">
-               <NavLink to="/dashboard" activeClassName="nav-link-active">Dashboard</NavLink>
+               <NavLink to="/add-student" activeClassName="nav-link-active">Add Student</NavLink>
             </div>
          </div>
 

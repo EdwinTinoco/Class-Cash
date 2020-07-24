@@ -22,7 +22,7 @@ export default function Register(props) {
 
       axios
          .post(
-            'http://localhost:5000/add-user',
+            'https://class-cash-api-ejlt.herokuapp.com/add-user',
             {
                users_first_name: userFirstName,
                users_last_name: userLastName,
@@ -32,7 +32,7 @@ export default function Register(props) {
                users_grades_id: parseInt(userGrade),
                users_email: userEmail,
                users_password: userPassword,
-               users_active: "yes"
+               users_active: "Y"
             },
          )
          .then(response => {
@@ -115,8 +115,10 @@ export default function Register(props) {
                      value={userGrade}
                      onChange={({ target }) => { setUserGrade(target.value) }}>
                      <option value={1}>First Grade</option>
-                     <option value={2}>Second Grade</option>
-                     <option value={3}>Third Grade</option>
+                     <option value={11}>Second Grade</option>
+                     <option value={21}>Third Grade</option>
+                     <option value={31}>Fourth Grade</option>
+                     <option value={41}>Fifth Grade</option>
                   </select>
 
                   <input type='email'
@@ -132,6 +134,8 @@ export default function Register(props) {
                      onChange={({ target }) => { setUserPassword(target.value) }}
                      placeholder='Password'>
                   </input>
+
+                  {messageUser}
 
                   <button type='submit' className='add-button'>Sign up</button>
                </form>

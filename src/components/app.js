@@ -11,6 +11,7 @@ import Home from "./pages/home";
 import SignUp from "./auth/sign-up"
 import Auth from "./pages/auth"
 import TeachersHome from "./teachers/teachers-home"
+import AddStudent from "./students/add-student"
 import StudentsHome from "./students/students-home"
 import StudentDetail from "./students/students-detail"
 import NoMatch from "./pages/no-match";
@@ -52,6 +53,7 @@ export default function App(props) {
             <ProtectedAuth path="/auth" user={userCookie} component={Auth} />
 
             <ProtectedTeachersHome path="/teachers-home" component={TeachersHome} />
+            <Route path="/add-student" component={AddStudent} />
 
             <ProtectedStudentsHome exact path="/students-home/:slug" component={StudentsHome} />
             <Route exact path="/student/:slug" component={StudentDetail} />
