@@ -80,7 +80,7 @@ export default class Login extends Component {
                      </Link>
                   </div>
                   <div className="title">
-                     <h1>Log in to your account</h1>
+                     <p>Log in to your account</p>
                   </div>
 
 
