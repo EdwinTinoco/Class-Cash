@@ -3,7 +3,6 @@ import axios from 'axios';
 
 import NavigationBar from "../navigation/navigation-bar"
 import Footer from "../footer/footer"
-import { useRouteMatch } from "react-router";
 
 export default function AddStudent(props) {
    const [studentFirstName, setStudentFirstName] = useState('')
@@ -14,8 +13,8 @@ export default function AddStudent(props) {
    const [studentAddress, setStudentAddress] = useState('')
    const [studentContactPhoneNumber, setStudentContactPhoneNumber] = useState('')
    const [studentParentsId, setStudentParentsId] = useState(1)
-   const [studentGradesId, setStudentGradesId] = useState()
-   const [studentGradesGroupsId, setStudentGradesGroupsId] = useState()
+   const [studentGradesId, setStudentGradesId] = useState("")
+   const [studentGradesGroupsId, setStudentGradesGroupsId] = useState("")
    const [groups, setGroups] = useState([])
    const [selectedOption, setSelectedOption] = useState("")
    const [message, setMessage] = useState("")
@@ -44,43 +43,53 @@ export default function AddStudent(props) {
       event.preventDefault();
       console.log('new student');
 
-      axios
-         .post(
-            'https://class-cash-api-ejlt.herokuapp.com/add-student',
-            {
-               students_first_name: studentFirstName,
-               students_middle_name: studentMiddleName,
-               students_last_name: studentLastName,
-               students_image_url: studentImageUrl,
-               students_birth_date: studentBirthDate,
-               students_address: studentAddress,
-               students_contact_phone_number: studentContactPhoneNumber,
-               students_parents_id: parseInt(studentParentsId),
-               students_grades_id: parseInt(studentGradesId),
-               students_grades_groups_id: parseInt(studentGradesGroupsId),
-               bank_current_total: parseInt(selectedOption)
-            },
+      if (studentGradesId === "" || studentGradesGroupsId === "") {
+         setMessage(
+            "You need to select an option for grade or group"
          )
-         .then(response => {
-            console.log("new user", response.data)
+      } else if (selectedOption === "") {
+         setMessage(
+            "You need to select a cash amount for the student"
+         )
+      } else {
+         axios
+            .post(
+               'https://class-cash-api-ejlt.herokuapp.com/add-student',
+               {
+                  students_first_name: studentFirstName,
+                  students_middle_name: studentMiddleName,
+                  students_last_name: studentLastName,
+                  students_image_url: studentImageUrl,
+                  students_birth_date: studentBirthDate,
+                  students_address: studentAddress,
+                  students_contact_phone_number: studentContactPhoneNumber,
+                  students_parents_id: parseInt(studentParentsId),
+                  students_grades_id: parseInt(studentGradesId),
+                  students_grades_groups_id: parseInt(studentGradesGroupsId),
+                  bank_current_total: parseInt(selectedOption)
+               },
+            )
+            .then(response => {
+               console.log("new user", response.data)
 
-            setStudentFirstName('')
-            setStudentMiddleName('')
-            setStudentLastName('')
-            setStudentImageUrl('')
-            setStudentBirthDate('')
-            setStudentAddress('')
-            setStudentContactPhoneNumber('')
-            setStudentParentsId(1)
-            setStudentGradesId('')
-            setStudentGradesGroupsId('')
-            setGroups([])
-            setSelectedOption("")
-            setMessage('Student added successfully!')
-         })
-         .catch(error => {
-            console.log('handleSubmitAddStudent error', error)
-         })
+               setStudentFirstName('')
+               setStudentMiddleName('')
+               setStudentLastName('')
+               setStudentImageUrl('')
+               setStudentBirthDate('')
+               setStudentAddress('')
+               setStudentContactPhoneNumber('')
+               setStudentParentsId(1)
+               setStudentGradesId('')
+               setStudentGradesGroupsId('')
+               setGroups([])
+               setSelectedOption("")
+               setMessage('Student added successfully!')
+            })
+            .catch(error => {
+               console.log('handleSubmitAddStudent error', error)
+            })
+      }
    }
 
    return (
@@ -97,6 +106,7 @@ export default function AddStudent(props) {
                      className='new-entry-input'
                      placeholder='First Name'
                      id="sfn"
+                     required
                   >
                   </input>
 
@@ -117,6 +127,7 @@ export default function AddStudent(props) {
                      onChange={({ target }) => { setStudentLastName(target.value) }}
                      placeholder='Last Name'
                      id="sln"
+                     required
                   >
                   </input>
 
@@ -137,6 +148,7 @@ export default function AddStudent(props) {
                      onChange={({ target }) => { setStudentBirthDate(target.value) }}
                      placeholder='YYYY-MM-DD'
                      id="bd"
+                     required
                   >
                   </input>
 
@@ -147,6 +159,7 @@ export default function AddStudent(props) {
                      onChange={({ target }) => { setStudentAddress(target.value) }}
                      placeholder='Address'
                      id="ad"
+                     required
                   >
                   </input>
 
@@ -157,6 +170,7 @@ export default function AddStudent(props) {
                      onChange={({ target }) => { setStudentContactPhoneNumber(target.value) }}
                      placeholder='Contact Phone Number'
                      id="cpn"
+                     required
                   >
                   </input>
 
@@ -191,6 +205,7 @@ export default function AddStudent(props) {
                </div>
 
                <div className="radio-inputs">
+                  <p>Select cash for the student:</p>
                   <div className="radio">
                      <input
                         type="radio"
