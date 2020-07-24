@@ -16,7 +16,7 @@
                .sign-up{
                   margin-left: 10px;
                   margin-right: 10px;                  
-                  padding: 2px 3px;   
+                  padding: 2px 7px;   
                }
             }
          }
@@ -40,7 +40,7 @@
 
          .login-container{
             height: 433px;
-            width: 450px;
+            width: 355px;
 
             .logo{
                margin-top: 10px;
@@ -57,12 +57,29 @@
 
             .login-form{   
                text-align: center;
-               padding: 15px 2px;               
+               padding: 15px 2px;   
+               
+               .form-group{
+                  .inputs{       
+                     svg{
+                        font-size: 1.4em;
+                    }
+         
+                    input{
+                       width: 280px;
+                       height: 30px;            
+                    }
+                  }
+               }
+
+               .btn{                  
+                  padding: 8px 100px;
+               }
             }   
             
             .sign-up{
                height: 80px;
-               width: 450px; 
+               width: 356px; 
             }
          }
       }
