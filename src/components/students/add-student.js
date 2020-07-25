@@ -97,6 +97,8 @@ export default function AddStudent(props) {
          <NavigationBar />
 
          <form onSubmit={handleSubmitAddStudent} className="add-student-form">
+            <p className="title">Add Student</p>
+
             <div className="student-info">
                <div className="text-inputs">
                   <label htmlFor="sfn">First Name</label>
@@ -205,77 +207,83 @@ export default function AddStudent(props) {
                </div>
 
                <div className="radio-inputs">
-                  <p>Select cash for the student:</p>
-                  <div className="radio">
-                     <input
-                        type="radio"
-                        value="1"
-                        id="op1"
-                        checked={selectedOption === '1'}
-                        onChange={({ target }) => { setSelectedOption(target.value) }}
-                     />
-                     <label htmlFor="op1">$1</label>
+                  <div className="left-side">
+                     <div className="radio">
+                        <input
+                           type="radio"
+                           value="1"
+                           id="op1"
+                           checked={selectedOption === '1'}
+                           onChange={({ target }) => { setSelectedOption(target.value) }}
+                        />
+                        <label htmlFor="op1">$1</label>
+                     </div>
+
+                     <div className="radio">
+                        <input
+                           type="radio"
+                           value="5"
+                           id="op5"
+                           checked={selectedOption === '5'}
+                           onChange={({ target }) => { setSelectedOption(target.value) }}
+                        />
+                        <label htmlFor="op5">$5</label>
+                     </div>
+
+                     <div className="radio">
+                        <input
+                           type="radio"
+                           value="10"
+                           id="op10"
+                           checked={selectedOption === '10'}
+                           onChange={({ target }) => { setSelectedOption(target.value) }}
+                        />
+                        <label htmlFor="op10">$10</label>
+                     </div>
                   </div>
 
-                  <div className="radio">
-                     <input
-                        type="radio"
-                        value="5"
-                        id="op5"
-                        checked={selectedOption === '5'}
-                        onChange={({ target }) => { setSelectedOption(target.value) }}
-                     />
-                     <label htmlFor="op5">$5</label>
-                  </div>
+                  <div className="right-side">
+                     <div className="radio">
+                        <input
+                           type="radio"
+                           value="20"
+                           id="op20"
+                           checked={selectedOption === '20'}
+                           onChange={({ target }) => { setSelectedOption(target.value) }}
+                        />
+                        <label htmlFor="op20">$20</label>
+                     </div>
 
-                  <div className="radio">
-                     <input
-                        type="radio"
-                        value="10"
-                        id="op10"
-                        checked={selectedOption === '10'}
-                        onChange={({ target }) => { setSelectedOption(target.value) }}
-                     />
-                     <label htmlFor="op10">$10</label>
-                  </div>
+                     <div className="radio">
+                        <input
+                           type="radio"
+                           value="50"
+                           id="op50"
+                           checked={selectedOption === '50'}
+                           onChange={({ target }) => { setSelectedOption(target.value) }}
+                        />
+                        <label htmlFor="op50">$50</label>
+                     </div>
 
-                  <div className="radio">
-                     <input
-                        type="radio"
-                        value="20"
-                        id="op20"
-                        checked={selectedOption === '20'}
-                        onChange={({ target }) => { setSelectedOption(target.value) }}
-                     />
-                     <label htmlFor="op20">$20</label>
-                  </div>
-
-                  <div className="radio">
-                     <input
-                        type="radio"
-                        value="50"
-                        id="op50"
-                        checked={selectedOption === '50'}
-                        onChange={({ target }) => { setSelectedOption(target.value) }}
-                     />
-                     <label htmlFor="op50">$50</label>
-                  </div>
-
-                  <div className="radio">
-                     <input
-                        type="radio"
-                        value="100"
-                        id="op100"
-                        checked={selectedOption === '100'}
-                        onChange={({ target }) => { setSelectedOption(target.value) }}
-                     />
-                     <label htmlFor="op100">$100</label>
+                     <div className="radio">
+                        <input
+                           type="radio"
+                           value="100"
+                           id="op100"
+                           checked={selectedOption === '100'}
+                           onChange={({ target }) => { setSelectedOption(target.value) }}
+                        />
+                        <label htmlFor="op100">$100</label>
+                     </div>
                   </div>
                </div>
             </div>
 
             <div className="btn-message">
-               <p>{message}</p>
+               <div className="message">
+                  <p>{message}</p>
+               </div>
+
                <button type='submit' className='add-button'>Add Student</button>
             </div>
          </form>

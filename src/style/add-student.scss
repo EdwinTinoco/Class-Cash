@@ -2,6 +2,10 @@
    .add-student-form{
       margin-top: 15px;
 
+      .title{
+         margin-left: 150px;
+      }
+
       .student-info{
          display: grid;
          grid-template-columns: 1fr 1fr;
@@ -25,50 +29,92 @@
                margin-left: 150px;
              }
          }
-
+         
          .radio-inputs{
             text-align: left;
-            .radio{
-               margin: 10px 0px;
-      
-               input[type="radio"] {
-                  opacity: 0;
-                  position: fixed;
-                  width: 0px;
-               }
-      
-               label {
-                  display: inline-block;
-                  background-color: $amethyst;
-                  padding: 12px 60px;
-                  font-size: 1.3em;
-                  color: whitesmoke;
-                  border: 1px solid $amethyst;
-                  border-radius: 10px;
-                  transition: 0.3s ease-in-out;
-      
-                  &:hover {
-                     cursor: pointer;
-                     background-color: $green-crayola;
-                     border: 1px solid $green-crayola;
-                   }
-               }   
-      
-               input[type="radio"]:checked + label {
-                  background-color: $capri;
-                  border: 1px solid $capri;
+
+            .left-side{
+               .radio{
+                  margin: 10px 0px;
+         
+                  input[type="radio"] {
+                     opacity: 0;
+                     position: fixed;
+                     width: 0px;
+                  }
+         
+                  label {
+                     display: inline-block;
+                     background-color: $amethyst;
+                     padding: 12px 60px;
+                     font-size: 1.3em;
+                     color: whitesmoke;
+                     border: 1px solid $amethyst;
+                     border-radius: 10px;
+                     transition: 0.3s ease-in-out;
+         
+                     &:hover {
+                        cursor: pointer;
+                        background-color: $green-crayola;
+                        border: 1px solid $green-crayola;
+                      }
+                  }   
+         
+                  input[type="radio"]:checked + label {
+                     background-color: $capri;
+                     border: 1px solid $capri;
+                  }
                }
             }
+
+            .right-side{
+               .radio{
+                  margin: 10px 0px;
+         
+                  input[type="radio"] {
+                     opacity: 0;
+                     position: fixed;
+                     width: 0px;
+                  }
+         
+                  label {
+                     display: inline-block;
+                     background-color: $amethyst;
+                     padding: 12px 60px;
+                     font-size: 1.3em;
+                     color: whitesmoke;
+                     border: 1px solid $amethyst;
+                     border-radius: 10px;
+                     transition: 0.3s ease-in-out;
+         
+                     &:hover {
+                        cursor: pointer;
+                        background-color: $green-crayola;
+                        border: 1px solid $green-crayola;
+                      }
+                  }   
+         
+                  input[type="radio"]:checked + label {
+                     background-color: $capri;
+                     border: 1px solid $capri;
+                  }
+               }
+            }
+
          }
       }
 
       .btn-message{
          text-align: center;
 
-         p{
-            position: absolute;
-            font-size: 1.2em;
-            color: $capri;
+         .message{
+            
+            p{
+               width: 100%;
+               position: absolute;
+               font-size: 1.2em;
+               color: $capri;
+            }
          }
 
          .add-button{
