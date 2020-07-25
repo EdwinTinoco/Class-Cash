@@ -23,6 +23,12 @@
          a{
             text-decoration: none;
             font-size: 1.5em;
+            color: $amethyst;
+            transition: 0.3s ease-in-out;
+
+            &:hover{
+               color: $magenta-crayola;
+            }
          }
       }
    }
@@ -36,18 +42,21 @@
 
       .grade{
          margin-right: 40px;
+         color: #148d9d;
       }     
 
       .username{
          margin-right: 20px;
+         color: #148d9d;
       }
 
       .logout-icon{
          font-size: 1.6em;
          transition: 0.3s ease-in-out;
-
+         color: $magenta-crayola;
+         
          &:hover{
-            color: #0f4935;
+            color: $amethyst;
             cursor: pointer;
          }
       }
