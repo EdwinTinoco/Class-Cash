@@ -6,13 +6,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Logo from '../../../static/assets/images/logo/class-cash-logo.png'
 
-const NavigationBar = props => {
+const NavigationBar = () => {
    const [user, setUser] = useState({})
    const [error, setError] = useState("")
 
    const handleLogout = () => {
       setUser({})
       Cookies.remove("_sb%_user%_session")
+      window.location.reload(false);
    }
 
    const getUser = () => {
@@ -82,9 +83,7 @@ const NavigationBar = props => {
             </div>
 
             <div className="logout-icon">
-               <NavLink to="/">
-                  <FontAwesomeIcon onClick={handleLogout} icon="sign-out-alt" />
-               </NavLink>
+               <FontAwesomeIcon onClick={handleLogout} icon="sign-out-alt" />
             </div>
          </div>
       </div>

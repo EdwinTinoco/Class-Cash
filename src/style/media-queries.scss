@@ -1,4 +1,4 @@
-@media (max-width: 615px){
+@media screen and (max-width: 900px){
 
    // Home page
    .home-main-wrapper{
@@ -11,7 +11,7 @@
 
          .right-column{
             a{
-               font-size: 0.8em;
+               font-size: 0.9em;
    
                .sign-up{
                   margin-left: 10px;
@@ -170,6 +170,41 @@
                   }
                }
             }
+         }
+      }
+   }
+
+   // Student Details
+   .student-detail-main-wrapper{   
+      .student-detail-wrapper{
+         padding-top: 10px;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+   
+         .image{
+            text-align: center;
+   
+            img{
+               width: 200x;
+               height: 200px;
+            }
+         }
+   
+         .details{
+            .student-name{
+               font-size: 1.2em;
+            }
+   
+            .bank-total{
+               font-size: 1.2em;
+            }
+   
+            .parents-info{
+               margin-top: 10px;
+            }
+            
          }
       }
    }
