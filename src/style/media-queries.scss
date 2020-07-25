@@ -14,12 +14,12 @@
          .right-column{
             width: 160px;
             a{
-               font-size: 0.7em;
+               font-size: 0.8em;
    
                .sign-up{
-                  width: 50px;
+                  width: 45px;
                   margin-right: 10px;                  
-                  padding: 0px 15px;   
+                  padding: 0px 8px;   
                }
             }
          }
@@ -85,6 +85,78 @@
 
                a{
                   font-size: 0.8em;
+               }
+            }
+         }
+      }
+   }
+
+   // Sign up
+   .signup-main-wrapper{  
+      .have-an-account{  
+         .login-button{
+            margin-left: 10px;
+            background-color: $magenta-crayola;
+            padding: 2px 7px;
+            border-radius: 5px;
+            color: whitesmoke;
+            transition: 0.3s ease-in-out;
+   
+            &:hover{
+               background-color: $amethyst;            
+            }         
+         }
+      }
+
+      .signup-form-wrapper{
+         margin-top: 40px;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+   
+         .left-side{
+            .logo{
+               img{        
+                  height: 120px;
+                  width: 200px;
+               }
+            }
+         }
+   
+         .right-side{
+            .signup-form{
+               display: flex;
+               flex-direction: column;
+               align-items: left;
+   
+               .new-entry-input {
+                  width: 400px;
+                  margin-bottom: 15px;
+                  font-size: 1em;
+                  border: 1px solid $amethyst;
+                  padding: 10px 15px;
+                  border-radius: 5px;
+                }
+      
+               .add-button{
+                  width: 438px;
+                  color: whitesmoke;
+                  background-color:  $magenta-crayola;
+                  border: 1px solid $magenta-crayola;
+                  border-radius: 5px;
+                  font-size: 1.2em;
+                  margin-top: 25px;
+                  padding: 8px 10px;
+                  outline: none;
+                  transition: 0.3s ease-in-out;
+      
+                  &:hover{
+                     cursor: pointer;
+                     background-color: $amethyst;
+                     border: 1px solid $amethyst;
+                     outline: none;
+                  }
                }
             }
          }

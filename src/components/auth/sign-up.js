@@ -12,7 +12,7 @@ export default function Register(props) {
    const [userAddress, setUserAddress] = useState("")
    const [userZipCode, setUserZipCode] = useState('')
    const [userPhoneNumber, setUserPhoneNumber] = useState('')
-   const [userGrade, setUserGrade] = useState(2)
+   const [userGrade, setUserGrade] = useState(11)
    const [userEmail, setUserEmail] = useState('')
    const [userPassword, setUserPassword] = useState("")
    const [messageUser, setMessageUser] = useState("")
