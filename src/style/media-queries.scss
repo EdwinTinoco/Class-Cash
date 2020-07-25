@@ -94,16 +94,22 @@
    // Sign up
    .signup-main-wrapper{  
       .have-an-account{  
-         p{
-            font-size: 0.8em;
+         .title{
+            width: 160px;
+            p{
+               font-size: 0.8em;
+            }
          }
+
          .login-button{
+            margin-left: 0px;
             padding: 2px 7px;
             font-size: 0.9em;
          }
       }
 
       .signup-form-wrapper{
+         margin-top: 10px;
          display: flex;
          flex-direction: column;
          justify-content: center;
@@ -150,21 +156,21 @@
    
          .nav-link-wrapper{
             padding-right: 0px;
-            margin-top: 10px;
-            margin-bottom: 10px;
+            margin-top: 5px;
+            margin-bottom: 3px;
    
             a{
                
-               font-size: 1.3em;
+               font-size: 1em;
             }
          }
       }
 
       .right-column{
-         margin-top: 15px;
+         margin-top: 6px;
          margin-right: 0px;
          width: 100%;
-         font-size: 1.3em;
+         font-size: 0.8em;
 
          .grade{
             margin-right: 0px;
@@ -175,7 +181,7 @@
          }
    
          .logout-icon{
-            font-size: 1.5em;
+            font-size: 1.8em;
          }
       }
    }
@@ -183,25 +189,38 @@
    // Teachers Container
    .grade-groups-main-wrapper{
       .teacher-info{
-         padding: 10px 0px;
+         padding: 5px 0px;
 
          p{
-            font-size: 1.2em;
+            font-size: 0.8em;
+         }
+      }
+
+      .title{
+         margin-top: 10px;
+   
+         p{
+            font-size: 1.5em;
          }
       }
    }
 
-   // Students container
+   // Teachers Items
+   .grades-groups-item-wrapper{   
+      .grades-groups-links-wrapper{  
+         margin-bottom: 5px;    
+
+         a{  
+            font-size: 2em; 
+         }
+      }
+   }
+
+   // Students container, Student Items
    .students-home-wrapper{
       .students-main-wrapper{
          .group-name-title{
-            text-align: center;
-            background-color: #ebf0ee;
-            font-size: 1.3em;
-            color: $magenta-crayola;
-            height: 50px;
-            padding: 1px 0px;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+            font-size: 1em;
          }
 
          .students-items-wrapper{
@@ -213,6 +232,24 @@
                   img{
                      width: 100px;
                      height: 100px;
+                  }
+               }
+
+               .students-info-wrapper{            
+                  .student-name{
+                     p{
+                        font-size: 1.1em;
+                     }                  
+                  }
+   
+                  .student-bank-amount{
+                     font-size: 1.2em;
+                  }
+   
+                  .student-info-link{
+                     a{
+                        font-size: 0.8em;
+                     }
                   }
                }
             }

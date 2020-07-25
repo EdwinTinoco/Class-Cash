@@ -57,7 +57,9 @@ export default function Register(props) {
    return (
       <div className="signup-main-wrapper">
          <div className="have-an-account">
-            <p>Already have an account?</p>
+            <div className="title">
+               <p>Already have an account?</p>
+            </div>
 
             <Link to="/auth">
                <div className="login-button">
