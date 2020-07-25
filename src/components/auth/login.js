@@ -121,7 +121,7 @@ export default class Login extends Component {
                   </form>
 
                   <div className="sign-up">
-                     <Link to="/signup">Don't have an account? Sign up</Link>
+                     <Link to="/signup">Don't have an account? ...Sign up</Link>
                   </div>
                </div>
 

@@ -82,23 +82,16 @@
             }
          }
 
-         .sign-up{  
+         .sign-up{ 
             margin-top: 40px; 
-            height: 150px;
-            width: 553px; 
-            background-color: $amethyst;
-            display: flex;
-            justify-content: center;
-            align-items: center;  
-            border-radius: 5px; 
-            
+                       
             a{
                text-decoration: none;
                color: $green-crayola;
                transition: 0.3s ease-in-out;
 
                &:hover{
-                  color: whitesmoke;
+                  color: $amethyst;
                }
             }
          }
