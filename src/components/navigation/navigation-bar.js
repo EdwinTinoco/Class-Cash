@@ -21,33 +21,35 @@ const NavigationBar = () => {
       let temp = 0
       let userIdArr = []
 
-      for (var i = 0; i < userCookie.length; i++) {
-         if (userCookie[i] == "%") {
-            temp += 1
-         }
+      if (userCookie !== undefined) {
+         for (var i = 0; i < userCookie.length; i++) {
+            if (userCookie[i] == "%") {
+               temp += 1
+            }
 
-         if (temp === 2) {
-            if (userCookie[i] !== "%") {
-               userIdArr.push(userCookie[i])
+            if (temp === 2) {
+               if (userCookie[i] !== "%") {
+                  userIdArr.push(userCookie[i])
+               }
             }
          }
+
+         let userId = userIdArr.join('')
+
+         axios.get(`https://class-cash-api-ejlt.herokuapp.com/user/${userId}`)
+            .then(response => {
+               console.log('response navbar', response.data);
+
+               setUser(
+                  response.data[0]
+               )
+
+            }).catch(error => {
+               setError(
+                  "An error ocurred"
+               )
+            });
       }
-
-      let userId = userIdArr.join('')
-
-      axios.get(`https://class-cash-api-ejlt.herokuapp.com/user/${userId}`)
-         .then(response => {
-            console.log('response navbar', response.data);
-
-            setUser(
-               response.data[0]
-            )
-
-         }).catch(error => {
-            setError(
-               "An error ocurred"
-            )
-         });
    }
 
    useEffect(() => {
