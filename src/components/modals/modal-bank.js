@@ -23,7 +23,7 @@ export default class BankModal extends Component {
             rigth: "auto",
             marginRight: "-50%",
             transform: "translate(-50%, -50%)",
-            width: "500px",
+            width: "430px",
             height: "580px"
          },
          overlay: {
