@@ -339,6 +339,17 @@
 
          .btn-message{   
             margin-bottom: 50px;
+
+            .message{            
+               p{
+                  font-size: 1em;
+               }
+            }
+
+            .add-button{
+               width: 250px;
+               margin-top: 45px;
+            }
          }
       }
    }
