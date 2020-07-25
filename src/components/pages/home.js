@@ -25,12 +25,12 @@ export default class Home extends Component {
                      <Link to="/auth">Log in</Link>
                   </div>
 
-                  <p>or</p>
+                  <p className="or">or</p>
 
                   <Link to="/signup">
                      <div className="sign-up">
-                        Sign Up
-                  </div>
+                        <p>Sign up</p>
+                     </div>
                   </Link>
                </div>
             </div>
