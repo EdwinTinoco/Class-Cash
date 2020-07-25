@@ -30,23 +30,35 @@ export default class StudentsBank extends Component {
    }
 
    handleDecrementBankTotal() {
-      this.setState({
-         studentBankTotal: parseInt(this.state.studentBankTotal) - parseInt(this.state.selectedOption),
-         selectedOption: "",
-         message: `You subtracted $${this.state.selectedOption}`
-      })
+      if (this.state.selectedOption !== "") {
+         this.setState({
+            studentBankTotal: parseInt(this.state.studentBankTotal) - parseInt(this.state.selectedOption),
+            selectedOption: "",
+            message: `You subtracted $${this.state.selectedOption}`
+         })
 
-      this.props.handleDecrementBankTotal(this.state.selectedOption)
+         this.props.handleDecrementBankTotal(this.state.selectedOption)
+      } else {
+         this.setState({
+            message: "You need to select an option"
+         })
+      }
    }
 
    handleIncrementBankTotal() {
-      this.setState({
-         studentBankTotal: parseInt(this.state.studentBankTotal) + parseInt(this.state.selectedOption),
-         selectedOption: "",
-         message: `You added $${this.state.selectedOption}`
-      })
+      if (this.state.selectedOption !== "") {
+         this.setState({
+            studentBankTotal: parseInt(this.state.studentBankTotal) + parseInt(this.state.selectedOption),
+            selectedOption: "",
+            message: `You added $${this.state.selectedOption}`
+         })
 
-      this.props.handleIncrementBankTotal(this.state.selectedOption)
+         this.props.handleIncrementBankTotal(this.state.selectedOption)
+      } else {
+         this.setState({
+            message: "You need to select an option"
+         })
+      }
    }
 
    render() {

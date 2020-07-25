@@ -65,7 +65,6 @@ export default class StudentsItem extends Component {
                      </a>
                   </div>
                </div>
-
             </div>
 
             <div className='students-info-wrapper'>

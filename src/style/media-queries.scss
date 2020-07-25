@@ -5,18 +5,19 @@
       .navbar{
          .left-column{
             img{
-               margin-left: 10px;               
+               margin-left: 10px;  
+               height: 50px;
+               width: 90px;             
             }
          }
 
          .right-column{
             a{
-               font-size: 0.9em;
+               font-size: 0.7em;
    
                .sign-up{
-                  margin-left: 10px;
                   margin-right: 10px;                  
-                  padding: 2px 7px;   
+                  padding: 2px 12px;   
                }
             }
          }
@@ -39,7 +40,7 @@
          height: calc(100vh - 150px);
 
          .login-container{
-            height: 400px;
+            height: 430px;
             width: 355px;
 
             .logo{
@@ -77,10 +78,14 @@
                }
             }   
             
-            .sign-up{
-               margin-top: 30px;
+            .sign-up{               
+               margin-top: 70px;
                width: 356px; 
                padding: 5px 0px;
+
+               a{
+                  font-size: 0.8em;
+               }
             }
          }
       }

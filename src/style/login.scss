@@ -3,11 +3,11 @@
       display: flex;
       align-items: center;
       justify-content: center;      
-      width: 100vw;
+      // width: 100vw;
       height: calc(100vh - 80px);
 
       .login-container{
-         height: 533px;
+         height: 500px;
          width: 550px;        
          border-radius: 5px;
          border: 1px solid $amethyst;
@@ -82,8 +82,9 @@
             }
          }
 
-         .sign-up{   
-            height: 80px;
+         .sign-up{  
+            margin-top: 40px; 
+            height: 150px;
             width: 553px; 
             background-color: $amethyst;
             display: flex;

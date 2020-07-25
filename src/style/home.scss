@@ -14,13 +14,12 @@
       }
 
       .right-column{
+         width: 140px;
          display: flex;
          justify-content: space-between;
          align-items: center;
 
          .auth{
-            margin-right: 10px;
-
             a{
                text-decoration: none;
                color: $magenta-crayola;
@@ -38,8 +37,6 @@
             font-size: 1em;
 
             .sign-up{
-               margin-left: 10px;
-               margin-right: 20px;
                background-color: $magenta-crayola;
                color: whitesmoke;
                padding: 3px 4px;
