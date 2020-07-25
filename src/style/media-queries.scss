@@ -17,7 +17,7 @@
                font-size: 0.8em;
    
                .sign-up{
-                  width: 45px;
+                  width: 52px;
                   margin-right: 10px;                  
                   padding: 0px 8px;   
                }
@@ -94,22 +94,16 @@
    // Sign up
    .signup-main-wrapper{  
       .have-an-account{  
+         p{
+            font-size: 0.8em;
+         }
          .login-button{
-            margin-left: 10px;
-            background-color: $magenta-crayola;
             padding: 2px 7px;
-            border-radius: 5px;
-            color: whitesmoke;
-            transition: 0.3s ease-in-out;
-   
-            &:hover{
-               background-color: $amethyst;            
-            }         
+            font-size: 0.9em;
          }
       }
 
       .signup-form-wrapper{
-         margin-top: 40px;
          display: flex;
          flex-direction: column;
          justify-content: center;
@@ -122,41 +116,16 @@
                   width: 200px;
                }
             }
-         }
-   
+         } 
+         
          .right-side{
             .signup-form{
-               display: flex;
-               flex-direction: column;
-               align-items: left;
-   
                .new-entry-input {
-                  width: 400px;
-                  margin-bottom: 15px;
-                  font-size: 1em;
-                  border: 1px solid $amethyst;
-                  padding: 10px 15px;
-                  border-radius: 5px;
-                }
-      
+                  width: 330px;
+               }
+
                .add-button{
-                  width: 438px;
-                  color: whitesmoke;
-                  background-color:  $magenta-crayola;
-                  border: 1px solid $magenta-crayola;
-                  border-radius: 5px;
-                  font-size: 1.2em;
-                  margin-top: 25px;
-                  padding: 8px 10px;
-                  outline: none;
-                  transition: 0.3s ease-in-out;
-      
-                  &:hover{
-                     cursor: pointer;
-                     background-color: $amethyst;
-                     border: 1px solid $amethyst;
-                     outline: none;
-                  }
+                  width: 365px;
                }
             }
          }
