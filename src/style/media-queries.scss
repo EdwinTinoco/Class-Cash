@@ -89,7 +89,7 @@
             }   
             
             .sign-up{               
-               margin-top: 3px;
+               margin-top: 1px;
 
                a{
                   font-size: 0.8em;
@@ -161,11 +161,9 @@
          }  
       }
 
-      .center-column{
-         flex-direction: column;
-   
+      .center-column{   
          .nav-link-wrapper{
-            padding-right: 0px;
+            padding-right: 20px;
             margin-top: 5px;
             margin-bottom: 3px;
    
@@ -183,10 +181,12 @@
          font-size: 0.8em;
 
          .grade{
+            width: 200px;
             margin-right: 0px;
          }     
    
          .username{
+            width: 200px;
             margin-right: 0px;
          }
    
@@ -199,9 +199,16 @@
    // Teachers Container
    .grade-groups-main-wrapper{
       .teacher-info{
+         justify-content: space-around;
          padding: 5px 0px;
 
-         p{
+         .teacher-name{
+            width: 200px;
+            font-size: 0.8em;
+         }
+
+         .grade{
+            width: 200px;
             font-size: 0.8em;
          }
       }

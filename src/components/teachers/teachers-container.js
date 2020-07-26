@@ -97,8 +97,8 @@ export default function TeachersContainer() {
    return (
       <div className="grade-groups-main-wrapper">
          <div className="teacher-info">
-            <p>Teacher: {oneItem.Username}</p>
-            <p>Grade: {oneItem.grades_name}</p>
+            <p className="teacher-name">Teacher: {oneItem.Username}</p>
+            <p className="grade">Grade: {oneItem.grades_name}</p>
          </div>
 
          <div className="title">
