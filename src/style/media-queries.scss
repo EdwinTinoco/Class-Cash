@@ -60,12 +60,16 @@
 
             .error-message{       
                width: 500px;        
-               margin-top: 161px; 
+               margin-top: 168px; 
                font-size: 0.8em;              
             }
 
             .login-form{  
                .form-group{
+                  label{
+                     font-size: 0.8em;
+                  }
+
                   .inputs{       
                      svg{
                         font-size: 1.4em;
@@ -85,7 +89,7 @@
             }   
             
             .sign-up{               
-               margin-top: 7px;
+               margin-top: 3px;
 
                a{
                   font-size: 0.8em;
