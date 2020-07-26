@@ -42,7 +42,7 @@
          height: calc(100vh - 150px);
 
          .login-container{
-            height: 430px;
+            height: 400px;
             width: 355px;
 
             .logo{
@@ -58,10 +58,11 @@
                font-size: 1.2em;
             }
 
-            .login-form{   
-               text-align: center;
-               padding: 15px 2px;   
-               
+            .error-message{               
+               margin-top: 168px;
+            }
+
+            .login-form{  
                .form-group{
                   .inputs{       
                      svg{
@@ -76,12 +77,12 @@
                }
 
                .btn{                  
-                  padding: 8px 100px;
+                  padding: 8px 70px;
                }
             }   
             
             .sign-up{               
-               margin-top: 70px;
+               margin-top: 2px;
 
                a{
                   font-size: 0.8em;
@@ -240,12 +241,12 @@
                .students-info-wrapper{            
                   .student-name{
                      p{
-                        font-size: 1.1em;
+                        font-size: 0.8em;
                      }                  
                   }
    
                   .student-bank-amount{
-                     font-size: 1.2em;
+                     font-size: 1em;
                   }
    
                   .student-info-link{
@@ -272,18 +273,18 @@
             text-align: center;
    
             img{
-               width: 200x;
-               height: 200px;
+               width: 180x;
+               height: 100px;
             }
          }
    
          .details{
             .student-name{
-               font-size: 1.2em;
+               font-size: 1em;
             }
    
             .bank-total{
-               font-size: 1.2em;
+               font-size: 1em;
             }
    
             .parents-info{

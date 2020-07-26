@@ -15,7 +15,7 @@ export default class Login extends Component {
          user: {},
          email: "",
          password: "",
-         errorText: ""
+         errorMessage: ""
       };
 
       this.handleChange = this.handleChange.bind(this);
@@ -25,7 +25,7 @@ export default class Login extends Component {
    handleChange(event) {
       this.setState({
          [event.target.name]: event.target.value,
-         errorText: ""
+         errorMessage: ""
       });
    }
 
@@ -34,7 +34,7 @@ export default class Login extends Component {
 
       if (this.state.email === "" || this.state.password === "") {
          this.setState({
-            errorText: "You need to complete the information"
+            errorMessage: "You need to complete the information"
          })
       } else {
 
@@ -57,12 +57,12 @@ export default class Login extends Component {
                this.props.handleSuccessfulAuth();
             } else {
                this.setState({
-                  errorText: "Wrong email or password"
+                  errorMessage: "Wrong email or password"
                })
             }
          }).catch(error => {
             this.setState({
-               errorText: "An error ocurred"
+               errorMessage: "An error ocurred"
             })
          });
       }
@@ -83,9 +83,11 @@ export default class Login extends Component {
                      <p>Log in to your account</p>
                   </div>
 
+                  <div className="error-message">
+                     {this.state.errorMessage}
+                  </div>
 
                   <form onSubmit={this.handleSubmit} className="login-form">
-                     <div>{this.state.errorText}</div>
 
                      <div className="form-group">
                         <label htmlFor="email"><b>Email address</b></label>
