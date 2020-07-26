@@ -56,7 +56,7 @@ export default function App(props) {
 
             <ProtectedStudentsHome exact path="/students-home/:slug" component={StudentsHome} />
             <ProtectedAddStudent path="/add-student" component={AddStudent} />
-            <Route exact path="/student/:slug" component={StudentDetail} />
+            <ProtectedStudentDetail exact path="/student/:slug" component={StudentDetail} />
 
             <Route component={NoMatch} />
           </Switch>
@@ -139,6 +139,25 @@ const ProtectedTeachersHome = ({ component: Component, ...rest }) => {
 }
 
 const ProtectedStudentsHome = ({ component: Component, ...rest }) => {
+  let currentUser = Cookies.get("_sb%_user%_session")
+  console.log("from protected students home", currentUser)
+
+  return (
+    <Route
+      {...rest}
+      render={props => currentUser !== "" && currentUser !== undefined ?
+        (
+          <Component {...props} />
+        ) :
+        (
+          <Redirect to="/" />
+        )
+      }
+    />
+  )
+}
+
+const ProtectedStudentDetail = ({ component: Component, ...rest }) => {
   let currentUser = Cookies.get("_sb%_user%_session")
   console.log("from protected students home", currentUser)
 

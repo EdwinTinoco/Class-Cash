@@ -11,6 +11,8 @@ const NavigationBar = () => {
    const [error, setError] = useState("")
 
    const handleLogout = () => {
+      console.log('logout');
+
       setUser({})
       Cookies.remove("_sb%_user%_session")
       window.location.reload(false);
@@ -40,9 +42,13 @@ const NavigationBar = () => {
             .then(response => {
                console.log('response navbar', response.data);
 
-               setUser(
-                  response.data[0]
-               )
+               if (response.data.length > 0) {
+                  setUser(
+                     response.data[0]
+                  )
+               } else {
+                  handleLogout()
+               }
 
             }).catch(error => {
                setError(

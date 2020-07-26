@@ -5,9 +5,19 @@ import Cookies from 'js-cookie'
 import GradeAndGroupsItem from "./teachers-item"
 
 export default function TeachersContainer() {
+   const [user, setUser] = useState({})
    const [gradesGroups, setGradesGroups] = useState([])
    const [oneItem, setOneItem] = useState({})
    const [error, setError] = useState("")
+
+   const handleLogout = () => {
+      console.log('logout');
+      setUser({})
+      setGradesGroups([])
+      setOneItem({})
+      Cookies.remove("_sb%_user%_session")
+      window.location.reload(false);
+   }
 
 
    const getTeachersGradesGroups = () => {
@@ -30,23 +40,44 @@ export default function TeachersContainer() {
 
          let userId = userIdArr.join('')
 
-         axios.get(`https://class-cash-api-ejlt.herokuapp.com/grades-groups/${userId}`)
+         axios.get(`https://class-cash-api-ejlt.herokuapp.com/user/${userId}`)
             .then(response => {
-               console.log('response groups', response.data);
+               console.log('response navbar', response.data);
 
-               setGradesGroups(
-                  response.data
-               )
+               if (response.data.length > 0) {
+                  axios.get(`https://class-cash-api-ejlt.herokuapp.com/grades-groups/${userId}`)
+                     .then(response => {
+                        console.log('response groups', response.data);
 
-               setOneItem(
-                  response.data[0]
-               )
+                        setGradesGroups(
+                           response.data
+                        )
+
+                        setOneItem(
+                           response.data[0]
+                        )
+
+                     }).catch(error => {
+                        setError(
+                           "An error ocurred"
+                        )
+                     });
+
+                  setUser(
+                     response.data[0]
+                  )
+
+               } else {
+                  handleLogout()
+               }
 
             }).catch(error => {
                setError(
                   "An error ocurred"
                )
             });
+
+
       }
    }
 

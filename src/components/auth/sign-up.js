@@ -12,7 +12,7 @@ export default function Register(props) {
    const [userAddress, setUserAddress] = useState("")
    const [userZipCode, setUserZipCode] = useState('')
    const [userPhoneNumber, setUserPhoneNumber] = useState('')
-   const [userGrade, setUserGrade] = useState(11)
+   const [userGrade, setUserGrade] = useState("")
    const [userEmail, setUserEmail] = useState('')
    const [userPassword, setUserPassword] = useState("")
    const [messageUser, setMessageUser] = useState("")
@@ -20,37 +20,43 @@ export default function Register(props) {
    const handleSubmitRegisterNewUser = () => {
       event.preventDefault();
 
-      axios
-         .post(
-            'https://class-cash-api-ejlt.herokuapp.com/add-user',
-            {
-               users_first_name: userFirstName,
-               users_last_name: userLastName,
-               users_address: userAddress,
-               users_zip_code: userZipCode,
-               users_phone_number: userPhoneNumber,
-               users_grades_id: parseInt(userGrade),
-               users_email: userEmail,
-               users_password: userPassword,
-               users_active: "Y"
-            },
+      if (userGrade === "") {
+         setMessageUser(
+            "You need to select an option for grade"
          )
-         .then(response => {
-            console.log("new user", response.data)
+      } else {
+         axios
+            .post(
+               'https://class-cash-api-ejlt.herokuapp.com/add-user',
+               {
+                  users_first_name: userFirstName,
+                  users_last_name: userLastName,
+                  users_address: userAddress,
+                  users_zip_code: userZipCode,
+                  users_phone_number: userPhoneNumber,
+                  users_grades_id: parseInt(userGrade),
+                  users_email: userEmail,
+                  users_password: userPassword,
+                  users_active: "Y"
+               },
+            )
+            .then(response => {
+               console.log("new user", response.data)
 
-            setUserFirstName('')
-            setUserLastName('')
-            setUserAddress('')
-            setUserZipCode('')
-            setUserPhoneNumber('')
-            setUserGrade(2)
-            setUserEmail('')
-            setUserPassword('')
-            setMessageUser("User Added Succesfully!")
-         })
-         .catch(error => {
-            console.log('handleSubmitRegisterNewUser error', error)
-         })
+               setUserFirstName('')
+               setUserLastName('')
+               setUserAddress('')
+               setUserZipCode('')
+               setUserPhoneNumber('')
+               setUserGrade("")
+               setUserEmail('')
+               setUserPassword('')
+               setMessageUser("User Added Succesfully!")
+            })
+            .catch(error => {
+               console.log('handleSubmitRegisterNewUser error', error)
+            })
+      }
    }
 
 
@@ -82,40 +88,51 @@ export default function Register(props) {
                      value={userFirstName}
                      onChange={({ target }) => { setUserFirstName(target.value) }}
                      className='new-entry-input'
-                     placeholder='First Name'>
+                     placeholder='First Name'
+                     required
+                  >
                   </input>
 
                   <input type='text'
                      value={userLastName}
                      onChange={({ target }) => { setUserLastName(target.value) }}
                      className='new-entry-input'
-                     placeholder='Last Name'>
+                     placeholder='Last Name'
+                     required
+                  >
                   </input>
 
                   <input type='text'
                      className='new-entry-input'
                      value={userAddress}
                      onChange={({ target }) => { setUserAddress(target.value) }}
-                     placeholder='Address'>
+                     placeholder='Address'
+                     required
+                  >
                   </input>
 
                   <input type='text'
                      className='new-entry-input'
                      value={userZipCode}
                      onChange={({ target }) => { setUserZipCode(target.value) }}
-                     placeholder='Zip Code'>
+                     placeholder='Zip Code'
+                     required
+                  >
                   </input>
 
                   <input type='text'
                      className='new-entry-input'
                      value={userPhoneNumber}
                      onChange={({ target }) => { setUserPhoneNumber(target.value) }}
-                     placeholder='Phone number'>
+                     placeholder='Phone number'
+                     required
+                  >
                   </input>
 
                   <select className='new-entry-input new-entry-select'
                      value={userGrade}
                      onChange={({ target }) => { setUserGrade(target.value) }}>
+                     <option value=''>Select an option</option>
                      <option value={1}>First Grade</option>
                      <option value={11}>Second Grade</option>
                      <option value={21}>Third Grade</option>
@@ -127,17 +144,23 @@ export default function Register(props) {
                      className='new-entry-input'
                      value={userEmail}
                      onChange={({ target }) => { setUserEmail(target.value) }}
-                     placeholder='Email'>
+                     placeholder='Email'
+                     required
+                  >
                   </input>
 
                   <input type='password'
                      className='new-entry-input'
                      value={userPassword}
                      onChange={({ target }) => { setUserPassword(target.value) }}
-                     placeholder='Password'>
+                     placeholder='Password'
+                     required
+                  >
                   </input>
 
-                  {messageUser}
+                  <div className="message">
+                     <p>{messageUser}</p>
+                  </div>
 
                   <button type='submit' className='add-button'>Sign up</button>
                </form>
