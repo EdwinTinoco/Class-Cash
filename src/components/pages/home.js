@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import Logo from '../../../static/assets/images/logo/class-cash-logo.png'
+import SchoolImage from "../../../static/assets/images/content/school.jpg"
 import Footer from "../footer/footer"
 
 export default class Home extends Component {
@@ -36,7 +37,24 @@ export default class Home extends Component {
             </div>
 
             <div className="content">
-               <div className="logo">
+               <div className="title-image">
+                  <div className="title">
+                     {/* <h1>Class Cash</h1> */}
+                  </div>
+               </div>
+
+               <div className="info-app">
+
+                  <h3>Class Cash App</h3>
+
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a felis
+                  non sem elementum tempor in at urna. Suspendisse auctor libero ut nibh
+                  consequat sed sagittis dolor iaculis. Donec condimentum mauris nec eros
+                  auctor sed vestibulum tellus consequat.
+                  </p>
+               </div>
+
+               <div className="logo-image">
                   <img src={Logo} alt='Logo' />
                </div>
             </div>
