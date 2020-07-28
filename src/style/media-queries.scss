@@ -344,17 +344,28 @@
                display: grid;
                grid-template-columns: 1fr 1fr;
 
-               .radio{
-                  label {
-                     padding: 8px 40px;
-                     font-size: 1em;
+               .left-side{
+                  .radio{
+                     label {
+                        padding: 6px 35px;
+                        font-size: 1.1em;
+                     }
+                  }
+               }
+
+               .right-side{
+                  .radio{
+                     label {
+                        padding: 6px 35px;
+                        font-size: 1.1em;
+                     }
                   }
                }
             }
          }
 
          .btn-message{   
-            margin-bottom: 50px;
+            margin-bottom: 30px;
 
             .message{            
                p{
@@ -372,6 +383,8 @@
 }
 
 
+
+// -----------------------------------------------------------------------------------------------------------------
 @media screen and (max-width: 615px){
 
    // Home page
@@ -718,10 +731,21 @@
                display: grid;
                grid-template-columns: 1fr 1fr;
 
-               .radio{
-                  label {
-                     padding: 8px 40px;
-                     font-size: 1em;
+               .left-side{
+                  .radio{
+                     label {
+                        padding: 5px 30px;
+                        font-size: 1em;
+                     }
+                  }
+               }
+
+               .right-side{
+                  .radio{
+                     label {
+                        padding: 5px 30px;
+                        font-size: 1em;
+                     }
                   }
                }
             }
