@@ -1,23 +1,32 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import axios from 'axios';
 
 import NavigationBar from "../navigation/navigation-bar"
 import Footer from "../footer/footer"
+import StudentProfileImage from "./student-profile-image";
 
 export default function AddStudent(props) {
    const [studentFirstName, setStudentFirstName] = useState('')
    const [studentMiddleName, setStudentMiddleName] = useState('')
    const [studentLastName, setStudentLastName] = useState('')
-   const [studentImageUrl, setStudentImageUrl] = useState("")
    const [studentBirthDate, setStudentBirthDate] = useState('')
+   const [studentUrlProfileImage, setStudentUrlProfileImage] = useState('')
+   const [studentGender, setStudentGender] = useState("")
    const [studentAddress, setStudentAddress] = useState('')
    const [studentContactPhoneNumber, setStudentContactPhoneNumber] = useState('')
    const [studentParentsId, setStudentParentsId] = useState(1)
    const [studentGradesId, setStudentGradesId] = useState("")
    const [studentGradesGroupsId, setStudentGradesGroupsId] = useState("")
-   const [groups, setGroups] = useState([])
    const [selectedOption, setSelectedOption] = useState("")
+   const [groups, setGroups] = useState([])
+   const [profilesImages, setProfilesImages] = useState([])
    const [message, setMessage] = useState("")
+
+   const handleProfileImage = (urlProfileImage) => {
+      setStudentUrlProfileImage(
+         urlProfileImage
+      )
+   }
 
    const handleChange = ({ target }) => {
       console.log('studentGradesId', target.value);
@@ -43,13 +52,21 @@ export default function AddStudent(props) {
       event.preventDefault();
       console.log('new student');
 
-      if (studentGradesId === "" || studentGradesGroupsId === "") {
+      if (studentGender === "") {
+         setMessage(
+            "You need to select the gender"
+         )
+      } else if (studentGradesId === "" || studentGradesGroupsId === "") {
          setMessage(
             "You need to select an option for grade or group"
          )
+      } else if (studentUrlProfileImage === "") {
+         setMessage(
+            "You need to select a profile image"
+         )
       } else if (selectedOption === "") {
          setMessage(
-            "You need to select a cash amount for the student"
+            "You need to select a cash amount"
          )
       } else {
          axios
@@ -59,8 +76,9 @@ export default function AddStudent(props) {
                   students_first_name: studentFirstName,
                   students_middle_name: studentMiddleName,
                   students_last_name: studentLastName,
-                  students_image_url: studentImageUrl,
+                  students_image_url: studentUrlProfileImage,
                   students_birth_date: studentBirthDate,
+                  students_gender: studentGender,
                   students_address: studentAddress,
                   students_contact_phone_number: studentContactPhoneNumber,
                   students_parents_id: parseInt(studentParentsId),
@@ -75,8 +93,9 @@ export default function AddStudent(props) {
                setStudentFirstName('')
                setStudentMiddleName('')
                setStudentLastName('')
-               setStudentImageUrl('')
                setStudentBirthDate('')
+               setStudentUrlProfileImage('')
+               setStudentGender('')
                setStudentAddress('')
                setStudentContactPhoneNumber('')
                setStudentParentsId(1)
@@ -92,15 +111,41 @@ export default function AddStudent(props) {
       }
    }
 
+   const getProfilesImages = () => {
+      axios.get("https://class-cash-api-ejlt.herokuapp.com/profile-image")
+         .then(response => {
+            console.log('profile images', response.data);
+
+            setProfilesImages(
+               response.data
+            )
+         })
+         .catch(error => {
+            console.log('getProfilesImages error', error)
+         })
+   }
+
+   const profileImageUrls = () => {
+      return profilesImages.map(item => {
+         return (
+            <StudentProfileImage key={item.profile_image_id} item={item} handleProfileImage={handleProfileImage} />
+         )
+      })
+   }
+
+   useEffect(() => {
+      getProfilesImages()
+   }, [])
+
    return (
       <div className="add-student-main-wrapper">
          <NavigationBar />
 
          <form onSubmit={handleSubmitAddStudent} className="add-student-form">
-            <p className="title">Add Student</p>
-
             <div className="student-info">
                <div className="text-inputs">
+                  <p className="title">Add Student Info</p>
+
                   <label htmlFor="sfn">First Name</label>
                   <input type='text'
                      value={studentFirstName}
@@ -133,16 +178,6 @@ export default function AddStudent(props) {
                   >
                   </input>
 
-                  <label htmlFor="siu">Student Image</label>
-                  <input type='text'
-                     className='new-entry-input'
-                     value={studentImageUrl}
-                     onChange={({ target }) => { setStudentImageUrl(target.value) }}
-                     placeholder='Student Image'
-                     id="siu"
-                  >
-                  </input>
-
                   <label htmlFor="bd">Birthdate</label>
                   <input type='text'
                      className='new-entry-input'
@@ -153,6 +188,17 @@ export default function AddStudent(props) {
                      required
                   >
                   </input>
+
+                  <label htmlFor="gn">Gender</label>
+                  <select className='new-entry-input new-entry-select'
+                     value={studentGender}
+                     onChange={({ target }) => { setStudentGender(target.value) }}
+                     id="gn"
+                  >
+                     <option value=''>Select an option</option>
+                     <option value="M">Male</option>
+                     <option value="F">Female</option>
+                  </select>
 
                   <label htmlFor="ad">Address</label>
                   <input type='text'
@@ -206,74 +252,84 @@ export default function AddStudent(props) {
                   </select>
                </div>
 
+               <div className="profiles-images">
+                  <p className="title">Select Student Profile Image</p>
+
+                  {profileImageUrls()}
+               </div>
+
                <div className="radio-inputs">
-                  <div className="left-side">
-                     <div className="radio">
-                        <input
-                           type="radio"
-                           value="1"
-                           id="op1"
-                           checked={selectedOption === '1'}
-                           onChange={({ target }) => { setSelectedOption(target.value) }}
-                        />
-                        <label htmlFor="op1">$1</label>
+                  <p className="title">Select Cash Amount</p>
+
+                  <div className="radios">
+                     <div className="left-side">
+                        <div className="radio">
+                           <input
+                              type="radio"
+                              value="1"
+                              id="op1"
+                              checked={selectedOption === '1'}
+                              onChange={({ target }) => { setSelectedOption(target.value) }}
+                           />
+                           <label htmlFor="op1">$1</label>
+                        </div>
+
+                        <div className="radio">
+                           <input
+                              type="radio"
+                              value="5"
+                              id="op5"
+                              checked={selectedOption === '5'}
+                              onChange={({ target }) => { setSelectedOption(target.value) }}
+                           />
+                           <label htmlFor="op5">$5</label>
+                        </div>
+
+                        <div className="radio">
+                           <input
+                              type="radio"
+                              value="10"
+                              id="op10"
+                              checked={selectedOption === '10'}
+                              onChange={({ target }) => { setSelectedOption(target.value) }}
+                           />
+                           <label htmlFor="op10">$10</label>
+                        </div>
                      </div>
 
-                     <div className="radio">
-                        <input
-                           type="radio"
-                           value="5"
-                           id="op5"
-                           checked={selectedOption === '5'}
-                           onChange={({ target }) => { setSelectedOption(target.value) }}
-                        />
-                        <label htmlFor="op5">$5</label>
-                     </div>
+                     <div className="right-side">
+                        <div className="radio">
+                           <input
+                              type="radio"
+                              value="20"
+                              id="op20"
+                              checked={selectedOption === '20'}
+                              onChange={({ target }) => { setSelectedOption(target.value) }}
+                           />
+                           <label htmlFor="op20">$20</label>
+                        </div>
 
-                     <div className="radio">
-                        <input
-                           type="radio"
-                           value="10"
-                           id="op10"
-                           checked={selectedOption === '10'}
-                           onChange={({ target }) => { setSelectedOption(target.value) }}
-                        />
-                        <label htmlFor="op10">$10</label>
-                     </div>
-                  </div>
+                        <div className="radio">
+                           <input
+                              type="radio"
+                              value="50"
+                              id="op50"
+                              checked={selectedOption === '50'}
+                              onChange={({ target }) => { setSelectedOption(target.value) }}
+                           />
+                           <label htmlFor="op50">$50</label>
+                        </div>
 
-                  <div className="right-side">
-                     <div className="radio">
-                        <input
-                           type="radio"
-                           value="20"
-                           id="op20"
-                           checked={selectedOption === '20'}
-                           onChange={({ target }) => { setSelectedOption(target.value) }}
-                        />
-                        <label htmlFor="op20">$20</label>
-                     </div>
-
-                     <div className="radio">
-                        <input
-                           type="radio"
-                           value="50"
-                           id="op50"
-                           checked={selectedOption === '50'}
-                           onChange={({ target }) => { setSelectedOption(target.value) }}
-                        />
-                        <label htmlFor="op50">$50</label>
-                     </div>
-
-                     <div className="radio">
-                        <input
-                           type="radio"
-                           value="100"
-                           id="op100"
-                           checked={selectedOption === '100'}
-                           onChange={({ target }) => { setSelectedOption(target.value) }}
-                        />
-                        <label htmlFor="op100">$100</label>
+                        <div className="radio">
+                           <input
+                              type="radio"
+                              value="100"
+                              id="op100"
+                              checked={selectedOption === '100'}
+                              onChange={({ target }) => { setSelectedOption(target.value) }}
+                           />
+                           <label htmlFor="op100">$100</label>
+                        </div>
                      </div>
                   </div>
                </div>
