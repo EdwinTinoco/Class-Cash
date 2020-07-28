@@ -9,7 +9,6 @@ export default class StudentProfileImage extends Component {
 
    handleProfileImage() {
       this.props.handleProfileImage(this.props.item.profile_image_url)
-      console.log('url profile image', this.props.item.profile_image_url)
    }
 
    render() {
