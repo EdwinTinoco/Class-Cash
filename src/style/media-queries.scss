@@ -339,25 +339,27 @@
                 }
             }
 
-            .radio-inputs{
-               margin-left: 50px;
-               display: grid;
-               grid-template-columns: 1fr 1fr;
-
-               .left-side{
-                  .radio{
-                     label {
-                        padding: 6px 35px;
-                        font-size: 1.1em;
+            .radio-inputs{               
+               .radios{
+                  margin-left: 50px;
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  
+                  .left-side{
+                     .radio{
+                        label {
+                           padding: 6px 35px;
+                           font-size: 1.1em;
+                        }
                      }
                   }
-               }
-
-               .right-side{
-                  .radio{
-                     label {
-                        padding: 6px 35px;
-                        font-size: 1.1em;
+   
+                  .right-side{
+                     .radio{
+                        label {
+                           padding: 6px 35px;
+                           font-size: 1.1em;
+                        }
                      }
                   }
                }
@@ -379,7 +381,7 @@
             }
          }
       }
-   }  
+   } 
 }
 
 
@@ -726,25 +728,27 @@
                 }
             }
 
-            .radio-inputs{
-               margin-left: 50px;
-               display: grid;
-               grid-template-columns: 1fr 1fr;
+            .radio-inputs{    
+               .radios{
+                  margin-left: 50px;
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
 
-               .left-side{
-                  .radio{
-                     label {
-                        padding: 5px 30px;
-                        font-size: 1em;
+                  .left-side{
+                     .radio{
+                        label {
+                           padding: 5px 30px;
+                           font-size: 1em;
+                        }
                      }
                   }
-               }
-
-               .right-side{
-                  .radio{
-                     label {
-                        padding: 5px 30px;
-                        font-size: 1em;
+   
+                  .right-side{
+                     .radio{
+                        label {
+                           padding: 5px 30px;
+                           font-size: 1em;
+                        }
                      }
                   }
                }
@@ -767,4 +771,21 @@
          }
       }
    }  
+
+   // Student Profile Image
+   .profiles-images-wrapper{
+      .profiles-images-items{
+         grid-template-columns: 1fr 1fr;
+      
+         .images{      
+            .image{         
+               img{
+                  width: 50px;
+                  height: 50px;
+                  margin-bottom: 10px;
+               }
+            }
+         }
+      }
+   }
 }

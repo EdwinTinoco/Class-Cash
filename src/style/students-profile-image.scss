@@ -2,25 +2,29 @@
    .profiles-images-items{
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
+      gap: 5px;
       text-align: center;
    
       .images{
+         box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);  
+         transition: 0.3s ease-in-out;
+
          .image-name{
-            color: $capri;
+            color: $magenta-crayola;
          }
    
          .image{         
             img{
-               width: 60px;
-               height: 60px;
+               width: 70px;
+               height: 70px;
                margin-bottom: 20px;
-      
-               &:hover{
-                  cursor: pointer;
-                  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);  
-               }           
             }
          }
+
+         &:hover{
+            cursor: pointer;  
+            background-color: #aeebf3;                
+         } 
       }
    }
 }
