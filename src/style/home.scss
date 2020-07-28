@@ -64,27 +64,12 @@
    .content{
       .title-image{
          background-image: url(../../static/assets/images/content/school.jpg);
-         padding: 100px;
-         height: 35vh;      
+         height: 60vh;      
          background-position: center;
          background-repeat: no-repeat;
          background-size: cover;  
          position: relative;
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-         align-items: center;
          box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
-
-         &:before{
-            content:'';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(0,0,0,0.4);
-         }
       
          .title{         
             h1{
