@@ -14,7 +14,13 @@ export default class StudentProfileImage extends Component {
    render() {
       return (
          <div className="images">
-            <img src={this.props.item.profile_image_url} onClick={this.handleProfileImage} alt="profile-image" />
+            <div className="image-name">
+               <p>{this.props.item.profile_image_name}</p>
+            </div>
+
+            <div className="image">
+               <img src={this.props.item.profile_image_url} onClick={this.handleProfileImage} alt="profile-image" />
+            </div>
          </div>
       )
    }

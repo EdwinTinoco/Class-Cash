@@ -252,10 +252,12 @@ export default function AddStudent(props) {
                   </select>
                </div>
 
-               <div className="profiles-images">
+               <div className="profiles-images-wrapper">
                   <p className="title">Select Student Profile Image</p>
 
-                  {profileImageUrls()}
+                  <div className="profiles-images-items">
+                     {profileImageUrls()}
+                  </div>
                </div>
 
                <div className="radio-inputs">
