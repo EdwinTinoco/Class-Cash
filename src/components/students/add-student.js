@@ -1,25 +1,32 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import axios from 'axios';
 
 import NavigationBar from "../navigation/navigation-bar"
 import Footer from "../footer/footer"
+import StudentProfileImage from "./student-profile-image";
 
 export default function AddStudent(props) {
    const [studentFirstName, setStudentFirstName] = useState('')
    const [studentMiddleName, setStudentMiddleName] = useState('')
    const [studentLastName, setStudentLastName] = useState('')
-   const [studentImageUrl, setStudentImageUrl] = useState("")
    const [studentBirthDate, setStudentBirthDate] = useState('')
-   const [studentGenderId, setStudentGenderId] = useState("")
+   const [studentUrlProfileImage, setStudentUrlProfileImage] = useState('')
+   const [studentGender, setStudentGender] = useState("")
    const [studentAddress, setStudentAddress] = useState('')
    const [studentContactPhoneNumber, setStudentContactPhoneNumber] = useState('')
    const [studentParentsId, setStudentParentsId] = useState(1)
    const [studentGradesId, setStudentGradesId] = useState("")
    const [studentGradesGroupsId, setStudentGradesGroupsId] = useState("")
-   const [groups, setGroups] = useState([])
-   const [selectedImage, setSelectedImage] = useState("")
    const [selectedOption, setSelectedOption] = useState("")
+   const [groups, setGroups] = useState([])
+   const [profilesImages, setProfilesImages] = useState([])
    const [message, setMessage] = useState("")
+
+   const handleProfileImage = (urlProfileImage) => {
+      setStudentUrlProfileImage(
+         urlProfileImage
+      )
+   }
 
    const handleChange = ({ target }) => {
       console.log('studentGradesId', target.value);
@@ -45,13 +52,21 @@ export default function AddStudent(props) {
       event.preventDefault();
       console.log('new student');
 
-      if (studentGradesId === "" || studentGradesGroupsId === "") {
+      if (studentGender === "") {
+         setMessage(
+            "You need to select the gender"
+         )
+      } else if (studentGradesId === "" || studentGradesGroupsId === "") {
          setMessage(
             "You need to select an option for grade or group"
          )
+      } else if (studentUrlProfileImage === "") {
+         setMessage(
+            "You need to select a profile image"
+         )
       } else if (selectedOption === "") {
          setMessage(
-            "You need to select a cash amount for the student"
+            "You need to select a cash amount"
          )
       } else {
          axios
@@ -61,8 +76,9 @@ export default function AddStudent(props) {
                   students_first_name: studentFirstName,
                   students_middle_name: studentMiddleName,
                   students_last_name: studentLastName,
-                  students_image_url: studentImageUrl,
+                  students_image_url: studentUrlProfileImage,
                   students_birth_date: studentBirthDate,
+                  students_gender: studentGender,
                   students_address: studentAddress,
                   students_contact_phone_number: studentContactPhoneNumber,
                   students_parents_id: parseInt(studentParentsId),
@@ -77,8 +93,9 @@ export default function AddStudent(props) {
                setStudentFirstName('')
                setStudentMiddleName('')
                setStudentLastName('')
-               setStudentImageUrl('')
                setStudentBirthDate('')
+               setStudentUrlProfileImage('')
+               setStudentGender('')
                setStudentAddress('')
                setStudentContactPhoneNumber('')
                setStudentParentsId(1)
@@ -93,6 +110,32 @@ export default function AddStudent(props) {
             })
       }
    }
+
+   const getProfilesImages = () => {
+      axios.get("https://class-cash-api-ejlt.herokuapp.com/profile-image")
+         .then(response => {
+            console.log('profile images', response.data);
+
+            setProfilesImages(
+               response.data
+            )
+         })
+         .catch(error => {
+            console.log('getProfilesImages error', error)
+         })
+   }
+
+   const profileImageUrls = () => {
+      return profilesImages.map(item => {
+         return (
+            <StudentProfileImage key={item.profile_image_id} item={item} handleProfileImage={handleProfileImage} />
+         )
+      })
+   }
+
+   useEffect(() => {
+      getProfilesImages()
+   }, [])
 
    return (
       <div className="add-student-main-wrapper">
@@ -148,13 +191,13 @@ export default function AddStudent(props) {
 
                   <label htmlFor="gn">Gender</label>
                   <select className='new-entry-input new-entry-select'
-                     value={studentGenderId}
-                     onChange={({ target }) => { setStudentGenderId(target.value) }}
+                     value={studentGender}
+                     onChange={({ target }) => { setStudentGender(target.value) }}
                      id="gn"
                   >
                      <option value=''>Select an option</option>
-                     <option value={1}>Male</option>
-                     <option value={11}>Female</option>
+                     <option value="M">Male</option>
+                     <option value="F">Female</option>
                   </select>
 
                   <label htmlFor="ad">Address</label>
@@ -207,20 +250,12 @@ export default function AddStudent(props) {
                         <option value=''></option>
                      }
                   </select>
-
-                  {/* <label htmlFor="siu">Student Image</label>
-                     <input type='text'
-                        className='new-entry-input'
-                        value={studentImageUrl}
-                        onChange={({ target }) => { setStudentImageUrl(target.value) }}
-                        placeholder='Student Image'
-                        id="siu"
-                     >
-                     </input> */}
                </div>
 
                <div className="profiles-images">
                   <p className="title">Select Student Profile Image</p>
+
+                  {profileImageUrls()}
                </div>
 
                <div className="radio-inputs">
