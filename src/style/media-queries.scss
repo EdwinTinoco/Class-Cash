@@ -229,7 +229,15 @@
    .students-home-wrapper{
       .students-main-wrapper{
          .group-name-title{
-            font-size: 1em;
+            p{
+               font-size: 1.1em;
+            }
+
+            .filter-buttons{
+               p{
+                  font-size: 0.9em;
+               }
+            }
          }
 
          .students-items-wrapper{
@@ -609,7 +617,15 @@
    .students-home-wrapper{
       .students-main-wrapper{
          .group-name-title{
-            font-size: 1em;
+            p{
+               font-size: 1em;
+            }
+
+            .filter-buttons{
+               p{
+                  font-size: 0.8em;
+               }
+            }
          }
 
          .students-items-wrapper{
