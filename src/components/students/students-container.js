@@ -5,7 +5,19 @@ import StudentsItem from "./students-item"
 
 export default function Students(props) {
    const [students, setStudents] = useState([])
+   const [studentsFilter, setStudentsFilter] = useState([])
    const [groupName, setGroupName] = useState("")
+
+   const clearFilter = () => {
+      setStudents(studentsFilter)
+   }
+
+   const handleFilter = filter => {
+      clearFilter()
+      setStudents(studentsFilter.filter((item) => {
+         return item.students_gender === filter
+      }))
+   }
 
    const getStudentsItems = () => {
       axios.get(`https://class-cash-api-ejlt.herokuapp.com/students/${props.groupId}`)
@@ -15,6 +27,11 @@ export default function Students(props) {
             setStudents(
                response.data
             )
+
+            setStudentsFilter(
+               response.data
+            )
+
             let tempGroupName = ""
             if (response.data.length > 0) {
                tempGroupName = response.data[0].grades_groups_name
@@ -49,6 +66,23 @@ export default function Students(props) {
       <div className="students-main-wrapper">
          <div className="group-name-title">
             <p >Group: {groupName}</p>
+
+            <div className="filter-buttons">
+               <p>Filter by: </p>
+
+               <button className='boy-filter' onClick={() => handleFilter('M')}>
+                  Boys
+               </button>
+
+               <button className='girl-filter' onClick={() => handleFilter('F')}>
+                  Girls
+               </button>
+
+               <button className='clear-filter' onClick={() => clearFilter()}>
+                  Clear Filter
+               </button>
+            </div>
+
          </div>
 
          <div className="students-items-wrapper">
