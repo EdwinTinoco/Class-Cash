@@ -4,23 +4,207 @@ export default class StudentProfileImage extends Component {
    constructor(props) {
       super(props);
 
+      this.state = {
+         backgroungColorImg1: '#fff',
+         backgroungColorImg2: '#fff',
+         backgroungColorImg3: '#fff',
+         backgroungColorImg4: '#fff',
+         backgroungColorImg5: '#fff',
+         backgroungColorImg6: '#fff',
+         imgUrl1: 'bear',
+         imgUrl2: 'snake',
+         imgUrl3: 'panda',
+         imgUrl4: 'lion',
+         imgUrl5: 'monkey',
+         imgUrl6: 'bird',
+         imgUrl: ''
+
+      }
+
       this.handleProfileImage = this.handleProfileImage.bind(this)
+      this.handleBackgroundColorAndImageUrl = this.handleBackgroundColorAndImageUrl.bind(this)
    }
 
-   handleProfileImage() {
-      this.props.handleProfileImage(this.props.item.profile_image_url)
+   handleBackgroundColorAndImageUrl(val) {
+      if (val === 1) {
+         console.log('val', val);
+
+         let tempImgUrl1 = this.state.imgUrl1
+         console.log('tempimgurl', tempImgUrl1);
+
+         this.setState({
+            backgroungColorImg1: '#aeebf3',
+            backgroungColorImg2: '#fff',
+            backgroungColorImg3: '#fff',
+            backgroungColorImg4: '#fff',
+            backgroungColorImg5: '#fff',
+            backgroungColorImg6: '#fff',
+            imgUrl: tempImgUrl1
+         })
+
+         this.handleProfileImage(tempImgUrl1)
+      }
+      if (val === 2) {
+         console.log('val', val);
+
+         let tempImgUrl2 = this.state.imgUrl2
+         console.log('tempimgurl', tempImgUrl2);
+
+         this.setState({
+            backgroungColorImg1: '#fff',
+            backgroungColorImg2: '#aeebf3',
+            backgroungColorImg3: '#fff',
+            backgroungColorImg4: '#fff',
+            backgroungColorImg5: '#fff',
+            backgroungColorImg6: '#fff',
+            imgUrl: tempImgUrl2
+         })
+
+         this.handleProfileImage(tempImgUrl2)
+      }
+      if (val === 3) {
+         console.log('val', val);
+
+         let tempImgUrl3 = this.state.imgUrl3
+         console.log('tempimgurl', tempImgUrl3);
+
+         this.setState({
+            backgroungColorImg1: '#fff',
+            backgroungColorImg2: '#fff',
+            backgroungColorImg3: '#aeebf3',
+            backgroungColorImg4: '#fff',
+            backgroungColorImg5: '#fff',
+            backgroungColorImg6: '#fff',
+            imgUrl: tempImgUrl3
+         })
+
+         this.handleProfileImage(tempImgUrl3)
+      }
+      if (val === 4) {
+         console.log('val', val);
+
+         let tempImgUrl4 = this.state.imgUrl4
+         console.log('tempimgurl', tempImgUrl4);
+
+         this.setState({
+            backgroungColorImg1: '#fff',
+            backgroungColorImg2: '#fff',
+            backgroungColorImg3: '#fff',
+            backgroungColorImg4: '#aeebf3',
+            backgroungColorImg5: '#fff',
+            backgroungColorImg6: '#fff',
+            imgUrl: tempImgUrl4
+         })
+
+         this.handleProfileImage(tempImgUrl4)
+      }
+      if (val === 5) {
+         console.log('val', val);
+
+         let tempImgUrl5 = this.state.imgUrl5
+         console.log('tempimgurl', tempImgUrl5);
+
+         this.setState({
+            backgroungColorImg1: '#fff',
+            backgroungColorImg2: '#fff',
+            backgroungColorImg3: '#fff',
+            backgroungColorImg4: '#fff',
+            backgroungColorImg5: '#aeebf3',
+            backgroungColorImg6: '#fff',
+            imgUrl: tempImgUrl5
+         })
+
+         this.handleProfileImage(tempImgUrl5)
+      }
+      if (val === 6) {
+         console.log('val', val);
+
+         let tempImgUrl6 = this.state.imgUrl6
+         console.log('tempimgurl', tempImgUrl6);
+
+         this.setState({
+            backgroungColorImg1: '#fff',
+            backgroungColorImg2: '#fff',
+            backgroungColorImg3: '#fff',
+            backgroungColorImg4: '#fff',
+            backgroungColorImg5: '#fff',
+            backgroungColorImg6: '#aeebf3',
+            imgUrl: tempImgUrl6
+         })
+
+         this.handleProfileImage(tempImgUrl6)
+      }
+   }
+
+   handleProfileImage(imageUrl) {
+      console.log('imageurl', imageUrl);
+
+      this.props.handleProfileImage(imageUrl)
    }
 
    render() {
       return (
          <div className="images">
-            <div className="image-name">
-               <p>{this.props.item.profile_image_name}</p>
+            <div className="image" onClick={() => this.handleBackgroundColorAndImageUrl(1)} style={{ backgroundColor: `${this.state.backgroungColorImg1}` }}>
+               <div className="image-name">
+                  <p>Bear</p>
+               </div>
+
+               <div className="img">
+                  <img src={this.state.imgUrl1} alt="profile-image" />
+               </div>
             </div>
 
-            <div className="image">
-               <img src={this.props.item.profile_image_url} onClick={this.handleProfileImage} alt="profile-image" />
+            <div className="image" onClick={() => this.handleBackgroundColorAndImageUrl(2)} style={{ backgroundColor: `${this.state.backgroungColorImg2}` }}>
+               <div className="image-name">
+                  <p>Bear</p>
+               </div>
+
+               <div className="img">
+                  <img src={this.state.imgUrl2} alt="profile-image" />
+               </div>
             </div>
+
+            <div className="image" onClick={() => this.handleBackgroundColorAndImageUrl(3)} style={{ backgroundColor: `${this.state.backgroungColorImg3}` }}>
+               <div className="image-name">
+                  <p>Bear</p>
+               </div>
+
+               <div className="img">
+                  <img src={this.state.imgUrl3} alt="profile-image" />
+               </div>
+            </div>
+
+            <div className="image" onClick={() => this.handleBackgroundColorAndImageUrl(4)} style={{ backgroundColor: `${this.state.backgroungColorImg4}` }}>
+               <div className="image-name">
+                  <p>Bear</p>
+               </div>
+
+               <div className="img">
+                  <img src={this.state.imgUrl4} alt="profile-image" />
+               </div>
+            </div>
+
+            <div className="image" onClick={() => this.handleBackgroundColorAndImageUrl(5)} style={{ backgroundColor: `${this.state.backgroungColorImg5}` }}>
+               <div className="image-name">
+                  <p>Bear</p>
+               </div>
+
+               <div className="img">
+                  <img src={this.state.imgUrl5} alt="profile-image" />
+               </div>
+            </div>
+
+            <div className="image" onClick={() => this.handleBackgroundColorAndImageUrl(6)} style={{ backgroundColor: `${this.state.backgroungColorImg6}` }}>
+               <div className="image-name">
+                  <p>Bear</p>
+               </div>
+
+               <div className="img">
+                  <img src={this.state.imgUrl6} alt="profile-image" />
+               </div>
+            </div>
+
          </div>
       )
    }

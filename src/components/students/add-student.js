@@ -201,7 +201,7 @@ export default function AddStudent(props) {
                   <p className="title">Select Student Profile Image</p>
 
                   <div className="profiles-images-items">
-                     {profileImageUrls()}
+                     <StudentProfileImage handleProfileImage={handleProfileImage} />
                   </div>
                </div>
 

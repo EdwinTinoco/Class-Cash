@@ -26,9 +26,6 @@ export default function StudentDetail(props) {
       StudentName,
       students_image_url,
       grades_name,
-      students_address,
-      students_birth_date,
-      students_contact_phone_number,
       bank_current_total,
       ParentsName,
       parents_address,
@@ -56,9 +53,6 @@ export default function StudentDetail(props) {
 
                <div className="student-info">
                   <p>School Grade: {grades_name}</p>
-                  <p>Address: {students_address}</p>
-                  <p>Birthday: {students_birth_date}</p>
-                  <p>Contact phone number: {students_contact_phone_number}</p>
                </div>
 
                <div className="parents-info">
