@@ -34,11 +34,9 @@ export default class Login extends Component {
 
       if (this.state.email === "" || this.state.password === "") {
          this.setState({
-            errorMessage: "You need to complete the information"
+            errorMessage: "Email or password is wrong"
          })
       } else {
-
-
 
          axios.post("https://class-cash-api-ejlt.herokuapp.com/user",
             {
@@ -57,7 +55,7 @@ export default class Login extends Component {
                this.props.handleSuccessfulAuth();
             } else {
                this.setState({
-                  errorMessage: "Wrong email or password"
+                  errorMessage: "Email or password is wrong"
                })
             }
          }).catch(error => {
