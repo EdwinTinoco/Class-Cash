@@ -17,19 +17,12 @@
             img{
                width: 70px;
                height: 70px;
-               margin-bottom: 20px;
-               transition: transform 0.3s;
-               cursor: pointer;
-
-               &:hover{
-                  -ms-transform: scale(1.1); /* IE 9 */
-                  -webkit-transform: scale(1.1); /* Safari 3-8 */
-                  transform: scale(1.1); 
-               }
+               margin-bottom: 20px;               
             }
          }
 
-         &:hover{            
+         &:hover{       
+            cursor: pointer;     
             background-color: #aeebf3;                
          } 
       }
