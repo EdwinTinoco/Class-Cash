@@ -7,13 +7,9 @@ import StudentProfileImage from "./student-profile-image";
 
 export default function AddStudent(props) {
    const [studentFirstName, setStudentFirstName] = useState('')
-   const [studentMiddleName, setStudentMiddleName] = useState('')
    const [studentLastName, setStudentLastName] = useState('')
-   const [studentBirthDate, setStudentBirthDate] = useState('')
    const [studentUrlProfileImage, setStudentUrlProfileImage] = useState('')
    const [studentGender, setStudentGender] = useState("")
-   const [studentAddress, setStudentAddress] = useState('')
-   const [studentContactPhoneNumber, setStudentContactPhoneNumber] = useState('')
    const [studentParentsId, setStudentParentsId] = useState(1)
    const [studentGradesId, setStudentGradesId] = useState("")
    const [studentGradesGroupsId, setStudentGradesGroupsId] = useState("")
@@ -74,13 +70,9 @@ export default function AddStudent(props) {
                'https://class-cash-api-ejlt.herokuapp.com/add-student',
                {
                   students_first_name: studentFirstName,
-                  students_middle_name: studentMiddleName,
                   students_last_name: studentLastName,
                   students_image_url: studentUrlProfileImage,
-                  students_birth_date: studentBirthDate,
                   students_gender: studentGender,
-                  students_address: studentAddress,
-                  students_contact_phone_number: studentContactPhoneNumber,
                   students_parents_id: parseInt(studentParentsId),
                   students_grades_id: parseInt(studentGradesId),
                   students_grades_groups_id: parseInt(studentGradesGroupsId),
@@ -91,13 +83,9 @@ export default function AddStudent(props) {
                console.log("new user", response.data)
 
                setStudentFirstName('')
-               setStudentMiddleName('')
                setStudentLastName('')
-               setStudentBirthDate('')
                setStudentUrlProfileImage('')
                setStudentGender('')
-               setStudentAddress('')
-               setStudentContactPhoneNumber('')
                setStudentParentsId(1)
                setStudentGradesId('')
                setStudentGradesGroupsId('')
@@ -157,16 +145,6 @@ export default function AddStudent(props) {
                   >
                   </input>
 
-                  <label htmlFor="smn">Middle Name</label>
-                  <input type='text'
-                     value={studentMiddleName}
-                     onChange={({ target }) => { setStudentMiddleName(target.value) }}
-                     className='new-entry-input'
-                     placeholder='Middle Name'
-                     id="smn"
-                  >
-                  </input>
-
                   <label htmlFor="sln">Last Name</label>
                   <input type='text'
                      className='new-entry-input'
@@ -174,17 +152,6 @@ export default function AddStudent(props) {
                      onChange={({ target }) => { setStudentLastName(target.value) }}
                      placeholder='Last Name'
                      id="sln"
-                     required
-                  >
-                  </input>
-
-                  <label htmlFor="bd">Birthdate</label>
-                  <input type='text'
-                     className='new-entry-input'
-                     value={studentBirthDate}
-                     onChange={({ target }) => { setStudentBirthDate(target.value) }}
-                     placeholder='YYYY-MM-DD'
-                     id="bd"
                      required
                   >
                   </input>
@@ -199,28 +166,6 @@ export default function AddStudent(props) {
                      <option value="M">Male</option>
                      <option value="F">Female</option>
                   </select>
-
-                  <label htmlFor="ad">Address</label>
-                  <input type='text'
-                     className='new-entry-input'
-                     value={studentAddress}
-                     onChange={({ target }) => { setStudentAddress(target.value) }}
-                     placeholder='Address'
-                     id="ad"
-                     required
-                  >
-                  </input>
-
-                  <label htmlFor="cpn">Contact Phone Number</label>
-                  <input type='text'
-                     className='new-entry-input'
-                     value={studentContactPhoneNumber}
-                     onChange={({ target }) => { setStudentContactPhoneNumber(target.value) }}
-                     placeholder='Contact Phone Number'
-                     id="cpn"
-                     required
-                  >
-                  </input>
 
                   <label htmlFor="gi">Grade</label>
                   <select className='new-entry-input new-entry-select'
