@@ -11,12 +11,12 @@ export default class StudentProfileImage extends Component {
          backgroungColorImg4: '#fff',
          backgroungColorImg5: '#fff',
          backgroungColorImg6: '#fff',
-         imgUrl1: 'bear',
-         imgUrl2: 'snake',
-         imgUrl3: 'panda',
-         imgUrl4: 'lion',
-         imgUrl5: 'monkey',
-         imgUrl6: 'bird',
+         imgUrl1: "https://toppng.com/uploads/preview/mickey-mouse-images-mickey-minnie-mouse-disney-mickey-minnie-mouse-mickey-mouse-11562862996vg9j2zhxdg.png",
+         imgUrl2: "https://toppng.com/uploads/preview/resultado-de-imagen-para-free-wonderwoman-logo-printables-wonder-woman-baby-11562864866k4bhfrcob8.png",
+         imgUrl3: "https://toppng.com/uploads/preview/disney-cartoon-baby-princesses-clip-art-images-cute-cartoon-disney-princess-115629882112mbeafdlnp.png",
+         imgUrl4: "https://toppng.com/uploads/preview/mickey-mouse-11549813294phgckvoyy5.png",
+         imgUrl5: "https://toppng.com/uploads/preview/batman-baby-kid-clipart-vector-royalty-free-download-big-brother-shirts-and-big-brother-tshirts-11562898136wsgafrmmch.png",
+         imgUrl6: "https://toppng.com/uploads/preview/baby-vector-avengers-spider-man-baby-115628937139qbwqfiznj.png",
          imgUrl: ''
 
       }
@@ -147,7 +147,7 @@ export default class StudentProfileImage extends Component {
          <div className="images">
             <div className="image" onClick={() => this.handleBackgroundColorAndImageUrl(1)} style={{ backgroundColor: `${this.state.backgroungColorImg1}` }}>
                <div className="image-name">
-                  <p>Bear</p>
+                  <p>Mimie</p>
                </div>
 
                <div className="img">
@@ -157,7 +157,7 @@ export default class StudentProfileImage extends Component {
 
             <div className="image" onClick={() => this.handleBackgroundColorAndImageUrl(2)} style={{ backgroundColor: `${this.state.backgroungColorImg2}` }}>
                <div className="image-name">
-                  <p>Bear</p>
+                  <p>Wonder Woman</p>
                </div>
 
                <div className="img">
@@ -167,7 +167,7 @@ export default class StudentProfileImage extends Component {
 
             <div className="image" onClick={() => this.handleBackgroundColorAndImageUrl(3)} style={{ backgroundColor: `${this.state.backgroungColorImg3}` }}>
                <div className="image-name">
-                  <p>Bear</p>
+                  <p>Little Mermaid</p>
                </div>
 
                <div className="img">
@@ -177,7 +177,7 @@ export default class StudentProfileImage extends Component {
 
             <div className="image" onClick={() => this.handleBackgroundColorAndImageUrl(4)} style={{ backgroundColor: `${this.state.backgroungColorImg4}` }}>
                <div className="image-name">
-                  <p>Bear</p>
+                  <p>Mickey</p>
                </div>
 
                <div className="img">
@@ -187,7 +187,7 @@ export default class StudentProfileImage extends Component {
 
             <div className="image" onClick={() => this.handleBackgroundColorAndImageUrl(5)} style={{ backgroundColor: `${this.state.backgroungColorImg5}` }}>
                <div className="image-name">
-                  <p>Bear</p>
+                  <p>Batman</p>
                </div>
 
                <div className="img">
@@ -197,7 +197,7 @@ export default class StudentProfileImage extends Component {
 
             <div className="image" onClick={() => this.handleBackgroundColorAndImageUrl(6)} style={{ backgroundColor: `${this.state.backgroungColorImg6}` }}>
                <div className="image-name">
-                  <p>Bear</p>
+                  <p>Spiderman</p>
                </div>
 
                <div className="img">

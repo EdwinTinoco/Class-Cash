@@ -82,7 +82,6 @@ export default class StudentsItem extends Component {
                   </Link>
                </div>
             </div>
-
          </div>
       )
    }
