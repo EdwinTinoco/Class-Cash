@@ -33,11 +33,6 @@ export default class Login extends Component {
    handleSubmit(event) {
       event.preventDefault();
 
-      // if (this.state.email === "" || this.state.password === "") {
-      //    this.setState({
-      //       errorMessage: "Email or password is wrong"
-      //    })
-      // } else {
       if (this.validate()) {
          axios.post("https://class-cash-api-ejlt.herokuapp.com/user",
             {
@@ -65,7 +60,6 @@ export default class Login extends Component {
             })
          });
       }
-      // }
    }
 
    validate() {
