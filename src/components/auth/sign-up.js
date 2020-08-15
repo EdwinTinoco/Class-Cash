@@ -9,8 +9,6 @@ import Footer from "../footer/footer"
 export default function Register(props) {
    const [userFirstName, setUserFirstName] = useState('')
    const [userLastName, setUserLastName] = useState('')
-   const [userAddress, setUserAddress] = useState("")
-   const [userZipCode, setUserZipCode] = useState('')
    const [userPhoneNumber, setUserPhoneNumber] = useState('')
    const [userGrade, setUserGrade] = useState("")
    const [userEmail, setUserEmail] = useState('')
@@ -31,8 +29,6 @@ export default function Register(props) {
                {
                   users_first_name: userFirstName,
                   users_last_name: userLastName,
-                  users_address: userAddress,
-                  users_zip_code: userZipCode,
                   users_phone_number: userPhoneNumber,
                   users_grades_id: parseInt(userGrade),
                   users_email: userEmail,
@@ -45,8 +41,6 @@ export default function Register(props) {
 
                setUserFirstName('')
                setUserLastName('')
-               setUserAddress('')
-               setUserZipCode('')
                setUserPhoneNumber('')
                setUserGrade("")
                setUserEmail('')
@@ -98,24 +92,6 @@ export default function Register(props) {
                      onChange={({ target }) => { setUserLastName(target.value) }}
                      className='new-entry-input'
                      placeholder='Last Name'
-                     required
-                  >
-                  </input>
-
-                  <input type='text'
-                     className='new-entry-input'
-                     value={userAddress}
-                     onChange={({ target }) => { setUserAddress(target.value) }}
-                     placeholder='Address'
-                     required
-                  >
-                  </input>
-
-                  <input type='text'
-                     className='new-entry-input'
-                     value={userZipCode}
-                     onChange={({ target }) => { setUserZipCode(target.value) }}
-                     placeholder='Zip Code'
                      required
                   >
                   </input>
