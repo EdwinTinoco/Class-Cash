@@ -30,10 +30,10 @@
    .login-main-wrapper{
       .login-form-center{
          width: 100vw;
-         height: calc(100vh - 150px);
+         height: calc(100vh - 200px);
 
          .login-container{
-            height: 413px;
+            height: 440px;
             width: 355px;
 
             .logo{
@@ -46,7 +46,8 @@
             }     
             
             .title{
-               font-size: 0.8em;
+               font-size: 0.9em;
+               width: 270px;
             }
 
             .message{       
@@ -79,7 +80,7 @@
             }   
             
             .sign-up{               
-               margin-top: 15px;
+               margin-top: 45px;
 
                a{
                   font-size: 0.8em;
