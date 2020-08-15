@@ -69,7 +69,6 @@
                   
                   .error-message{       
                      font-size: 0.9em;
-                     color: #d83113;
                   }                  
                }
 
@@ -125,10 +124,20 @@
          
          .right-side{
             .signup-form{
-               .new-entry-input {
-                  width: 330px;
-                  font-size: 0.8em;
-                  margin-bottom: 7px;
+               .form-group{
+                  label{
+                     font-size: 0.9em;
+                  }
+
+                  .new-entry-input {
+                     width: 390px;
+                     font-size: 0.9em;
+                     margin-bottom: 7px;
+                  }
+
+                  .error-message{       
+                     font-size: 0.9em;
+                  }  
                }
 
                .add-button{
@@ -457,7 +466,6 @@
                   
                   .error-message{       
                      font-size: 0.9em;
-                     color: #d83113;
                   }
                }
 
@@ -513,10 +521,20 @@
          
          .right-side{
             .signup-form{
-               .new-entry-input {
-                  width: 330px;
-                  font-size: 0.8em;
-                  margin-bottom: 7px;
+               .form-group{
+                  label{
+                     font-size: 0.9em;
+                  }
+
+                  .new-entry-input {
+                     width: 310px;
+                     font-size: 0.8em;
+                     margin-bottom: 7px;
+                  }
+
+                  .error-message{       
+                     font-size: 0.9em;
+                  }
                }
 
                .add-button{
