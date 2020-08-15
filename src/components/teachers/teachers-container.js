@@ -19,7 +19,6 @@ export default function TeachersContainer() {
       window.location.reload(false);
    }
 
-
    const getTeachersGradesGroups = () => {
       let userCookie = Cookies.get("_sb%_user%_session")
       let temp = 0
@@ -76,8 +75,6 @@ export default function TeachersContainer() {
                   "An error ocurred"
                )
             });
-
-
       }
    }
 

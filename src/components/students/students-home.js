@@ -8,7 +8,9 @@ export default function (props) {
    return (
       <div className="students-home-wrapper">
          <NavigationBar />
+
          <StudentsContainer groupId={props.match.params.slug} />
+
          <Footer />
       </div>
    )
