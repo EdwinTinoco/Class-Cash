@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import StudentsItem from "./students-item"
 
@@ -66,6 +67,12 @@ export default function Students(props) {
    return (
       <div className="students-main-wrapper">
          <div className="group-name-title">
+            <div className="import-excel">
+               <FontAwesomeIcon icon="file-excel" />
+
+               <p>Import Excel</p>
+            </div>
+
             <p >Group: {groupName}</p>
 
             <div className="filter-buttons">
@@ -83,7 +90,6 @@ export default function Students(props) {
                   Clear Filter
                </button>
             </div>
-
          </div>
 
          <div className="students-items-wrapper">

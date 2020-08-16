@@ -8,6 +8,8 @@ export default function () {
    return (
       <div className="teachers-home-wrapper">
          <NavigationBar />
+
+
          <TeachersContainer />
          <Footer />
       </div>

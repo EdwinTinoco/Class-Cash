@@ -1,14 +1,29 @@
 import React, { Component, useState, useEffect } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import GradeAndGroupsItem from "./teachers-item"
+import ModalInsertNewClass from "../modals/modal-insert-new-class"
 
 export default function TeachersContainer() {
    const [user, setUser] = useState({})
    const [gradesGroups, setGradesGroups] = useState([])
    const [oneItem, setOneItem] = useState({})
    const [error, setError] = useState("")
+   const [componentModalIsOpen, setComponentModalIsOpen] = useState(false)
+
+   const handleModalClose = () => {
+      setComponentModalIsOpen(
+         false
+      )
+   }
+
+   const handleModalOpen = option => {
+      setComponentModalIsOpen(
+         true
+      )
+   }
 
    const handleLogout = () => {
       console.log('logout');
@@ -17,6 +32,31 @@ export default function TeachersContainer() {
       setOneItem({})
       Cookies.remove("_sb%_user%_session")
       window.location.reload(false);
+   }
+
+   const handleSubmitInsertNewClass = (nameClass) => {
+      console.log('nameClass', nameClass);
+      console.log('user', user);
+
+
+      axios.post('https://class-cash-api-ejlt.herokuapp.com/grades-groups/add-group',
+         {
+            grades_groups_name: nameClass,
+            grades_groups_grades_id: parseInt(user.grades_id),
+            grades_groups_users_id: parseInt(user.users_id)
+         })
+         .then(response => {
+            console.log('response insert new class', response.data);
+
+            setGradesGroups(
+               [response.data, ...gradesGroups]
+            )
+
+            window.location.reload(false);
+         })
+         .catch(error => {
+            console.log("handleSubmitInsertNewClass error: ", error);
+         })
    }
 
    const getTeachersGradesGroups = () => {
@@ -96,6 +136,16 @@ export default function TeachersContainer() {
          <div className="teacher-info">
             <p className="teacher-name">Teacher: {oneItem.Username}</p>
             <p className="grade">Grade: {oneItem.grades_name}</p>
+         </div>
+
+         <ModalInsertNewClass
+            handleModalClose={handleModalClose}
+            modalIsOpen={componentModalIsOpen}
+            handleSubmitInsertNewClass={handleSubmitInsertNewClass}
+         />
+
+         <div className="add-movie">
+            <p>Add Group <FontAwesomeIcon icon="plus-circle" onClick={handleModalOpen} /></p>
          </div>
 
          <div className="title">
