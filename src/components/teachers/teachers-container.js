@@ -19,7 +19,7 @@ export default function TeachersContainer() {
       )
    }
 
-   const handleModalOpen = option => {
+   const handleModalOpen = () => {
       setComponentModalIsOpen(
          true
       )
@@ -32,6 +32,19 @@ export default function TeachersContainer() {
       setOneItem({})
       Cookies.remove("_sb%_user%_session")
       window.location.reload(false);
+   }
+
+   const handleDeleteGroup = id => {
+      fetch(`https://class-cash-api-ejlt.herokuapp.com/delete-group/${id}`, {
+         method: "DELETE"
+      })
+         .then(
+            setGradesGroups(
+               gradesGroups.filter(item => {
+                  return item.grades_groups_id !== id;
+               })
+            )
+         )
    }
 
    const handleSubmitInsertNewClass = (nameClass) => {
@@ -48,9 +61,9 @@ export default function TeachersContainer() {
          .then(response => {
             console.log('response insert new class', response.data);
 
-            setGradesGroups(
-               [response.data, ...gradesGroups]
-            )
+            // setGradesGroups(
+            //    [response.data, ...gradesGroups]
+            // )
 
             window.location.reload(false);
          })
@@ -121,7 +134,11 @@ export default function TeachersContainer() {
    const teachersGradesGroupsItems = () => {
       return gradesGroups.map(item => {
          return (
-            <GradeAndGroupsItem key={item.grades_groups_id} item={item} />
+            <GradeAndGroupsItem
+               key={item.grades_groups_id}
+               item={item}
+               handleDeleteGroup={handleDeleteGroup}
+            />
          )
       })
    }

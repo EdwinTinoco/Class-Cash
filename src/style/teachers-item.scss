@@ -1,11 +1,11 @@
 .grades-groups-item-wrapper{
    display: flex;
-   justify-content: center;
+   justify-content: space-between;
    align-items: center;
+   padding: 8px 350px;
+   border-bottom: 0.5px solid #c9cace;
 
    .grades-groups-links-wrapper{  
-      margin-bottom: 20px;  
-        
       a{         
          text-decoration: none;
          font-size: 2em;
@@ -16,5 +16,72 @@
             color: $capri;
          }
       }
+   }
+
+   .icons-buttons{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .separation{
+         font-size: 1.5em;
+         
+      }
+
+      .icon-edit{
+         svg{
+            color: $amethyst;
+            font-size: 1.7em;
+            margin-right: 10px;
+            margin-left: 10px;
+            transition: 0.3s ease-in-out;
+   
+            &:hover{
+               cursor: pointer;
+               color: $magenta-crayola;
+            }
+         }
+      }
+
+      .import-excel{
+         .title{
+            font-size: 0.8em;
+            color: #1fdf6f;
+            
+            margin-right: 10px;
+            margin-left: 10px;
+         }
+
+         .icon-import-excel{
+            text-align: center;
+            svg{
+               color: #1fdf6f;
+               font-size: 1.7em;
+               transition: 0.3s ease-in-out;
+      
+               &:hover{
+                  cursor: pointer;
+                  color: #0d853f;
+               }
+            }
+         }
+      }
+
+      .icon-delete{
+         svg{
+            color: #dd0e0e;
+            font-size: 1.3em;
+            margin-right: 10px;
+            margin-left: 10px;
+            transition: 0.3s ease-in-out;
+   
+            &:hover{
+               cursor: pointer;
+               color: #8f0d0d;
+            }
+         }
+      }
+
+
    }
 }
