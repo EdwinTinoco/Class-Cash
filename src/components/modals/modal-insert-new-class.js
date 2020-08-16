@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
 
-import ClassForm from "./class-form"
+import NewClassForm from "./new-class-form"
 
 ReactModal.setAppElement(".app-wrapper");
 
@@ -17,7 +17,7 @@ export default class ModalInsertNewClass extends Component {
             marginRight: "-50%",
             transform: "translate(-50%, -50%)",
             width: "400px",
-            height: "350px"
+            height: "300px"
          },
          overlay: {
             backgroundColor: "rgba(1, 1, 1, 0.75)"
@@ -46,7 +46,7 @@ export default class ModalInsertNewClass extends Component {
             isOpen={this.props.modalIsOpen}
          >
 
-            <ClassForm
+            <NewClassForm
                handleModalClose={this.handleModalClose}
                handleSubmitInsertNewClass={this.handleSubmitInsertNewClass}
             />

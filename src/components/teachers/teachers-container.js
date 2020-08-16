@@ -35,11 +35,15 @@ export default function TeachersContainer() {
    }
 
    const handleSubmitInsertNewClass = (nameClass) => {
+      console.log('nameClass', nameClass);
+      console.log('user', user);
+
+
       axios.post('https://class-cash-api-ejlt.herokuapp.com/grades-groups/add-group',
          {
             grades_groups_name: nameClass,
-            grades_groups_grades_id: user.users_grades_id,
-            grades_groups_users_id: user.users_id
+            grades_groups_grades_id: parseInt(user.grades_id),
+            grades_groups_users_id: parseInt(user.users_id)
          })
          .then(response => {
             console.log('response insert new class', response.data);
@@ -47,6 +51,8 @@ export default function TeachersContainer() {
             setGradesGroups(
                [response.data, ...gradesGroups]
             )
+
+            window.location.reload(false);
          })
          .catch(error => {
             console.log("handleSubmitInsertNewClass error: ", error);
@@ -139,12 +145,11 @@ export default function TeachersContainer() {
          />
 
          <div className="add-movie">
-            <p>Add Class <FontAwesomeIcon icon="plus-circle" onClick={handleModalOpen} /></p>
+            <p>Add Group <FontAwesomeIcon icon="plus-circle" onClick={handleModalOpen} /></p>
          </div>
 
          <div className="title">
             <p>Groups</p>
-
          </div>
 
          <div className="grade-groups-items-wrapper">

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-export default class ClassForm extends Component {
+export default class NewClassForm extends Component {
    constructor(props) {
       super(props);
 
@@ -59,15 +59,17 @@ export default class ClassForm extends Component {
    render() {
       return (
          <div className="class-form-main-wrapper">
-            <p>Add new Class</p>
+            <div className="title">
+               <p>Add New Class</p>
+            </div>
 
             <form onSubmit={this.handleSubmitInsertNewClass} className="class-form">
                <div className="form-group">
-                  <label htmlFor="name-class"><b>Name Class</b></label>
+                  <label htmlFor="nameClass"><b>Name Class</b></label>
                   <input type="text"
                      value={this.state.nameClass}
                      onChange={this.handleChange}
-                     name="name-class"
+                     name="nameClass"
                      placeholder="Name Class"
                   />
                   <div className="error-message">{this.state.errorsMessage.nameClass}</div>
@@ -78,7 +80,7 @@ export default class ClassForm extends Component {
                </div>
 
                <div className="buttons-form">
-                  <button className="btn" type="submit">Add</button>
+                  <button type="submit">Add</button>
                   <button type="button" onClick={this.handleModalClose}>Close</button>
                </div>
             </form>

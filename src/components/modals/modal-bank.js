@@ -24,7 +24,7 @@ export default class BankModal extends Component {
             marginRight: "-50%",
             transform: "translate(-50%, -50%)",
             width: "390px",
-            height: "485px"
+            height: "520px"
          },
          overlay: {
             backgroundColor: "rgba(1, 1, 1, 0.75)"

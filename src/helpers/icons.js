@@ -15,7 +15,8 @@ import {
    faCamera,
    faBars,
    faTimes,
-   faUser
+   faUser,
+   faFileExcel
 } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -37,7 +38,8 @@ const Icons = () => {
       faCamera,
       faBars,
       faTimes,
-      faUser
+      faUser,
+      faFileExcel
    );
 };
 
