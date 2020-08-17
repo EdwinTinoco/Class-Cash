@@ -8,36 +8,13 @@
          box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
          display: flex;
          justify-content: space-between;
-         align-items: center;
-
-         .import-excel{
-            margin-left: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            svg{
-               margin-right: 5px;
-               color: #1fdf6f;
-               font-size: 1.8em;
-               transition: 0.3s ease-in-out;
-   
-               &:hover{
-                  cursor: pointer;
-                  color: $amethyst;
-               }
-            }
-
-            p{
-               font-size: 1.1em;
-               color: #1fdf6f;
-            }
-         }
+         align-items: center;        
 
          p{
             width: 200px;
             font-size: 1.3em;
             color: $magenta-crayola;
+            margin-left: 20px;
          }
 
          .filter-buttons{
