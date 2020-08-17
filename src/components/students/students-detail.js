@@ -26,11 +26,7 @@ export default function StudentDetail(props) {
       StudentName,
       students_image_url,
       grades_name,
-      bank_current_total,
-      ParentsName,
-      parents_address,
-      parents_phone_number,
-      parents_email
+      bank_current_total
    } = studentItem
 
    return (
@@ -53,14 +49,6 @@ export default function StudentDetail(props) {
 
                <div className="student-info">
                   <p>School Grade: {grades_name}</p>
-               </div>
-
-               <div className="parents-info">
-                  <h2>Parents Info</h2>
-                  <p>Name: {ParentsName}</p>
-                  <p>Address: {parents_address}</p>
-                  <p>Phone: {parents_phone_number}</p>
-                  <p>Email: {parents_email}</p>
                </div>
             </div>
          </div>
