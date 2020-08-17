@@ -161,7 +161,7 @@ export default function TeachersContainer() {
             handleSubmitInsertNewClass={handleSubmitInsertNewClass}
          />
 
-         <div className="add-movie">
+         <div className="add-class">
             <p>Add Group <FontAwesomeIcon icon="plus-circle" onClick={handleModalOpen} /></p>
          </div>
 

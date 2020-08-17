@@ -73,11 +73,7 @@ const NavigationBar = () => {
 
          <div className="center-column">
             <div className="nav-link-wrapper">
-               <NavLink exact to="/teachers-home" activeClassName="nav-link-active">Teachers Groups</NavLink>
-            </div>
-
-            <div className="nav-link-wrapper">
-               <NavLink to="/add-student" activeClassName="nav-link-active">Add Student</NavLink>
+               <NavLink exact to="/teachers-home" activeClassName="nav-link-active">Teacher Groups</NavLink>
             </div>
          </div>
 

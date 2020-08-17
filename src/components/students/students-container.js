@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import StudentsItem from "./students-item"
@@ -67,6 +68,14 @@ export default function Students(props) {
    return (
       <div className="students-main-wrapper">
          <div className="group-name-title">
+
+            <div className="add-student">
+               <Link to="/add-student">
+                  <FontAwesomeIcon icon="plus-circle" />
+                  Add Student
+               </Link>
+            </div>
+
             <p >Group: {groupName}</p>
 
             <div className="filter-buttons">

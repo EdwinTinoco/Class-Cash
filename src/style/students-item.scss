@@ -1,5 +1,4 @@
-.students-home-wrapper{
-   
+.students-home-wrapper{   
    .students-main-wrapper{    
       .group-name-title{
          background-color: #ebf0ee;
@@ -8,7 +7,28 @@
          box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
          display: flex;
          justify-content: space-between;
-         align-items: center;        
+         align-items: center;   
+         
+         .add-student{    
+            margin-left: 20px;   
+            a{         
+               font-size: 1.3em;
+               color: $capri;
+               text-decoration: none;
+               
+               svg{
+                  margin-right: 6px;
+                  color: #22af22;
+                  font-size: 1.5em;
+                  transition: 0.3s ease-in-out;
+      
+                  &:hover{
+                     cursor: pointer;
+                     color: $amethyst;
+                  }
+               }
+            }
+         }
 
          p{
             width: 200px;

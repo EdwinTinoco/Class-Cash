@@ -35,7 +35,7 @@ export default class NewClassForm extends Component {
          this.setState({
             nameClass: "",
             errorsMessage: {},
-            message: "Class added succesfully!"
+            message: "Group added succesfully!"
          })
       }
    }
@@ -46,7 +46,7 @@ export default class NewClassForm extends Component {
 
       if (!this.state.nameClass) {
          isValid = false;
-         errors["nameClass"] = "Please enter the name of the class";
+         errors["nameClass"] = "Please enter the name of the group";
       }
 
       this.setState({
@@ -60,17 +60,17 @@ export default class NewClassForm extends Component {
       return (
          <div className="class-form-main-wrapper">
             <div className="title">
-               <p>Add New Class</p>
+               <p>Add New Group</p>
             </div>
 
             <form onSubmit={this.handleSubmitInsertNewClass} className="class-form">
                <div className="form-group">
-                  <label htmlFor="nameClass"><b>Name Class</b></label>
+                  <label htmlFor="nameClass"><b>Name Group</b></label>
                   <input type="text"
                      value={this.state.nameClass}
                      onChange={this.handleChange}
                      name="nameClass"
-                     placeholder="Name Class"
+                     placeholder="Name Group"
                   />
                   <div className="error-message">{this.state.errorsMessage.nameClass}</div>
                </div>

@@ -10,12 +10,10 @@ export default function AddStudent(props) {
    const [studentLastName, setStudentLastName] = useState('')
    const [studentUrlProfileImage, setStudentUrlProfileImage] = useState('')
    const [studentGender, setStudentGender] = useState("")
-   const [studentParentsId, setStudentParentsId] = useState(1)
    const [studentGradesId, setStudentGradesId] = useState("")
    const [studentGradesGroupsId, setStudentGradesGroupsId] = useState("")
    const [selectedOption, setSelectedOption] = useState("")
    const [groups, setGroups] = useState([])
-   const [profilesImages, setProfilesImages] = useState([])
    const [message, setMessage] = useState("")
 
    const handleProfileImage = (urlProfileImage) => {
@@ -73,7 +71,6 @@ export default function AddStudent(props) {
                   students_last_name: studentLastName,
                   students_image_url: studentUrlProfileImage,
                   students_gender: studentGender,
-                  students_parents_id: parseInt(studentParentsId),
                   students_grades_id: parseInt(studentGradesId),
                   students_grades_groups_id: parseInt(studentGradesGroupsId),
                   bank_current_total: parseInt(selectedOption)
@@ -98,32 +95,6 @@ export default function AddStudent(props) {
             })
       }
    }
-
-   const getProfilesImages = () => {
-      axios.get("https://class-cash-api-ejlt.herokuapp.com/profile-image")
-         .then(response => {
-            console.log('profile images', response.data);
-
-            setProfilesImages(
-               response.data
-            )
-         })
-         .catch(error => {
-            console.log('getProfilesImages error', error)
-         })
-   }
-
-   const profileImageUrls = () => {
-      return profilesImages.map(item => {
-         return (
-            <StudentProfileImage key={item.profile_image_id} item={item} handleProfileImage={handleProfileImage} />
-         )
-      })
-   }
-
-   useEffect(() => {
-      getProfilesImages()
-   }, [])
 
    return (
       <div className="add-student-main-wrapper">
@@ -210,6 +181,17 @@ export default function AddStudent(props) {
 
                   <div className="radios">
                      <div className="left-side">
+                        <div className="radio">
+                           <input
+                              type="radio"
+                              value="0"
+                              id="op0"
+                              checked={selectedOption === '0'}
+                              onChange={({ target }) => { setSelectedOption(target.value) }}
+                           />
+                           <label htmlFor="op0">$0</label>
+                        </div>
+
                         <div className="radio">
                            <input
                               type="radio"
