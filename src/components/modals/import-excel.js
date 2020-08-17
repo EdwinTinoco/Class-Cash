@@ -7,13 +7,19 @@ export default class ImportExcel extends Component {
       super(props);
 
       this.state = {
+         userName: this.props.item.Username,
          gradesId: this.props.item.grades_id,
          gradesName: this.props.item.grades_name,
          gradesGroupsId: this.props.item.grades_groups_id,
          gradesGroupsName: this.props.item.grades_groups_name,
          cols: [],
          rows: [],
-         displayError: "none"
+         validateCols: false,
+         validateGender: false,
+         displayError: "none",
+         messageImportSuccefully: "",
+         errorMessage: "",
+         saveDatabase: false
       }
 
       this.fileHandler = this.fileHandler.bind(this)
@@ -22,6 +28,13 @@ export default class ImportExcel extends Component {
    }
 
    fileHandler(e) {
+      let valCols = this.state.validateCols
+      let valGender = this.state.validateGender
+
+      this.setState({
+         messageImportSuccefully: ""
+      })
+
       let fileObj = e.target.files[0];
 
       ExcelRenderer(fileObj, (err, resp) => {
@@ -32,19 +45,56 @@ export default class ImportExcel extends Component {
             console.log('cols', resp.cols);
             console.log('rows', resp.rows);
 
-            this.setState({
-               cols: resp.cols,
-               rows: resp.rows
-            });
-
             if (resp.cols.length < 3 || resp.cols.length > 3) {
-               this.setState({
-                  displayError: "block"
+               console.log('holaa val cols true');
+
+               valCols = true
+            } else {
+
+               console.log('holaa valgender');
+
+               let firstItem = resp.rows.shift()
+
+               resp.rows.map(row => {
+                  console.log('row', row[0], row[1], row[2]);
+
+                  console.log('gender', row[2].toUpperCase());
+                  let gender = row[2].toUpperCase()
+                  console.log('gender', gender);
+
+                  if (gender !== "F") {
+                     if (gender !== 'M') {
+                        valGender = true
+                     }
+                  }
                })
             }
-            else {
+
+            if (valCols) {
                this.setState({
-                  displayError: "none"
+                  cols: [],
+                  rows: [],
+                  displayError: "block",
+                  errorMessage: "There must be 3 columns in the excel file. Example: First name, Last name, Gender",
+                  saveDatabase: false
+               })
+            } else if (valGender) {
+               this.setState({
+                  cols: [],
+                  rows: [],
+                  displayError: "block",
+                  errorMessage: "Check the gender in the excel file. The Gender must be 'F' for female or 'M' for male",
+                  saveDatabase: false
+               })
+            } else {
+               this.setState({
+                  cols: resp.cols,
+                  rows: resp.rows,
+                  validateCols: false,
+                  validateGender: false,
+                  displayError: "none",
+                  errorMessage: "",
+                  saveDatabase: true
                })
             }
          }
@@ -52,20 +102,19 @@ export default class ImportExcel extends Component {
    }
 
    handleSubmit() {
-
-      if (this.state.cols.length < 3 || this.state.cols.length > 3) {
-         console.log('There must be 3 columns in the excel file. Example: first name, last name, gender');
-      } else {
+      if (this.state.saveDatabase) {
          console.log('Import students list excel file to Database');
 
          this.state.rows.map(row => {
             console.log('row', row[0], row[1], row[2]);
 
+            let gender = row[2].toUpperCase()
+
             axios.post('https://class-cash-api-ejlt.herokuapp.com/add-student',
                {
                   students_first_name: row[0],
                   students_last_name: row[1],
-                  students_gender: row[2],
+                  students_gender: gender,
                   students_image_url: "https://toppng.com/uploads/preview/mickey-mouse-11549813294phgckvoyy5.png",
                   students_grades_id: parseInt(this.state.gradesId),
                   students_grades_groups_id: parseInt(this.state.gradesGroupsId),
@@ -75,12 +124,19 @@ export default class ImportExcel extends Component {
                .then(response => {
                   console.log('response', response.data);
 
+                  this.setState({
+                     displayError: "none",
+                     messageImportSuccefully: "Excel file was succesfully imported"
+                  })
+
                })
                .catch(error => {
                   console.log('handleSubmit error', error);
 
                })
          })
+      } else {
+         console.log('There was an error with the excel file to import');
       }
    }
 
@@ -93,22 +149,42 @@ export default class ImportExcel extends Component {
          <div className="import-main-wrapper">
             <div className="title">
                <p>Import excel file to upload students</p>
+            </div>
+
+            <div className="teacher-grade-group">
+               <p>Teacher: {this.state.userName}</p>
                <p>{this.state.gradesName}</p>
-               <p>{this.state.gradesGroupsName}</p>
+               <p>Group: {this.state.gradesGroupsName}</p>
+            </div>
+
+            <div className="excel-file-directions">
+               <p>The excel file must to contain a heading dividesd in 3 columns.
+               Example header: First name, Last name, Gender. The column gender must to contain
+                  a letter M for male or F for female</p>
+            </div>
+
+            <div className="buttons">
                <button type="button" onClick={this.handleSubmit}>Save</button>
-               <button type="button" onClick={this.handleModalClose}>Cancel</button>
+               <button type="button" onClick={this.handleModalClose}>Close</button>
+            </div>
+
+            <div className="message">
+               <p>{this.state.messageImportSuccefully}</p>
             </div>
 
             <div className="choose-file">
                <input type="file" name="file" onChange={this.fileHandler} />
             </div>
+
             {this.state.displayError === "block" ? (
                <div className="error-message" style={{ display: `${this.state.displayError}` }}>
-                  <p>There must be 3 columns in the excel file. Example: first name, last name, gender</p>
+                  <p>{this.state.errorMessage}</p>
                </div>
             ) :
                (
-                  <OutTable data={this.state.rows} columns={this.state.cols} tableClassName="ExcelTable2007" tableHeaderRowClass="heading" />
+                  <div className="excel-preview">
+                     <OutTable data={this.state.rows} columns={this.state.cols} tableClassName="ExcelTable2007" tableHeaderRowClass="heading" />
+                  </div>
                )
             }
          </div>

@@ -1,0 +1,89 @@
+.import-main-wrapper{
+   .title{
+      background-color: #545454;
+      padding: 1px 0px;
+      text-align: center;
+
+      p{
+         font-size: 1.2em;
+         color: $capri;
+      }
+   }
+
+   .teacher-grade-group{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p{
+         font-size: 1.1em;
+         color: $magenta-crayola;
+      }
+   }
+
+   .excel-file-directions{
+      margin-bottom: 25px;
+      p{
+         font-size: 0.9em;
+         color: #a19f9f;
+         font-style: italic;
+      }
+   }
+
+   .buttons{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      button{
+         background-color: $amethyst;
+         border: 1px solid $amethyst;
+         border-radius: 5px;
+         padding: 4px 30px;
+         font-size: 1em;    
+         color: whitesmoke;     
+         transition: all 0.3s ease-in-out;
+         outline: none;
+
+         &:hover{
+            cursor: pointer;
+            background-color: $magenta-crayola;
+            border: 1px solid $magenta-crayola;
+            outline: none;
+         }    
+      }
+   }
+
+   .message{
+      position: absolute;
+      text-align: center;
+
+      p{
+         font-size: 1em;
+         color: $capri;
+      }
+   }
+
+   .choose-file{
+      margin-top: 50px;
+
+      input{
+         background-color: $capri;
+         font-size: 1em;
+         color: whitesmoke;
+         padding: 1px 5px;         
+      }
+   }
+
+   .error-message{
+      p{
+         font-size: 1em;
+         color: #db2c2c;
+      }
+   }
+
+   .excel-preview{
+      font-size: 1.1em;
+      color: #a19f9f;
+   }
+}
