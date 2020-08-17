@@ -1,4 +1,5 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
+import axios from "axios";
 import { OutTable, ExcelRenderer } from 'react-excel-renderer';
 
 export default class ImportExcel extends Component {
@@ -45,11 +46,9 @@ export default class ImportExcel extends Component {
                this.setState({
                   displayError: "none"
                })
-
             }
          }
       });
-
    }
 
    handleSubmit() {
@@ -59,8 +58,29 @@ export default class ImportExcel extends Component {
       } else {
          console.log('Import students list excel file to Database');
 
+         this.state.rows.map(row => {
+            console.log('row', row[0], row[1], row[2]);
 
+            axios.post('https://class-cash-api-ejlt.herokuapp.com/add-student',
+               {
+                  students_first_name: row[0],
+                  students_last_name: row[1],
+                  students_gender: row[2],
+                  students_image_url: "https://toppng.com/uploads/preview/mickey-mouse-11549813294phgckvoyy5.png",
+                  students_grades_id: parseInt(this.state.gradesId),
+                  students_grades_groups_id: parseInt(this.state.gradesGroupsId),
+                  bank_current_total: 0
+               },
+            )
+               .then(response => {
+                  console.log('response', response.data);
 
+               })
+               .catch(error => {
+                  console.log('handleSubmit error', error);
+
+               })
+         })
       }
    }
 
