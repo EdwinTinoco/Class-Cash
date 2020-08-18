@@ -1,12 +1,14 @@
 import React, { Component, useState, useEffect } from 'react';
-import axios from 'axios';
 import { Link } from "react-router-dom"
+import axios from 'axios';
+import Cookies from 'js-cookie'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import StudentsItem from "./students-item"
 
 
 export default function Students(props) {
+   const [user, setUser] = useState({})
    const [students, setStudents] = useState([])
    const [studentsFilter, setStudentsFilter] = useState([])
    const [groupName, setGroupName] = useState("")
@@ -20,6 +22,46 @@ export default function Students(props) {
       setStudents(studentsFilter.filter((item) => {
          return item.students_gender === filter
       }))
+   }
+
+   const getUser = () => {
+      let userCookie = Cookies.get("_sb%_user%_session")
+      let temp = 0
+      let userIdArr = []
+
+      if (userCookie !== undefined) {
+         for (var i = 0; i < userCookie.length; i++) {
+            if (userCookie[i] == "%") {
+               temp += 1
+            }
+
+            if (temp === 2) {
+               if (userCookie[i] !== "%") {
+                  userIdArr.push(userCookie[i])
+               }
+            }
+         }
+
+         let userId = userIdArr.join('')
+
+         axios.get(`https://class-cash-api-ejlt.herokuapp.com/user/${userId}`)
+            .then(response => {
+               console.log('response get user', response.data);
+
+               if (response.data.length > 0) {
+                  setUser(
+                     response.data[0]
+                  )
+               } else {
+                  handleLogout()
+               }
+
+            }).catch(error => {
+               setError(
+                  "An error ocurred"
+               )
+            });
+      }
    }
 
    const getStudentsItems = () => {
@@ -62,6 +104,7 @@ export default function Students(props) {
 
    useEffect(() => {
       getStudentsItems()
+      getUser()
    }, [])
 
 
@@ -70,7 +113,10 @@ export default function Students(props) {
          <div className="group-name-title">
 
             <div className="add-student">
-               <Link to="/add-student">
+               <Link to={{
+                  pathname: '/add-student',
+                  state: { gradeId: user.grades_id, gradeName: user.grades_name, groupId: props.groupId, groupName: groupName }
+               }}>
                   <FontAwesomeIcon icon="plus-circle" />
                   Add Student
                </Link>

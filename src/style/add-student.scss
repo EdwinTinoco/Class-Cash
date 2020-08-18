@@ -1,4 +1,16 @@
 .add-student-main-wrapper{   
+   .grade-group{
+      background-color: #ebf0ee;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+
+      p{
+         color: $amethyst;
+         font-size: 1.1em;
+      }
+   }
    .add-student-form{
       margin-top: 15px;
 

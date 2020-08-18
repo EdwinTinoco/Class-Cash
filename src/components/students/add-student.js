@@ -6,14 +6,15 @@ import Footer from "../footer/footer"
 import StudentProfileImage from "./student-profile-image";
 
 export default function AddStudent(props) {
+   const [gradeName, setGradeName] = useState(props.location.state.gradeName)
+   const [groupName, setGroupName] = useState(props.location.state.groupName)
    const [studentFirstName, setStudentFirstName] = useState('')
    const [studentLastName, setStudentLastName] = useState('')
    const [studentUrlProfileImage, setStudentUrlProfileImage] = useState('')
    const [studentGender, setStudentGender] = useState("")
-   const [studentGradesId, setStudentGradesId] = useState("")
-   const [studentGradesGroupsId, setStudentGradesGroupsId] = useState("")
+   const [studentGradesId, setStudentGradesId] = useState(props.location.state.gradeId)
+   const [studentGradesGroupsId, setStudentGradesGroupsId] = useState(props.location.state.groupId)
    const [selectedOption, setSelectedOption] = useState("")
-   const [groups, setGroups] = useState([])
    const [message, setMessage] = useState("")
 
    const handleProfileImage = (urlProfileImage) => {
@@ -22,37 +23,15 @@ export default function AddStudent(props) {
       )
    }
 
-   const handleChange = ({ target }) => {
-      console.log('studentGradesId', target.value);
-
-      if (target.value !== "") {
-         axios.get(`https://class-cash-api-ejlt.herokuapp.com/groups/${target.value}`)
-            .then(response => {
-               console.log('groups options', response.data);
-
-               setGroups(
-                  response.data
-               )
-            })
-            .catch(error => {
-               console.log('GetOptions error', error)
-            })
-      }
-
-      setStudentGradesId(target.value)
-   }
-
    const handleSubmitAddStudent = () => {
       event.preventDefault();
       console.log('new student');
+      console.log('gradeId, groupId', studentGradesId, studentGradesGroupsId);
+
 
       if (studentGender === "") {
          setMessage(
             "You need to select the gender"
-         )
-      } else if (studentGradesId === "" || studentGradesGroupsId === "") {
-         setMessage(
-            "You need to select an option for grade or group"
          )
       } else if (studentUrlProfileImage === "") {
          setMessage(
@@ -83,10 +62,8 @@ export default function AddStudent(props) {
                setStudentLastName('')
                setStudentUrlProfileImage('')
                setStudentGender('')
-               setStudentParentsId(1)
                setStudentGradesId('')
                setStudentGradesGroupsId('')
-               setGroups([])
                setSelectedOption("")
                setMessage('Student added successfully!')
             })
@@ -99,6 +76,11 @@ export default function AddStudent(props) {
    return (
       <div className="add-student-main-wrapper">
          <NavigationBar />
+
+         <div className="grade-group">
+            <p>Grade: {gradeName}</p>
+            <p>Group: {groupName}</p>
+         </div>
 
          <form onSubmit={handleSubmitAddStudent} className="add-student-form">
             <div className="student-info">
@@ -133,38 +115,9 @@ export default function AddStudent(props) {
                      onChange={({ target }) => { setStudentGender(target.value) }}
                      id="gn"
                   >
-                     <option value=''>Select an option</option>
+                     <option value=''>Select a gender</option>
                      <option value="M">Male</option>
                      <option value="F">Female</option>
-                  </select>
-
-                  <label htmlFor="gi">Grade</label>
-                  <select className='new-entry-input new-entry-select'
-                     value={studentGradesId}
-                     onChange={handleChange}
-                     id="gi"
-                  >
-                     <option value=''>Select an option</option>
-                     <option value={1}>First Grade</option>
-                     <option value={11}>Second Grade</option>
-                     <option value={21}>Third Grade</option>
-                     <option value={31}>Fourth Grade</option>
-                     <option value={41}>Fifth Grade</option>
-                  </select>
-
-                  <label htmlFor="gg">Group</label>
-                  <select className='new-entry-input new-entry-select'
-                     value={studentGradesGroupsId}
-                     onChange={({ target }) => { setStudentGradesGroupsId(target.value) }}
-                     id="gg"
-                  >
-                     <option value=''>Select an option</option>
-                     {studentGradesId !== "" ?
-                        (groups.map((item, index) =>
-                           <option value={item.grades_groups_id} key={index}>{item.grades_groups_name}</option>))
-                        :
-                        <option value=''></option>
-                     }
                   </select>
                </div>
 
