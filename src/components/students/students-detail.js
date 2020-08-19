@@ -41,6 +41,25 @@ export default function StudentDetail(props) {
 
    const handleSubmitEditStudent = (item) => {
 
+      console.log('item student from modal', item);
+
+      axios.put(`https://class-cash-api-ejlt.herokuapp.com/student-update/${item.students_id}`,
+         {
+            students_first_name: item.students_first_name,
+            students_last_name: item.students_last_name,
+            students_image_url: item.students_image_url,
+            students_gender: item.students_gender,
+            bank_current_total: item.bank_current_total
+         }
+      )
+         .then(response => {
+            console.log('respnse update student', response.data);
+
+            window.location.reload(false);
+         })
+         .catch(error => {
+            console.log('handleSubmitEditStudent error', error);
+         })
    }
 
    const getStudentItem = () => {

@@ -5,6 +5,7 @@ export default class StudentProfileImage extends Component {
       super(props);
 
       this.state = {
+         imgUrlEdit: this.props.imgUrlEdit,
          backgroungColorImg1: '#fff',
          backgroungColorImg2: '#fff',
          backgroungColorImg3: '#fff',
@@ -137,9 +138,88 @@ export default class StudentProfileImage extends Component {
    }
 
    handleProfileImage(imageUrl) {
-      console.log('imageurl', imageUrl);
-
       this.props.handleProfileImage(imageUrl)
+   }
+
+   componentDidMount() {
+      if (this.state.imgUrlEdit === this.state.imgUrl1) {
+
+         this.setState({
+            backgroungColorImg1: '#aeebf3',
+            backgroungColorImg2: '#fff',
+            backgroungColorImg3: '#fff',
+            backgroungColorImg4: '#fff',
+            backgroungColorImg5: '#fff',
+            backgroungColorImg6: '#fff'
+         })
+
+         this.handleProfileImage(this.state.imgUrl1)
+
+      } else if (this.state.imgUrlEdit === this.state.imgUrl2) {
+
+         this.setState({
+            backgroungColorImg1: '#fff',
+            backgroungColorImg2: '#aeebf3',
+            backgroungColorImg3: '#fff',
+            backgroungColorImg4: '#fff',
+            backgroungColorImg5: '#fff',
+            backgroungColorImg6: '#fff'
+         })
+
+         this.handleProfileImage(this.state.imgUrl2)
+
+      } else if (this.state.imgUrlEdit === this.state.imgUrl3) {
+
+         this.setState({
+            backgroungColorImg1: '#fff',
+            backgroungColorImg2: '#fff',
+            backgroungColorImg3: '#aeebf3',
+            backgroungColorImg4: '#fff',
+            backgroungColorImg5: '#fff',
+            backgroungColorImg6: '#fff'
+         })
+
+         this.handleProfileImage(this.state.imgUrl3)
+
+      } else if (this.state.imgUrlEdit === this.state.imgUrl4) {
+
+         this.setState({
+            backgroungColorImg1: '#fff',
+            backgroungColorImg2: '#fff',
+            backgroungColorImg3: '#fff',
+            backgroungColorImg4: '#aeebf3',
+            backgroungColorImg5: '#fff',
+            backgroungColorImg6: '#fff'
+         })
+
+         this.handleProfileImage(this.state.imgUrl4)
+
+      } else if (this.state.imgUrlEdit === this.state.imgUrl5) {
+
+         this.setState({
+            backgroungColorImg1: '#fff',
+            backgroungColorImg2: '#fff',
+            backgroungColorImg3: '#fff',
+            backgroungColorImg4: '#fff',
+            backgroungColorImg5: '#aeebf3',
+            backgroungColorImg6: '#fff'
+         })
+
+         this.handleProfileImage(this.state.imgUrl5)
+
+      } else if (this.state.imgUrlEdit === this.state.imgUrl6) {
+
+         this.setState({
+            backgroungColorImg1: '#fff',
+            backgroungColorImg2: '#fff',
+            backgroungColorImg3: '#fff',
+            backgroungColorImg4: '#fff',
+            backgroungColorImg5: '#fff',
+            backgroungColorImg6: '#aeebf3'
+         })
+
+         this.handleProfileImage(this.state.imgUrl6)
+      }
    }
 
    render() {

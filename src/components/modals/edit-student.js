@@ -5,9 +5,10 @@ export default function EditStudentForm(props) {
    const [studentId, setStudentId] = useState(props.item.students_id)
    const [studentFirstName, setStudentFirstName] = useState(props.item.students_first_name)
    const [studentLastName, setStudentLastName] = useState(props.item.students_last_name)
-   const [studentUrlProfileImage, setStudentUrlProfileImage] = useState("")
+   const [studentUrlProfileImage, setStudentUrlProfileImage] = useState(props.item.students_image_url)
    const [studentGender, setStudentGender] = useState(props.item.students_gender)
-   const [selectedOption, setSelectedOption] = useState("")
+   const [currentCash, setCurrentCash] = useState(props.item.bank_current_total)
+   const [selectedOption, setSelectedOption] = useState('')
    const [message, setMessage] = useState("")
 
    const handleProfileImage = (urlProfileImage) => {
@@ -31,11 +32,13 @@ export default function EditStudentForm(props) {
          setMessage(
             "You need to select a profile image"
          )
-      } else if (selectedOption === "") {
-         setMessage(
-            "You need to select a cash amount"
-         )
       } else {
+         let tempCash = 0
+         if (selectedOption !== "") {
+            tempCash = parseInt(selectedOption)
+         } else {
+            tempCash = parseInt(currentCash)
+         }
 
          const item = {
             students_id: studentId,
@@ -43,14 +46,13 @@ export default function EditStudentForm(props) {
             students_last_name: studentLastName,
             students_image_url: studentUrlProfileImage,
             students_gender: studentGender,
-            bank_current_total: parseInt(selectedOption)
+            bank_current_total: tempCash
          }
 
          console.log('item student edit', item);
 
-
-         // props.handleSubmitEditStudent(item)
-         // setMessage('Student added successfully!')
+         props.handleSubmitEditStudent(item)
+         setMessage('Student updated successfully!')
       }
    }
 
@@ -103,12 +105,13 @@ export default function EditStudentForm(props) {
                   <p className="title">Select Student Profile Image</p>
 
                   <div className="profiles-images-items">
-                     <StudentProfileImage handleProfileImage={handleProfileImage} />
+                     <StudentProfileImage imgUrlEdit={studentUrlProfileImage} handleProfileImage={handleProfileImage} />
                   </div>
                </div>
 
                <div className="radio-inputs">
-                  <p className="title">Select Cash Amount</p>
+                  <p className="title">Current cash: {currentCash}</p>
+                  <p>If you want to change the current cash select an option:</p>
 
                   <div className="radios">
                      <div className="left-side">
