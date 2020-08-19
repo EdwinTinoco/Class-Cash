@@ -58,7 +58,7 @@ export default function EditStudentForm(props) {
 
 
    return (
-      <div className="class-form-main-wrapper">
+      <div className="edit-main-wrapper">
          <div className="title">
             <p>Edit Student info</p>
          </div>
@@ -67,38 +67,42 @@ export default function EditStudentForm(props) {
             <div className="student-info">
                <div className="text-inputs">
 
-                  <label htmlFor="sfn">First Name</label>
-                  <input type='text'
-                     value={studentFirstName}
-                     onChange={({ target }) => { setStudentFirstName(target.value) }}
-                     className='new-entry-input'
-                     placeholder='First Name'
-                     id="sfn"
-                     required
-                  >
-                  </input>
+                  <div className="form-group">
+                     <label htmlFor="sfn">First Name</label>
+                     <input type='text'
+                        value={studentFirstName}
+                        onChange={({ target }) => { setStudentFirstName(target.value) }}
+                        placeholder='First Name'
+                        id="sfn"
+                        required
+                     >
+                     </input>
+                  </div>
 
-                  <label htmlFor="sln">Last Name</label>
-                  <input type='text'
-                     className='new-entry-input'
-                     value={studentLastName}
-                     onChange={({ target }) => { setStudentLastName(target.value) }}
-                     placeholder='Last Name'
-                     id="sln"
-                     required
-                  >
-                  </input>
+                  <div className="form-group">
+                     <label htmlFor="sln">Last Name</label>
+                     <input type='text'
+                        value={studentLastName}
+                        onChange={({ target }) => { setStudentLastName(target.value) }}
+                        placeholder='Last Name'
+                        id="sln"
+                        required
+                     >
+                     </input>
+                  </div>
 
-                  <label htmlFor="gn">Gender</label>
-                  <select className='new-entry-input new-entry-select'
-                     value={studentGender}
-                     onChange={({ target }) => { setStudentGender(target.value) }}
-                     id="gn"
-                  >
-                     <option value=''>Select a gender</option>
-                     <option value="M">Male</option>
-                     <option value="F">Female</option>
-                  </select>
+                  <div className="form-group">
+                     <label htmlFor="gn">Gender</label>
+                     <select
+                        value={studentGender}
+                        onChange={({ target }) => { setStudentGender(target.value) }}
+                        id="gn"
+                     >
+                        <option value=''>Select a gender</option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                     </select>
+                  </div>
                </div>
 
                <div className="profiles-images-wrapper">
@@ -110,7 +114,7 @@ export default function EditStudentForm(props) {
                </div>
 
                <div className="radio-inputs">
-                  <p className="title">Current cash: {currentCash}</p>
+                  <p className="title">Current cash: ${currentCash}</p>
                   <p>If you want to change the current cash select an option:</p>
 
                   <div className="radios">
@@ -203,8 +207,10 @@ export default function EditStudentForm(props) {
                   <p>{message}</p>
                </div>
 
-               <button type='submit' className='add-button'>Save Changes</button>
-               <button type="button" onClick={handleModalClose}>Close</button>
+               <div className="buttons">
+                  <button type='submit' className='add-button'>Save Changes</button>
+                  <button type="button" onClick={handleModalClose}>Close</button>
+               </div>
             </div>
          </form>
 

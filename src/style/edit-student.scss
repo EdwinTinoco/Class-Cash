@@ -1,52 +1,72 @@
-.add-student-main-wrapper{   
-   .grade-group{
-      background-color: #ebf0ee;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+.edit-main-wrapper{
+   .title{
+      background-color: #545454;
+      text-align: center;
 
       p{
-         color: $amethyst;
-         font-size: 1.1em;
+         color: $capri;
+         font-size: 1.3em;
       }
    }
    
-   .add-student-form{
-      margin-top: 15px;
-
-      .title{
-         margin-left: 150px;
-         color: $magenta-crayola;
-      }
-
+   .edit-student-form{
       .student-info{
-         display: grid;
-         grid-template-columns: 1fr 1fr 1fr;
-         gap: 20px;
-   
          .text-inputs{
             display: flex;
-            flex-direction: column;            
+            justify-content: space-between;
+            align-items: center;
+      
+            .form-group{
+               display: flex;
+               flex-direction: column;
+               text-align: left;
+      
+               label{
+                  margin-top: 10px;
+                  color: $amethyst;
+                  font-size: 1em;
+               }
+      
+               input{
+                  width: 200px;
+                  height: 30px;
+                  padding: 1px 5px;
+                  font-size: 1em;
+                  border-radius: 5px;
+                  border: 1px solid $amethyst; 
+               }   
+               
+               select{
+                  width: 200px;
+                  height: 30px;
+                  padding: 1px 5px;
+                  font-size: 1em;
+                  border-radius: 5px;
+                  border: 1px solid $amethyst; 
+               }
+            }
+         }
 
-            label{     
-               margin-left: 30px;          
+         .profiles-images-wrapper{
+            p{
+               color: $capri;
+               font-size: 1.1em;
+            }
+         }
+
+         .radio-inputs{
+            .title{
+               font-size: 1.5em;
                color: $capri;
             }
 
-            .new-entry-input {
-               margin-left: 30px;
-               width: 400px;
-               font-size: 1em;
-               border: 1px solid $amethyst;
-               padding: 10px 15px;
-               border-radius: 5px;
-               margin-bottom: 9px;
-             }
-         }
-         
-         .radio-inputs{
+            p{
+               text-align: center;
+            }
             .radios{
+               display: grid;
+               grid-template-columns: 1fr 1fr;
+
                .left-side{
                   text-align: center;
 
@@ -62,7 +82,7 @@
                      label {
                         display: inline-block;
                         background-color: $amethyst;
-                        padding: 12px 60px;
+                        padding: 6px 50px;
                         font-size: 1.3em;
                         color: whitesmoke;
                         border: 1px solid $amethyst;
@@ -98,7 +118,7 @@
                      label {
                         display: inline-block;
                         background-color: $amethyst;
-                        padding: 12px 60px;
+                        padding: 6px 50px;
                         font-size: 1.3em;
                         color: whitesmoke;
                         border: 1px solid $amethyst;
@@ -119,41 +139,39 @@
                   }
                }
             }
-         }
+         }        
       }
 
       .btn-message{
-         text-align: center;
-
-         .message{            
+         .message{
             p{
-               width: 100%;
-               position: absolute;
-               font-size: 1.2em;
                color: $capri;
             }
          }
 
-         .add-button{
-            width: 438px;
-            color: whitesmoke;
-            background-color:  $magenta-crayola;
-            border: 1px solid $magenta-crayola;
-            border-radius: 5px;
-            font-size: 1.2em;
-            margin-top: 45px;
-            margin-bottom: 60px;
-            padding: 8px 10px;
-            outline: none;
-            transition: 0.3s ease-in-out;
-
-            &:hover{
-               cursor: pointer;
-               background-color: $amethyst;
-               border: 1px solid $amethyst;
+         .buttons{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            button{
+               color: whitesmoke;
+               background-color:  $magenta-crayola;
+               border: 1px solid $magenta-crayola;
+               border-radius: 5px;
+               font-size: 1.2em;
+               padding: 4px 6px;
                outline: none;
+               transition: 0.3s ease-in-out;
+   
+               &:hover{
+                  cursor: pointer;
+                  background-color: $amethyst;
+                  border: 1px solid $amethyst;
+                  outline: none;
+               }
             }
          }
       }
-   }   
+   }
 }
