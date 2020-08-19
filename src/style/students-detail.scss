@@ -72,13 +72,10 @@
 
          .grade-group{
             margin: 40px 0px 0px 0px;
-            display: flex;
-            justify-content: left;
-            align-items: center;
 
             p{
-               margin: 0px;
-               font-size: 1.3em;
+               margin: 5px 0px;
+               font-size: 1.5em;
                color: $capri;
                margin-right: 30px;
             }
@@ -86,32 +83,48 @@
 
          .bank-total{
             p{
-               margin: 5px 0px;
+               margin: 20px 0px 40px 0px;
                font-size: 1.6em;
                color: $capri;
             }
          }        
 
          .first-name{
+            label{
+               margin: 40px 0px 0px 0px;
+               font-size: 1em;
+               color: $magenta-crayola
+            }
+
             p{
-               margin: 20px 0px 3px 0px;
-               font-size: 1.2em;
+               margin: 0px 0px 15px 0px;
+               font-size: 1.8em;
                color: $amethyst;
             }
          }
 
          .last-name{
+            label{              
+               font-size: 1em;
+               color: $magenta-crayola
+            }
+
             p{
-               margin: 0px;
-               font-size: 1.2em;
+               margin: 0px 0px 15px 0px;
+               font-size: 1.8em;
                color: $amethyst;
             }
          }
 
          .gender{
+            label{              
+               font-size: 1em;
+               color: $magenta-crayola
+            }
+
             p{
-               margin: 3px 0px;
-               font-size: 1.2em;
+               margin: 0px 0px 15px 0px;
+               font-size: 1.8em;
                color: $amethyst;
             }
          }

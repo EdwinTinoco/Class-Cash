@@ -3,11 +3,25 @@ import axios from "axios"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import NavigationBar from "../navigation/navigation-bar"
+import ModalEditStudent from "../modals/modal-edit-student"
 import Footer from "../footer/footer"
 
 export default function StudentDetail(props) {
    const [studentItem, setStudentItem] = useState({})
    const [message, setMessage] = useState("")
+   const [componentModalIsOpen, setComponentModalIsOpen] = useState(false)
+
+   const handleModalClose = () => {
+      setComponentModalIsOpen(
+         false
+      )
+   }
+
+   const handleModalOpen = () => {
+      setComponentModalIsOpen(
+         true
+      )
+   }
 
    const handleDeleteStudent = (studentId) => {
       fetch(`https://class-cash-api-ejlt.herokuapp.com/delete-student/${studentId}`, {
@@ -23,6 +37,10 @@ export default function StudentDetail(props) {
          .catch(error => {
             console.log('handleDeleteStudent error', error);
          })
+   }
+
+   const handleSubmitEditStudent = (item) => {
+
    }
 
    const getStudentItem = () => {
@@ -54,9 +72,16 @@ export default function StudentDetail(props) {
 
          <NavigationBar />
 
+         <ModalEditStudent
+            handleModalClose={handleModalClose}
+            modalIsOpen={componentModalIsOpen}
+            handleSubmitEditStudent={handleSubmitEditStudent}
+            item={studentItem}
+         />
+
          <div className="edit-delete">
             <div className="icon-edit">
-               <p><FontAwesomeIcon icon="edit" /> Edit student info</p>
+               <p><FontAwesomeIcon icon="edit" onClick={handleModalOpen} /> Edit student info</p>
             </div>
 
             <div className="icon-delete">
@@ -81,19 +106,22 @@ export default function StudentDetail(props) {
                </div>
 
                <div className="bank-total">
-                  <p>Bank: ${bank_current_total}</p>
+                  <p>Cash: ${bank_current_total}</p>
                </div>
 
                <div className="first-name">
-                  <p>First name: {students_first_name}</p>
+                  <label htmlFor="firstname">First name</label>
+                  <p name="firstname">{students_first_name}</p>
                </div>
 
                <div className="last-name">
-                  <p>Last name: {students_last_name}</p>
+                  <label htmlFor="lastname">Last name</label>
+                  <p name="lastname">{students_last_name}</p>
                </div>
 
                <div className="gender">
-                  <p>Gender: {students_gender}</p>
+                  <label htmlFor="gen">Gender</label>
+                  <p name="gen">{students_gender}</p>
                </div>
 
                <div className="message">
