@@ -78,7 +78,7 @@
 
          .students-item-wrapper{
             text-align: center;
-            padding-top: 30px;
+            padding-top: 20px;
             border: 1.5px solid $green-crayola; 
             box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);           
             border-radius: 5px;
@@ -102,24 +102,33 @@
             .students-info-wrapper{            
                .student-name{
                   p{
+                     margin: 0px 0px 8px 0px;
                      font-size: 1.1em;
                      color: $magenta-crayola;
                   }                  
                }
 
                .student-bank-amount{
-                  font-size: 1.8em;
-                  color: $capri;
+                  p{
+                     margin: 0px;
+                     font-size: 1.8em;
+                     color: $capri;
+                  }
                }
 
                .student-info-link{
                   a{
+                    
                      text-decoration: none;
                      color: $amethyst;
                      transition: 0.3s ease-in-out;
 
                      &:hover{
                         color: $green-crayola;
+                     }
+
+                     p{
+                        margin: 10px 0px;
                      }
                   }
                }

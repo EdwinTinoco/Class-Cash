@@ -66,12 +66,22 @@ export default function StudentDetail(props) {
 
          <div className="student-detail-wrapper">
             <div className="image">
+               <p>Profile Image</p>
                <img src={students_image_url} alt="student image" />
             </div>
 
             <div className="details">
                <div className="title">
                   <p>Student Info</p>
+               </div>
+
+               <div className="grade-group">
+                  <p>{grades_name}</p>
+                  <p>Group: {grades_groups_name}</p>
+               </div>
+
+               <div className="bank-total">
+                  <p>Bank: ${bank_current_total}</p>
                </div>
 
                <div className="first-name">
@@ -84,18 +94,6 @@ export default function StudentDetail(props) {
 
                <div className="gender">
                   <p>Gender: {students_gender}</p>
-               </div>
-
-               <div className="student-info">
-                  <p>Grade: {grades_name}</p>
-               </div>
-
-               <div className="student-info">
-                  <p>Group: {grades_groups_name}</p>
-               </div>
-
-               <div className="bank-total">
-                  <p>Bank: ${bank_current_total}</p>
                </div>
 
                <div className="message">

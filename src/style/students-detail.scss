@@ -8,32 +8,42 @@
       box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
 
       .icon-edit{
-         margin-right: 15px;
-         svg{
+         p{
+            font-size: 1.1em;
             color: $capri;
-            font-size: 1.5em;
-            transition: 0.3s ease-in-out;
-   
-            &:hover{
-               cursor: pointer;
-               color: $amethyst;
+
+            svg{
+               color: $capri;
+               font-size: 1.5em;
+               transition: 0.3s ease-in-out;
+      
+               &:hover{
+                  cursor: pointer;
+                  color: $amethyst;
+               }
             }
          }
       }
 
       .icon-delete{
-         svg{
+         p{
+            font-size: 1em;
             color: #dd0e0e;
-            font-size: 1.5em;
-            transition: 0.3s ease-in-out;
-   
-            &:hover{
-               cursor: pointer;
-               color: #8f0d0d;
+
+            svg{
+               color: #dd0e0e;
+               font-size: 1.5em;
+               transition: 0.3s ease-in-out;
+      
+               &:hover{
+                  cursor: pointer;
+                  color: #8f0d0d;
+               }
             }
          }
       }
    }
+
    .student-detail-wrapper{
       padding-top: 40px;
       display: grid;
@@ -41,6 +51,11 @@
 
       .image{
          text-align: center;
+
+         p{
+            font-size: 1.5em;
+            color: $magenta-crayola;
+         }
 
          img{
             width: 380x;
@@ -50,18 +65,56 @@
       }
 
       .details{
-         .student-name{
-            font-size: 2em;
+         .title{
+            font-size: 1.5em;
+            color: $magenta-crayola;
+         }
+
+         .grade-group{
+            margin: 40px 0px 0px 0px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+
+            p{
+               margin: 0px;
+               font-size: 1.3em;
+               color: $capri;
+               margin-right: 30px;
+            }
          }
 
          .bank-total{
-            font-size: 1.6em;
+            p{
+               margin: 5px 0px;
+               font-size: 1.6em;
+               color: $capri;
+            }
+         }        
+
+         .first-name{
+            p{
+               margin: 20px 0px 3px 0px;
+               font-size: 1.2em;
+               color: $amethyst;
+            }
          }
 
-         .parents-info{
-            margin-top: 40px;
+         .last-name{
+            p{
+               margin: 0px;
+               font-size: 1.2em;
+               color: $amethyst;
+            }
          }
-         
+
+         .gender{
+            p{
+               margin: 3px 0px;
+               font-size: 1.2em;
+               color: $amethyst;
+            }
+         }
       }
    }
 }
