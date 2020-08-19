@@ -51,7 +51,6 @@ export default function TeachersContainer() {
       console.log('nameClass', nameClass);
       console.log('user', user);
 
-
       axios.post('https://class-cash-api-ejlt.herokuapp.com/grades-groups/add-group',
          {
             grades_groups_name: nameClass,

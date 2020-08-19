@@ -36,6 +36,7 @@ export default class StudentsItem extends Component {
       })
    }
 
+
    render() {
       const {
          students_id,
@@ -78,7 +79,7 @@ export default class StudentsItem extends Component {
 
                <div className='student-info-link'>
                   <Link to={`/student/${students_id}`}>
-                     <p>Student info</p>
+                     <p>Student detail</p>
                   </Link>
                </div>
             </div>
