@@ -36,7 +36,6 @@ export default class ImportExcel extends Component {
       })
 
       let fileObj = e.target.files[0];
-
       ExcelRenderer(fileObj, (err, resp) => {
          if (err) {
             console.log(err);
@@ -58,14 +57,22 @@ export default class ImportExcel extends Component {
                resp.rows.map(row => {
                   console.log('row', row[0], row[1], row[2]);
 
-                  console.log('gender', row[2].toUpperCase());
-                  let gender = row[2].toUpperCase()
-                  console.log('gender', gender);
+                  if (row[2] !== undefined) {
+                     if (typeof row[2] !== 'number') {
+                        console.log('gender', row[2].toUpperCase());
+                        let gender = row[2].toUpperCase()
+                        console.log('gender', gender);
 
-                  if (gender !== "F") {
-                     if (gender !== 'M') {
+                        if (gender !== "F") {
+                           if (gender !== 'M') {
+                              valGender = true
+                           }
+                        }
+                     } else {
                         valGender = true
                      }
+                  } else {
+                     valGender = true
                   }
                })
             }
@@ -126,7 +133,7 @@ export default class ImportExcel extends Component {
 
                   this.setState({
                      displayError: "none",
-                     messageImportSuccefully: "Excel file was succesfully imported"
+                     messageImportSuccefully: "Excel file was succesfully imported!"
                   })
 
                })
@@ -136,7 +143,10 @@ export default class ImportExcel extends Component {
                })
          })
       } else {
-         console.log('There was an error with the excel file to import');
+         this.setState({
+            displayError: "block",
+            errorMessage: "Select an excel file"
+         })
       }
    }
 
