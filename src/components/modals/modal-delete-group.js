@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
 
-import NewClassForm from "./new-class-form"
+import DeleteGroupAlert from "./delete-group-alert"
 
 ReactModal.setAppElement(".app-wrapper");
 
-export default class ModalInsertNewClass extends Component {
+export default class ModalDeleteGroup extends Component {
    constructor(props) {
       super(props);
 
@@ -17,23 +17,23 @@ export default class ModalInsertNewClass extends Component {
             marginRight: "-50%",
             transform: "translate(-50%, -50%)",
             width: "400px",
-            height: "300px"
+            height: "250px"
          },
          overlay: {
             backgroundColor: "rgba(1, 1, 1, 0.75)"
          }
       }
 
-      this.handleModalClose = this.handleModalClose.bind(this)
-      this.handleSubmitInsertNewClass = this.handleSubmitInsertNewClass.bind(this)
+      this.handleModalDeleteGroupClose = this.handleModalDeleteGroupClose.bind(this)
+      this.handleDeleteGroup = this.handleDeleteGroup.bind(this)
    }
 
-   handleSubmitInsertNewClass(nameClass) {
-      this.props.handleSubmitInsertNewClass(nameClass)
+   handleDeleteGroup(id) {
+      this.props.handleDeleteGroup(id)
    }
 
-   handleModalClose() {
-      this.props.handleModalClose()
+   handleModalDeleteGroupClose() {
+      this.props.handleModalDeleteGroupClose()
    }
 
    render() {
@@ -41,14 +41,16 @@ export default class ModalInsertNewClass extends Component {
          <ReactModal
             style={this.customStyles}
             onRequestClose={() => {
-               this.props.handleModalClose();
+               this.props.handleModalDeleteGroupClose();
             }}
             isOpen={this.props.modalIsOpen}
          >
 
-            <NewClassForm
-               handleModalClose={this.handleModalClose}
-               handleSubmitInsertNewClass={this.handleSubmitInsertNewClass}
+            <DeleteGroupAlert
+               handleModalDeleteGroupClose={this.handleModalDeleteGroupClose}
+               handleDeleteGroup={this.handleDeleteGroup}
+               groupId={this.props.groupId}
+               groupName={this.props.groupName}
             />
          </ReactModal>
       )

@@ -1,0 +1,49 @@
+.delete-group-main-wrapper{
+   .title{
+      background-color: #545454;
+      text-align: center;
+
+      p{
+         color: $capri;
+         font-size: 1.3em;
+      }
+   }
+
+   .delete-group-question{
+      p{
+         font-size: 1.1em;
+         color: $amethyst;
+      }
+   }
+
+   .message{
+      p{
+         color: $capri;
+      }
+   }
+
+   .buttons{
+      margin-top: 35px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      button{
+         color: whitesmoke;
+         background-color:  $magenta-crayola;
+         border: 1px solid $magenta-crayola;
+         border-radius: 5px;
+         font-size: 1.2em;
+         padding: 4px 6px;
+         outline: none;
+         transition: 0.3s ease-in-out;
+
+         &:hover{
+            cursor: pointer;
+            background-color: $amethyst;
+            border: 1px solid $amethyst;
+            outline: none;
+         }
+      }
+   }
+}

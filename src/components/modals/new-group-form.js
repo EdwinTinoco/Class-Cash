@@ -1,24 +1,22 @@
 import React, { Component } from "react"
 
-export default class NewClassForm extends Component {
+export default class NewGroupForm extends Component {
    constructor(props) {
       super(props);
 
       this.state = {
          nameClass: "",
-         errorsMessage: {},
-         message: ""
+         errorsMessage: {}
       }
 
-      this.handleSubmitInsertNewClass = this.handleSubmitInsertNewClass.bind(this)
+      this.handleSubmitInsertNewGroup = this.handleSubmitInsertNewGroup.bind(this)
       this.handleChange = this.handleChange.bind(this)
       this.handleModalClose = this.handleModalClose.bind(this)
    }
 
    handleChange(event) {
       this.setState({
-         [event.target.name]: event.target.value,
-         message: ""
+         [event.target.name]: event.target.value
       });
    }
 
@@ -26,17 +24,16 @@ export default class NewClassForm extends Component {
       this.props.handleModalClose()
    }
 
-   handleSubmitInsertNewClass(e) {
+   handleSubmitInsertNewGroup(e) {
       e.preventDefault()
 
       if (this.validate()) {
-         this.props.handleSubmitInsertNewClass(this.state.nameClass)
+         this.props.handleSubmitInsertNewGroup(this.state.nameClass)
 
-         this.setState({
-            nameClass: "",
-            errorsMessage: {},
-            message: "Group added succesfully!"
-         })
+         // this.setState({
+         //    nameClass: "",
+         //    errorsMessage: {}
+         // })
       }
    }
 
@@ -63,20 +60,16 @@ export default class NewClassForm extends Component {
                <p>Add New Group</p>
             </div>
 
-            <form onSubmit={this.handleSubmitInsertNewClass} className="class-form">
+            <form onSubmit={this.handleSubmitInsertNewGroup} className="class-form">
                <div className="form-group">
-                  <label htmlFor="nameClass"><b>Name Group</b></label>
+                  <label htmlFor="nameClass"><b>Group Name</b></label>
                   <input type="text"
                      value={this.state.nameClass}
                      onChange={this.handleChange}
                      name="nameClass"
-                     placeholder="Name Group"
+                     placeholder="Group Name"
                   />
                   <div className="error-message">{this.state.errorsMessage.nameClass}</div>
-               </div>
-
-               <div className="message">
-                  <p>{this.state.message}</p>
                </div>
 
                <div className="buttons-form">

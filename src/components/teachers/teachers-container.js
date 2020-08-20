@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import GradeAndGroupsItem from "./teachers-item"
-import ModalInsertNewClass from "../modals/modal-insert-new-class"
+import ModalInsertNewGroup from "../modals/modal-insert-new-group"
 
 export default function TeachersContainer() {
    const [user, setUser] = useState({})
@@ -34,20 +34,7 @@ export default function TeachersContainer() {
       window.location.reload(false);
    }
 
-   const handleDeleteGroup = id => {
-      fetch(`https://class-cash-api-ejlt.herokuapp.com/delete-group/${id}`, {
-         method: "DELETE"
-      })
-         .then(
-            setGradesGroups(
-               gradesGroups.filter(item => {
-                  return item.grades_groups_id !== id;
-               })
-            )
-         )
-   }
-
-   const handleSubmitInsertNewClass = (nameClass) => {
+   const handleSubmitInsertNewGroup = (nameClass) => {
       console.log('nameClass', nameClass);
       console.log('user', user);
 
@@ -60,14 +47,10 @@ export default function TeachersContainer() {
          .then(response => {
             console.log('response insert new class', response.data);
 
-            // setGradesGroups(
-            //    [response.data, ...gradesGroups]
-            // )
-
             window.location.reload(false);
          })
          .catch(error => {
-            console.log("handleSubmitInsertNewClass error: ", error);
+            console.log("handleSubmitInsertNewGroup error: ", error);
          })
    }
 
@@ -136,7 +119,6 @@ export default function TeachersContainer() {
             <GradeAndGroupsItem
                key={item.grades_groups_id}
                item={item}
-               handleDeleteGroup={handleDeleteGroup}
             />
          )
       })
@@ -154,10 +136,10 @@ export default function TeachersContainer() {
             <p className="grade">Grade: {oneItem.grades_name}</p>
          </div>
 
-         <ModalInsertNewClass
+         <ModalInsertNewGroup
             handleModalClose={handleModalClose}
             modalIsOpen={componentModalIsOpen}
-            handleSubmitInsertNewClass={handleSubmitInsertNewClass}
+            handleSubmitInsertNewGroup={handleSubmitInsertNewGroup}
          />
 
          <div className="add-class">
