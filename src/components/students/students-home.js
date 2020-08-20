@@ -9,7 +9,7 @@ export default function (props) {
       <div className="students-home-wrapper">
          <NavigationBar />
 
-         <StudentsContainer groupId={props.match.params.slug} />
+         <StudentsContainer groupId={props.match.params.slug} groupName={props.location.state.groupName} />
 
          <Footer />
       </div>

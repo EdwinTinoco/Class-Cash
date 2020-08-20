@@ -135,5 +135,15 @@
             }            
          }
       }
+
+      .message-no-students{
+         margin-top: 50px;
+         text-align: center;
+
+         p{
+            color: $amethyst;
+            font-size: 1.3em;
+         }
+      }
    }
 }

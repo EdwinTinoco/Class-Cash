@@ -9,8 +9,6 @@ import ModalInsertNewGroup from "../modals/modal-insert-new-group"
 export default function TeachersContainer() {
    const [user, setUser] = useState({})
    const [gradesGroups, setGradesGroups] = useState([])
-   const [oneItem, setOneItem] = useState({})
-   const [error, setError] = useState("")
    const [componentModalIsOpen, setComponentModalIsOpen] = useState(false)
 
    const handleModalClose = () => {
@@ -79,6 +77,10 @@ export default function TeachersContainer() {
                console.log('response navbar', response.data);
 
                if (response.data.length > 0) {
+                  setUser(
+                     response.data[0]
+                  )
+
                   axios.get(`https://class-cash-api-ejlt.herokuapp.com/grades-groups/${userId}`)
                      .then(response => {
                         console.log('response groups', response.data);
@@ -87,28 +89,16 @@ export default function TeachersContainer() {
                            response.data
                         )
 
-                        setOneItem(
-                           response.data[0]
-                        )
-
                      }).catch(error => {
-                        setError(
-                           "An error ocurred"
-                        )
+                        console.log('getGradesGroups error', error);
                      });
-
-                  setUser(
-                     response.data[0]
-                  )
 
                } else {
                   handleLogout()
                }
 
             }).catch(error => {
-               setError(
-                  "An error ocurred"
-               )
+               console.log('getUser error', error);
             });
       }
    }
@@ -132,8 +122,8 @@ export default function TeachersContainer() {
    return (
       <div className="grade-groups-main-wrapper">
          <div className="teacher-info">
-            <p className="teacher-name">Teacher: {oneItem.Username}</p>
-            <p className="grade">Grade: {oneItem.grades_name}</p>
+            <p className="teacher-name">Teacher: {user.Username}</p>
+            <p className="grade">Grade: {user.grades_name}</p>
          </div>
 
          <ModalInsertNewGroup

@@ -99,19 +99,17 @@ export default function GradeAndGroupsItem(props) {
          />
 
          <div className='grades-groups-links-wrapper'>
-            <Link to={`/students-home/${props.item.grades_groups_id}`}>
+            <Link to={{ pathname: `/students-home/${props.item.grades_groups_id}`, state: { groupName: props.item.grades_groups_name } }}>
                {props.item.grades_groups_name}
             </Link>
+
+            {/* {`/students-home/${props.item.grades_groups_id}`}> */}
          </div>
 
          <div className="icons-buttons">
             <div className="icon-edit">
                <FontAwesomeIcon icon="edit" onClick={handleModalEditGroupNameOpen} />
             </div>
-
-            {/* <div className="separation">
-                  |
-               </div> */}
 
             <div className="import-excel">
                <div className="icon-import-excel">
@@ -122,10 +120,6 @@ export default function GradeAndGroupsItem(props) {
                   Import excel
                   </div>
             </div>
-
-            {/* <div className="separation">
-                  |
-               </div> */}
 
             <div className="icon-delete">
                <FontAwesomeIcon icon="trash" onClick={handleModalDeleteGroupOpen} />

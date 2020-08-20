@@ -10,8 +10,9 @@ import StudentsItem from "./students-item"
 export default function Students(props) {
    const [user, setUser] = useState({})
    const [students, setStudents] = useState([])
+   const [noStudentsInGroup, setNoStudentsInGroup] = useState(false)
    const [studentsFilter, setStudentsFilter] = useState([])
-   const [groupName, setGroupName] = useState("")
+   const [groupName, setGroupName] = useState(props.groupName)
 
    const clearFilter = () => {
       setStudents(studentsFilter)
@@ -69,25 +70,20 @@ export default function Students(props) {
          .then(response => {
             console.log("class", response.data)
 
-            setStudents(
-               response.data
-            )
-
-            setStudentsFilter(
-               response.data
-            )
-
-            let tempGroupName = ""
             if (response.data.length > 0) {
-               tempGroupName = response.data[0].grades_groups_name
-            } else {
-               tempGroupName = response.data.grades_groups_name
-            }
-            console.log('groupName', tempGroupName);
+               setStudents(
+                  response.data
+               )
 
-            setGroupName(
-               tempGroupName
-            )
+               setStudentsFilter(
+                  response.data
+               )
+
+               setNoStudentsInGroup(false)
+            } else {
+               setNoStudentsInGroup(true)
+            }
+
          })
          .catch(error => {
             console.log("getStudentsItems error: ", error);
@@ -111,7 +107,6 @@ export default function Students(props) {
    return (
       <div className="students-main-wrapper">
          <div className="group-name-title">
-
             <div className="add-student">
                <Link to={{
                   pathname: '/add-student',
@@ -141,9 +136,17 @@ export default function Students(props) {
             </div>
          </div>
 
-         <div className="students-items-wrapper">
-            {studentsItems()}
-         </div>
+         {!noStudentsInGroup ? (
+            <div className="students-items-wrapper">
+               {studentsItems()}
+            </div>
+         ) :
+            (
+               <div className="message-no-students">
+                  <p>There's no students in this group yet</p>
+               </div>
+            )
+         }
       </div>
    )
 }
