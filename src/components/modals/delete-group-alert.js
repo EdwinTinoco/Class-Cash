@@ -14,10 +14,6 @@ export default class DeleteGroupAlert extends Component {
 
    handleDeleteGroup() {
       this.props.handleDeleteGroup(this.props.groupId)
-
-      this.setState({
-         message: "Group deleted succesfully!"
-      })
    }
 
    render() {

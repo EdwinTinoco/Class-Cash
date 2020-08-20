@@ -1,133 +1,144 @@
 .student-detail-main-wrapper{   
-   .edit-delete{
-      background-color: #ebf0ee;
-      padding: 8px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
-
-      .icon-edit{
-         p{
-            font-size: 1.1em;
-            color: $capri;
-
-            svg{
+   .student-info{
+      .edit-delete{
+         background-color: #ebf0ee;
+         padding: 8px 30px;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+   
+         .icon-edit{
+            p{
+               font-size: 1.1em;
                color: $capri;
-               font-size: 1.5em;
-               transition: 0.3s ease-in-out;
-      
-               &:hover{
-                  cursor: pointer;
-                  color: $amethyst;
+   
+               svg{
+                  color: $capri;
+                  font-size: 1.5em;
+                  transition: 0.3s ease-in-out;
+         
+                  &:hover{
+                     cursor: pointer;
+                     color: $amethyst;
+                  }
+               }
+            }
+         }
+   
+         .icon-delete{
+            p{
+               font-size: 1em;
+               color: #dd0e0e;
+   
+               svg{
+                  color: #dd0e0e;
+                  font-size: 1.5em;
+                  transition: 0.3s ease-in-out;
+         
+                  &:hover{
+                     cursor: pointer;
+                     color: #8f0d0d;
+                  }
                }
             }
          }
       }
-
-      .icon-delete{
-         p{
-            font-size: 1em;
-            color: #dd0e0e;
-
-            svg{
-               color: #dd0e0e;
+   
+      .student-detail-wrapper{
+         padding-top: 40px;
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+   
+         .image{
+            text-align: center;
+   
+            p{
                font-size: 1.5em;
-               transition: 0.3s ease-in-out;
-      
-               &:hover{
-                  cursor: pointer;
-                  color: #8f0d0d;
+               color: $magenta-crayola;
+            }
+   
+            img{
+               width: 380x;
+               height: 470px;
+               border-radius: 5px;
+            }
+         }
+   
+         .details{
+            .title{
+               font-size: 1.5em;
+               color: $magenta-crayola;
+            }
+   
+            .grade-group{
+               margin: 40px 0px 0px 0px;
+   
+               p{
+                  margin: 5px 0px;
+                  font-size: 1.5em;
+                  color: $capri;
+                  margin-right: 30px;
+               }
+            }
+   
+            .bank-total{
+               p{
+                  margin: 20px 0px 40px 0px;
+                  font-size: 1.6em;
+                  color: $capri;
+               }
+            }        
+   
+            .first-name{
+               label{
+                  margin: 40px 0px 0px 0px;
+                  font-size: 1em;
+                  color: $magenta-crayola
+               }
+   
+               p{
+                  margin: 0px 0px 15px 0px;
+                  font-size: 1.8em;
+                  color: $amethyst;
+               }
+            }
+   
+            .last-name{
+               label{              
+                  font-size: 1em;
+                  color: $magenta-crayola
+               }
+   
+               p{
+                  margin: 0px 0px 15px 0px;
+                  font-size: 1.8em;
+                  color: $amethyst;
+               }
+            }
+   
+            .gender{
+               label{              
+                  font-size: 1em;
+                  color: $magenta-crayola
+               }
+   
+               p{
+                  margin: 0px 0px 15px 0px;
+                  font-size: 1.8em;
+                  color: $amethyst;
                }
             }
          }
       }
    }
 
-   .student-detail-wrapper{
-      padding-top: 40px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+   .message{
+      text-align: center;
 
-      .image{
-         text-align: center;
-
-         p{
-            font-size: 1.5em;
-            color: $magenta-crayola;
-         }
-
-         img{
-            width: 380x;
-            height: 470px;
-            border-radius: 5px;
-         }
-      }
-
-      .details{
-         .title{
-            font-size: 1.5em;
-            color: $magenta-crayola;
-         }
-
-         .grade-group{
-            margin: 40px 0px 0px 0px;
-
-            p{
-               margin: 5px 0px;
-               font-size: 1.5em;
-               color: $capri;
-               margin-right: 30px;
-            }
-         }
-
-         .bank-total{
-            p{
-               margin: 20px 0px 40px 0px;
-               font-size: 1.6em;
-               color: $capri;
-            }
-         }        
-
-         .first-name{
-            label{
-               margin: 40px 0px 0px 0px;
-               font-size: 1em;
-               color: $magenta-crayola
-            }
-
-            p{
-               margin: 0px 0px 15px 0px;
-               font-size: 1.8em;
-               color: $amethyst;
-            }
-         }
-
-         .last-name{
-            label{              
-               font-size: 1em;
-               color: $magenta-crayola
-            }
-
-            p{
-               margin: 0px 0px 15px 0px;
-               font-size: 1.8em;
-               color: $amethyst;
-            }
-         }
-
-         .gender{
-            label{              
-               font-size: 1em;
-               color: $magenta-crayola
-            }
-
-            p{
-               margin: 0px 0px 15px 0px;
-               font-size: 1.8em;
-               color: $amethyst;
-            }
-         }
+      p{
+         color: $magenta-crayola;
+         font-size: 1.5em;
       }
    }
 }

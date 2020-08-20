@@ -202,19 +202,11 @@ export default function EditStudentForm(props) {
                </div>
             </div>
 
-            <div className="btn-message">
-               <div className="message">
-                  <p>{message}</p>
-               </div>
-
-               <div className="buttons">
-                  <button type='submit' className='add-button'>Save Changes</button>
-                  <button type="button" onClick={handleModalClose}>Close</button>
-               </div>
+            <div className="buttons">
+               <button type='submit' className='add-button'>Save Changes</button>
+               <button type="button" onClick={handleModalClose}>Close</button>
             </div>
          </form>
-
       </div>
    )
-
 }

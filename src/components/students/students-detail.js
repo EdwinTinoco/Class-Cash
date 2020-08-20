@@ -4,12 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import NavigationBar from "../navigation/navigation-bar"
 import ModalEditStudent from "../modals/modal-edit-student"
+import ModalDeleteStudent from "../modals/modal-delete-student"
 import Footer from "../footer/footer"
 
 export default function StudentDetail(props) {
    const [studentItem, setStudentItem] = useState({})
-   const [message, setMessage] = useState("")
+   const [studentDelete, setStudentDelete] = useState(false)
    const [componentModalIsOpen, setComponentModalIsOpen] = useState(false)
+   const [componentModalDeleteStudentIsOpen, setComponentModalDeleteStudentIsOpen] = useState(false)
 
    const handleModalClose = () => {
       setComponentModalIsOpen(
@@ -23,6 +25,18 @@ export default function StudentDetail(props) {
       )
    }
 
+   const handleModalDeleteStudentClose = () => {
+      setComponentModalDeleteStudentIsOpen(
+         false
+      )
+   }
+
+   const handleModalDeleteStudentOpen = () => {
+      setComponentModalDeleteStudentIsOpen(
+         true
+      )
+   }
+
    const handleDeleteStudent = (studentId) => {
       fetch(`https://class-cash-api-ejlt.herokuapp.com/delete-student/${studentId}`, {
          method: "DELETE"
@@ -30,9 +44,7 @@ export default function StudentDetail(props) {
          .then(response => {
             console.log('response delete student', response.data);
 
-            setMessage(
-               "Student deleted succesfully!"
-            )
+            window.location.reload(false);
          })
          .catch(error => {
             console.log('handleDeleteStudent error', error);
@@ -40,7 +52,6 @@ export default function StudentDetail(props) {
    }
 
    const handleSubmitEditStudent = (item) => {
-
       console.log('item student from modal', item);
 
       axios.put(`https://class-cash-api-ejlt.herokuapp.com/student-update/${item.students_id}`,
@@ -65,7 +76,13 @@ export default function StudentDetail(props) {
    const getStudentItem = () => {
       axios.get(`https://class-cash-api-ejlt.herokuapp.com/student/${props.match.params.slug}`)
          .then(response => {
-            setStudentItem(response.data[0])
+            console.log('student', response.data);
+
+            if (response.data.length > 0) {
+               setStudentItem(response.data[0])
+            } else {
+               setStudentDelete(true)
+            }
          }).catch(error => {
             console.log('getStudentItem error', error);
          })
@@ -88,66 +105,79 @@ export default function StudentDetail(props) {
 
    return (
       <div className="student-detail-main-wrapper">
-
          <NavigationBar />
 
-         <ModalEditStudent
-            handleModalClose={handleModalClose}
-            modalIsOpen={componentModalIsOpen}
-            handleSubmitEditStudent={handleSubmitEditStudent}
-            item={studentItem}
-         />
+         {!studentDelete ? (
+            <div className="student-info">
+               <ModalEditStudent
+                  handleModalClose={handleModalClose}
+                  modalIsOpen={componentModalIsOpen}
+                  handleSubmitEditStudent={handleSubmitEditStudent}
+                  item={studentItem}
+               />
 
-         <div className="edit-delete">
-            <div className="icon-edit">
-               <p><FontAwesomeIcon icon="edit" onClick={handleModalOpen} /> Edit student info</p>
+               <ModalDeleteStudent
+                  handleModalDeleteStudentClose={handleModalDeleteStudentClose}
+                  modalIsOpen={componentModalDeleteStudentIsOpen}
+                  handleDeleteStudent={handleDeleteStudent}
+                  studentId={students_id}
+                  studentName={`${students_first_name} ${students_last_name}`}
+               />
+
+               <div className="edit-delete">
+                  <div className="icon-edit">
+                     <p><FontAwesomeIcon icon="edit" onClick={handleModalOpen} /> Edit student info</p>
+                  </div>
+
+                  <div className="icon-delete">
+                     <p>Delete student <FontAwesomeIcon icon="trash" onClick={handleModalDeleteStudentOpen} /></p>
+                  </div>
+               </div>
+
+               <div className="student-detail-wrapper">
+                  <div className="image">
+                     <p>Profile Image</p>
+                     <img src={students_image_url} alt="student image" />
+                  </div>
+
+                  <div className="details">
+                     <div className="title">
+                        <p>Student Info</p>
+                     </div>
+
+                     <div className="grade-group">
+                        <p>{grades_name}</p>
+                        <p>Group: {grades_groups_name}</p>
+                     </div>
+
+                     <div className="bank-total">
+                        <p>Cash: ${bank_current_total}</p>
+                     </div>
+
+                     <div className="first-name">
+                        <label htmlFor="firstname">First name</label>
+                        <p name="firstname">{students_first_name}</p>
+                     </div>
+
+                     <div className="last-name">
+                        <label htmlFor="lastname">Last name</label>
+                        <p name="lastname">{students_last_name}</p>
+                     </div>
+
+                     <div className="gender">
+                        <label htmlFor="gen">Gender</label>
+                        <p name="gen">{students_gender}</p>
+                     </div>
+                  </div>
+               </div>
             </div>
-
-            <div className="icon-delete">
-               <p>Delete student <FontAwesomeIcon icon="trash" onClick={() => handleDeleteStudent(students_id)} /></p>
-            </div>
-         </div>
-
-         <div className="student-detail-wrapper">
-            <div className="image">
-               <p>Profile Image</p>
-               <img src={students_image_url} alt="student image" />
-            </div>
-
-            <div className="details">
-               <div className="title">
-                  <p>Student Info</p>
-               </div>
-
-               <div className="grade-group">
-                  <p>{grades_name}</p>
-                  <p>Group: {grades_groups_name}</p>
-               </div>
-
-               <div className="bank-total">
-                  <p>Cash: ${bank_current_total}</p>
-               </div>
-
-               <div className="first-name">
-                  <label htmlFor="firstname">First name</label>
-                  <p name="firstname">{students_first_name}</p>
-               </div>
-
-               <div className="last-name">
-                  <label htmlFor="lastname">Last name</label>
-                  <p name="lastname">{students_last_name}</p>
-               </div>
-
-               <div className="gender">
-                  <label htmlFor="gen">Gender</label>
-                  <p name="gen">{students_gender}</p>
-               </div>
-
+         ) :
+            (
                <div className="message">
-                  <p>{message}</p>
+                  <p>The student doesn't exist anymore</p>
                </div>
-            </div>
-         </div>
+            )
+         }
 
          <Footer />
       </div>

@@ -140,38 +140,31 @@
                }
             }
          }        
-      }
+      }      
 
-      .btn-message{
-         .message{
-            p{
-               color: $capri;
-            }
-         }
+      .buttons{
+         margin-top: 20px;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         
+         button{
+            color: whitesmoke;
+            background-color:  $magenta-crayola;
+            border: 1px solid $magenta-crayola;
+            border-radius: 5px;
+            font-size: 1.2em;
+            padding: 4px 6px;
+            outline: none;
+            transition: 0.3s ease-in-out;
 
-         .buttons{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            
-            button{
-               color: whitesmoke;
-               background-color:  $magenta-crayola;
-               border: 1px solid $magenta-crayola;
-               border-radius: 5px;
-               font-size: 1.2em;
-               padding: 4px 6px;
+            &:hover{
+               cursor: pointer;
+               background-color: $amethyst;
+               border: 1px solid $amethyst;
                outline: none;
-               transition: 0.3s ease-in-out;
-   
-               &:hover{
-                  cursor: pointer;
-                  background-color: $amethyst;
-                  border: 1px solid $amethyst;
-                  outline: none;
-               }
             }
          }
-      }
+      }      
    }
 }
