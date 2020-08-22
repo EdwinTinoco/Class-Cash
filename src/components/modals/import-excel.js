@@ -168,7 +168,7 @@ export default class ImportExcel extends Component {
             </div>
 
             <div className="excel-file-directions">
-               <p>The excel file must to contain a heading dividesd in 3 columns.
+               <p>Note: The excel file must to contain a header divided in 3 columns.
                Example header: First name, Last name, Gender. The column gender must to contain
                   a letter M for male or F for female</p>
             </div>

@@ -5,7 +5,7 @@
       text-align: center;
 
       p{
-         font-size: 1.2em;
+         font-size: 1.3em;
          color: $capri;
       }
    }
@@ -24,9 +24,12 @@
 
    .excel-file-directions{
       margin-bottom: 25px;
+      background-color: #b19d1d;
+      padding: 0.5px 2px;
+      
       p{
          font-size: 0.9em;
-         color: #a19f9f;
+         color: #3f3e3e;
          font-style: italic;
       }
    }
