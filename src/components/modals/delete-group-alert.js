@@ -24,8 +24,8 @@ export default class DeleteGroupAlert extends Component {
             </div>
 
             <div className="delete-group-question">
-               <p>Do you want to remove the group: {this.props.groupName}?</p>
-               <p>If you remove the group, all the students in the group will be remove as well</p>
+               <p>Do you want to remove the group: {this.props.groupName} ?</p>
+               <p>If you remove the group all the students in the group will be remove as well</p>
             </div>
 
             <div className="buttons">
