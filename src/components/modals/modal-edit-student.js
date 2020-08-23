@@ -17,7 +17,7 @@ export default class ModalEditStudent extends Component {
             marginRight: "-50%",
             transform: "translate(-50%, -50%)",
             width: "580px",
-            height: "635px"
+            height: "622px"
          },
          overlay: {
             backgroundColor: "rgba(1, 1, 1, 0.75)"
