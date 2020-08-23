@@ -99,8 +99,8 @@ export default function EditStudentForm(props) {
                         id="gn"
                      >
                         <option value=''>Select a gender</option>
-                        <option value="M">Male</option>
-                        <option value="F">Female</option>
+                        <option value="M">Boy</option>
+                        <option value="F">Girl</option>
                      </select>
                   </div>
                </div>
