@@ -11,6 +11,7 @@
    
          .icon-edit{
             p{
+               margin: 0px;
                font-size: 1.1em;
                color: $capri;
    
@@ -29,6 +30,7 @@
    
          .icon-delete{
             p{
+               margin: 0px;
                font-size: 1em;
                color: #dd0e0e;
    
@@ -109,7 +111,20 @@
                   }
                }
             }
+
+            .gender{
+               label{              
+                  font-size: 1em;
+                  color: $magenta-crayola
+               }
    
+               p{
+                  margin: 0px 0px 15px 0px;
+                  font-size: 1.8em;
+                  color: $amethyst;
+               }
+            }
+
             .grade-group{
                margin: 40px 0px 0px 0px;
    
@@ -127,20 +142,7 @@
                   font-size: 1.6em;
                   color: $capri;
                }
-            }        
-   
-            .gender{
-               label{              
-                  font-size: 1em;
-                  color: $magenta-crayola
-               }
-   
-               p{
-                  margin: 0px 0px 15px 0px;
-                  font-size: 1.8em;
-                  color: $amethyst;
-               }
-            }
+            }  
          }
       }
    }

@@ -257,7 +257,7 @@
 
    // Teachers Items
    .grades-groups-item-wrapper{   
-      padding: 3px 180px;
+      padding: 3px 170px;
 
       .grades-groups-links-wrapper{  
          margin-bottom: 5px;    
@@ -278,6 +278,18 @@
    .students-home-wrapper{
       .students-main-wrapper{
          .group-name-title{
+            height: 32px;
+
+            .add-student{                 
+               a{         
+                  font-size: 1.1em;
+                  
+                  svg{
+                     font-size: 1.2em;
+                  }
+               }
+            }
+
             p{
                font-size: 1.1em;
             }
@@ -325,41 +337,115 @@
 
    // Student Details
    .student-detail-main-wrapper{   
-      .student-detail-wrapper{
-         padding-top: 10px;
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-         align-items: center;
-   
-         .image{
-            text-align: center;
-   
-            img{
-               width: 180x;
-               height: 100px;
+      .student-info{
+         .edit-delete{
+            height: 35px;
+      
+            .icon-edit{
+               p{
+                  svg{
+                     font-size: 1.2em;
+                  }
+               }
+            }
+      
+            .icon-delete{
+               p{
+                  svg{
+                     font-size: 1.2em;
+                  }
+               }
             }
          }
-   
-         .details{
-            .student-name{
-               font-size: 1em;
+
+         .student-detail-wrapper{
+            justify-content: left;
+            padding-top: 10px;            
+      
+            .image{
+               text-align: center;
+
+               p{
+                  font-size: 1.2em;
+               }
+      
+               img{
+                  margin-left: 20px;
+                  width: 280x;
+                  height: 370px;
+               }
             }
+      
+            .details{   
+               .title{
+                  font-size: 1.2em;
+               }
    
-            .bank-total{
-               font-size: 1em;
+               .name{
+                  .first-name{
+                     label{
+                        font-size: 0.9em;
+                     }
+
+                     p{
+                        font-size: 1.5em;
+                     }
+                  }
+
+                  .last-name{
+                     label{
+                        font-size: 0.9em;
+                     }
+
+                     p{
+                        font-size: 1.5em;
+                     }
+                  }                  
+               }
+
+               .gender{
+                  label{              
+                     font-size: 0.9em;
+                  }
+      
+                  p{
+                     font-size: 1.5em;
+                  }
+               }
+      
+               .grade-group{
+                  margin: 40px 0px 0px 0px;
+      
+                  p{
+                     margin: 5px 0px;
+                     font-size: 1.5em;
+                     color: $capri;
+                     margin-right: 30px;
+                  }
+               }
+      
+               .bank-total{
+                  p{
+                     margin: 20px 0px 40px 0px;
+                     font-size: 1.6em;
+                     color: $capri;
+                  }
+               }     
             }
-   
-            .parents-info{
-               margin-top: 10px;
-            }
-            
          }
-      }
+      }      
    }
 
    // Add Student
-   .add-student-main-wrapper{   
+   .add-student-main-wrapper{  
+      .grade-group{         
+         padding: 4px 0px;
+   
+         p{
+            font-size: 1.1em;
+         }
+      }
+       
       .add-student-form{
          margin-top: 5px;
 
