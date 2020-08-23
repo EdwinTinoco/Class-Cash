@@ -34,6 +34,7 @@
    .signup-form-wrapper{
       display: grid;
       grid-template-columns: 1fr 1fr;
+      gap: 10px;
 
       .left-side{
          .image{
@@ -117,6 +118,7 @@
             }
 
             .required{
+               margin: 6px 0px 70px 0px;
                font-size: 1em;
                color: $amethyst;
             }
