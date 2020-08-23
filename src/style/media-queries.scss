@@ -237,14 +237,14 @@
             margin-top: 10px;
       
             p{
-               font-size: 1em;
+               font-size: 1.1em;
             }
          }     
          
          .add-class{       
              p{     
                 width: 150px;
-                font-size: 1em;
+                font-size: 1.1em;
                 text-align: right; 
              }
     
@@ -257,11 +257,19 @@
 
    // Teachers Items
    .grades-groups-item-wrapper{   
+      padding: 3px 180px;
+
       .grades-groups-links-wrapper{  
          margin-bottom: 5px;    
 
          a{  
-            font-size: 2em; 
+            font-size: 1.2em; 
+         }
+
+         .icons-buttons{            
+            svg{
+               font-size: 3.5em;
+            }            
          }
       }
    }
