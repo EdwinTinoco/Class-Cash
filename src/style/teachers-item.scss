@@ -8,7 +8,7 @@
    .grades-groups-links-wrapper{  
       a{         
          text-decoration: none;
-         font-size: 2em;
+         font-size: 1.5em;
          color: $magenta-crayola;
          transition: 0.3s ease-in-out;
 
@@ -22,16 +22,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-
-      .separation{
-         font-size: 1.5em;
-         
-      }
-
+      
       .icon-edit{
          svg{
             color: $amethyst;
-            font-size: 1.7em;
+            font-size: 1.6em;
             margin-right: 10px;
             margin-left: 10px;
             transition: 0.3s ease-in-out;
@@ -57,7 +52,7 @@
 
             svg{
                color: #21b621;
-               font-size: 1.7em;
+               font-size: 1.6em;
                transition: 0.3s ease-in-out;
       
                &:hover{
@@ -82,7 +77,5 @@
             }
          }
       }
-
-
    }
 }

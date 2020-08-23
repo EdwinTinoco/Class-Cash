@@ -1,31 +1,49 @@
 .grade-groups-main-wrapper{  
 
-   .teacher-info{
-      background-color: #ebf0ee;
-      padding: 3px 0px;
+   .teacher-info-add-group{
+      background-color: #ebf0ee;      
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
 
-      p{
-         font-size: 1.5em;
-         color: $capri;
-         padding: 0px 15px;
+      // .teacher-info{
+      //    display: flex;
+      //    justify-content: center;
+      //    align-items: center;
+
+      //    p{
+      //       font-size: 1.2em;
+      //       color: $capri;
+      //       padding: 0px 80px 0px 15px;
+      //    }
+      // }
+
+      .title{
+         text-align: center;
+   
+         p{
+            font-size: 1.3em;
+            color: $amethyst;
+            padding: 0px 0px 0px 770px;
+         }
       }
-   }
 
-   .add-class{
-      text-align: right;
-      margin-right: 20px;         
+      .add-class{
+        display: flex;
+        justify-content: center;
+        align-items: center;     
+        margin-right: 20px;  
+   
+         p{         
+            font-size: 1.1em;
+            color:  $amethyst;  
+            margin-right: 7px;   
+         }
 
-      p{         
-         font-size: 1.5em;
-         color: $capri;
-         
          svg{
             color: #22af22;
-            font-size: 1.8em;
+            font-size: 2.2em;
             transition: 0.3s ease-in-out;
 
             &:hover{
@@ -34,14 +52,5 @@
             }
          }
       }
-   }
-
-   .title{
-      text-align: center;
-
-      p{
-         font-size: 2em;
-         color: $amethyst;
-      }
-   }
+   }   
 }
