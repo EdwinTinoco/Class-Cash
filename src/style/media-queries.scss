@@ -3,7 +3,7 @@
    // Home page
    .home-main-wrapper{
       .navbar{
-         height: 53px;
+         height: 47px;
 
          .left-column{
             img{
@@ -179,44 +179,40 @@
 
    // Navigation bar
    .nav-wrapper{
-      flex-direction: column;
-      height: 100%;
+      height: 47px;
+      // flex-direction: column;
+      // height: 100%;
 
       .left-column{
          a{
             img{
-                margin-left: 0px;
+               margin-left: 0px;
+               height: 55px;
+               width: 80px; 
             }
          }  
       }
 
       .center-column{   
-         .nav-link-wrapper{
-            padding-right: 20px;
-            margin-top: 5px;
-            margin-bottom: 3px;
-   
+         .nav-link-wrapper{   
             a{
                
-               font-size: 1em;
+               font-size: 1.1em;
             }
          }
       }
 
       .right-column{
-         margin-top: 6px;
-         margin-right: 0px;
-         width: 100%;
-         font-size: 0.8em;
+         font-size: 0.9em;
 
-         .grade{
-            width: 150px;
-            margin-right: 0px;
-         }     
+         // .grade{
+         //    width: 150px;
+         //    margin-right: 0px;
+         // }     
    
          .username{
-            width: 200px;
-            margin-right: 0px;
+            // width: 200px;
+            margin-right: 10px;
          }
    
          .logout-icon{

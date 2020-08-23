@@ -82,7 +82,7 @@ const NavigationBar = () => {
                {user.grades_name}
             </div>
 
-            <div className="separator">
+            <div className="separator" style={{ display: "block" }}>
                |
             </div>
 
