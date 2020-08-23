@@ -145,6 +145,23 @@ export default function StudentDetail(props) {
                         <p>Student Info</p>
                      </div>
 
+                     <div className="name">
+                        <div className="first-name">
+                           <label htmlFor="firstname">First name</label>
+                           <p name="firstname">{students_first_name}</p>
+                        </div>
+
+                        <div className="last-name">
+                           <label htmlFor="lastname">Last name</label>
+                           <p name="lastname">{students_last_name}</p>
+                        </div>
+                     </div>
+
+                     <div className="gender">
+                        <label htmlFor="gen">Gender</label>
+                        <p name="gen">{students_gender}</p>
+                     </div>
+
                      <div className="grade-group">
                         <p>{grades_name}</p>
                         <p>Group: {grades_groups_name}</p>
@@ -152,21 +169,6 @@ export default function StudentDetail(props) {
 
                      <div className="bank-total">
                         <p>Cash: ${bank_current_total}</p>
-                     </div>
-
-                     <div className="first-name">
-                        <label htmlFor="firstname">First name</label>
-                        <p name="firstname">{students_first_name}</p>
-                     </div>
-
-                     <div className="last-name">
-                        <label htmlFor="lastname">Last name</label>
-                        <p name="lastname">{students_last_name}</p>
-                     </div>
-
-                     <div className="gender">
-                        <label htmlFor="gen">Gender</label>
-                        <p name="gen">{students_gender}</p>
                      </div>
                   </div>
                </div>

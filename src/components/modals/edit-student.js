@@ -151,7 +151,9 @@ export default function EditStudentForm(props) {
                            />
                            <label htmlFor="op5">$5</label>
                         </div>
+                     </div>
 
+                     <div className="center-side">
                         <div className="radio">
                            <input
                               type="radio"
@@ -162,9 +164,7 @@ export default function EditStudentForm(props) {
                            />
                            <label htmlFor="op10">$10</label>
                         </div>
-                     </div>
 
-                     <div className="right-side">
                         <div className="radio">
                            <input
                               type="radio"
@@ -175,7 +175,9 @@ export default function EditStudentForm(props) {
                            />
                            <label htmlFor="op20">$20</label>
                         </div>
+                     </div>
 
+                     <div className="right-side">
                         <div className="radio">
                            <input
                               type="radio"

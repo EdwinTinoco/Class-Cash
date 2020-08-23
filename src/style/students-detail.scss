@@ -1,8 +1,9 @@
 .student-detail-main-wrapper{   
    .student-info{
       .edit-delete{
+         height: 45px;
          background-color: #ebf0ee;
-         padding: 8px 30px;
+         padding: 0px 30px;
          display: flex;
          justify-content: space-between;
          align-items: center;
@@ -47,8 +48,9 @@
    
       .student-detail-wrapper{
          padding-top: 40px;
-         display: grid;
-         grid-template-columns: 1fr 1fr;
+         display: flex;
+         justify-content: center;
+         align-items: center;
    
          .image{
             text-align: center;
@@ -66,9 +68,46 @@
          }
    
          .details{
+            margin-left: 100px;
+
             .title{
                font-size: 1.5em;
                color: $magenta-crayola;
+            }
+
+            .name{
+               display: flex;
+               justify-content: left;
+               align-items: center;
+
+               .first-name{
+                  margin-right: 40px;
+
+                  label{
+                     margin: 40px 0px 0px 0px;
+                     font-size: 1em;
+                     color: $magenta-crayola
+                  }
+      
+                  p{
+                     margin: 0px 0px 15px 0px;
+                     font-size: 1.8em;
+                     color: $amethyst;
+                  }
+               }
+      
+               .last-name{
+                  label{              
+                     font-size: 1em;
+                     color: $magenta-crayola
+                  }
+      
+                  p{
+                     margin: 0px 0px 15px 0px;
+                     font-size: 1.8em;
+                     color: $amethyst;
+                  }
+               }
             }
    
             .grade-group{
@@ -89,33 +128,6 @@
                   color: $capri;
                }
             }        
-   
-            .first-name{
-               label{
-                  margin: 40px 0px 0px 0px;
-                  font-size: 1em;
-                  color: $magenta-crayola
-               }
-   
-               p{
-                  margin: 0px 0px 15px 0px;
-                  font-size: 1.8em;
-                  color: $amethyst;
-               }
-            }
-   
-            .last-name{
-               label{              
-                  font-size: 1em;
-                  color: $magenta-crayola
-               }
-   
-               p{
-                  margin: 0px 0px 15px 0px;
-                  font-size: 1.8em;
-                  color: $amethyst;
-               }
-            }
    
             .gender{
                label{              
