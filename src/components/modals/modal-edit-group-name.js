@@ -17,7 +17,7 @@ export default class ModalEditGroupName extends Component {
             marginRight: "-50%",
             transform: "translate(-50%, -50%)",
             width: "400px",
-            height: "300px"
+            height: "270px"
          },
          overlay: {
             backgroundColor: "rgba(1, 1, 1, 0.75)"

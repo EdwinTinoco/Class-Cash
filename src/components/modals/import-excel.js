@@ -162,7 +162,7 @@ export default class ImportExcel extends Component {
             </div>
 
             <div className="teacher-grade-group">
-               <p>Teacher: {this.state.userName}</p>
+               <p>{this.state.userName}</p>
                <p>{this.state.gradesName}</p>
                <p>Group: {this.state.gradesGroupsName}</p>
             </div>
