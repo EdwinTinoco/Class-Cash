@@ -205,13 +205,17 @@
       .right-column{
          font-size: 0.9em;
 
-         // .grade{
-         //    width: 150px;
-         //    margin-right: 0px;
-         // }     
+         .grade{
+            width: auto;
+            margin-right: 10px;
+         }   
+         
+         .separator{
+            margin-right: 10px;
+         }
    
          .username{
-            // width: 200px;
+            width: auto;
             margin-right: 10px;
          }
    
