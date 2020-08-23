@@ -203,19 +203,21 @@
       }
 
       .right-column{
-         font-size: 0.9em;
+         font-size: 0.8em;
 
          .grade{
-            width: auto;
+            text-align: right;
+            width: 150px;
             margin-right: 10px;
          }   
          
          .separator{
-            margin-right: 10px;
+            display: none;
          }
    
          .username{
-            width: auto;
+            text-align: right;
+            width: 150px;
             margin-right: 10px;
          }
    
