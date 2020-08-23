@@ -127,7 +127,7 @@ export default function Register(props) {
 
          <div className="signup-form-wrapper">
             <div className="left-side">
-               <div className="logo">
+               <div className="image">
                   <img src={Logo} alt='Logo' />
                </div>
             </div>
