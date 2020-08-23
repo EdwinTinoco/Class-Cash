@@ -110,7 +110,7 @@ export default function AddStudent(props) {
                   </input>
 
                   <label htmlFor="gn">Gender</label>
-                  <select className='new-entry-input new-entry-select'
+                  <select className='new-entry-select'
                      value={studentGender}
                      onChange={({ target }) => { setStudentGender(target.value) }}
                      id="gn"

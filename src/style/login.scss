@@ -73,6 +73,7 @@
                border-radius: 5px;
                padding: 8px 100px;
                font-size: 1.2em;    
+               font-weight: 600;
                color: whitesmoke;     
                transition: all 0.3s ease-in-out;
                outline: none;
@@ -91,7 +92,8 @@
                        
             a{
                text-decoration: none;
-               color: $amethyst;
+               color: $magenta-crayola;
+               font-size: 1.1em;;
                transition: 0.3s ease-in-out;
 
                &:hover{

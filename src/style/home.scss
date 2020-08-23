@@ -1,5 +1,6 @@
 .home-main-wrapper{
    .navbar{
+      height: 74px;
       background-color: $green-crayola;
       display: flex;
       justify-content: space-between;
@@ -14,7 +15,7 @@
       }
 
       .right-column{
-         width: 150px;
+         width: 172px;
          display: flex;
          justify-content: space-between;
          align-items: center;
@@ -23,18 +24,18 @@
             a{
                text-decoration: none;
                color: $magenta-crayola;
-               font-size: 1em;
+               font-size: 1.2em;
                transition: 0.3s ease-in-out;
 
                &:hover{
-                  color: #6b8a8b;
+                  color: $amethyst;
                }
             }
          }
 
          .or{
             color: #148d9d;
-            font-size: 1em;
+            font-size: 1.1em;
          }
 
          a{
@@ -44,12 +45,13 @@
                margin-right: 10px;
                background-color: $magenta-crayola;
                color: whitesmoke;
-               padding: 0px 12px;
+               padding: 5px 12px;
                border-radius: 5px;
                transition: 0.3s ease-in-out;
 
                p{
-                  font-size: 1em;
+                  margin: 0px;
+                  font-size: 1.2em;
                }
 
                &:hover{

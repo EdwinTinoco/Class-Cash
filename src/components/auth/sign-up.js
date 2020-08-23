@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom";
 
-import Logo from '../../../static/assets/images/logo/class-cash-logo.png'
+import Logo from '../../../static/assets/images/content/school-3.jpg'
 import Footer from "../footer/footer"
 
 
@@ -178,7 +178,7 @@ export default function Register(props) {
                      <select
                         value={userGrade}
                         onChange={({ target }) => { setUserGrade(target.value) }}
-                        className='new-entry-input new-entry-select'
+                        className='new-entry-select'
                         name="grade"
                      >
                         <option value=''>Select a grade</option>
