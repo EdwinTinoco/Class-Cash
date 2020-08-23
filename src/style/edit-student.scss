@@ -23,7 +23,7 @@
                text-align: left;
       
                label{
-                  margin-top: 10px;
+                  margin-top: 6px;
                   color: $amethyst;
                   font-size: 0.9em;
                }
@@ -85,7 +85,7 @@
                   label {
                      display: inline-block;
                      background-color: $amethyst;
-                     padding: 3px 40px;
+                     padding: 2px 35px;
                      font-size: 1.2em;
                      color: whitesmoke;
                      border: 1px solid $amethyst;
@@ -119,8 +119,8 @@
             background-color:  $magenta-crayola;
             border: 1px solid $magenta-crayola;
             border-radius: 5px;
-            font-size: 1.1em;
-            padding: 3px 6px;
+            font-size: 1em;
+            padding: 2px 6px;
             outline: none;
             transition: 0.3s ease-in-out;
 
