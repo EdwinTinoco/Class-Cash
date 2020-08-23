@@ -12,14 +12,23 @@
          }
 
          .right-column{
-            width: 160px;
+            width: 180px;
+
+            .auth{
+               a{
+                  
+                  font-size: 1em;                  
+               }
+            }
+
             a{
                font-size: 0.8em;
+               text-align: center;
    
                .sign-up{
-                  width: 52px;
+                  width: 80px;
                   margin-right: 10px;                  
-                  padding: 0px 8px;   
+                  padding: 4px 6px;   
                }
             }
          }
