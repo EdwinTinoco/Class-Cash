@@ -229,28 +229,29 @@
 
    // Teachers Container
    .grade-groups-main-wrapper{
-      .teacher-info{
-         justify-content: space-around;
+      .teacher-info-add-group{
+         height: 30px;
          padding: 5px 0px;
 
-         .teacher-name{
-            width: 200px;
-            font-size: 0.8em;
-            margin-left: 30px;
-         }
-
-         .grade{
-            width: 200px;
-            font-size: 0.8em;
-         }
-      }
-
-      .title{
-         margin-top: 10px;
-   
-         p{
-            font-size: 1.5em;
-         }
+         .title{
+            margin-top: 10px;
+      
+            p{
+               font-size: 1em;
+            }
+         }     
+         
+         .add-class{       
+             p{     
+                width: 150px;
+                font-size: 1em;
+                text-align: right; 
+             }
+    
+             svg{
+                font-size: 1.8em;
+             }
+          }
       }
    }
 
