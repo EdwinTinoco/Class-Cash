@@ -23,7 +23,7 @@ export default function Register(props) {
       if (validate()) {
          axios
             .post(
-               'https://class-cash-api-ejlt.herokuapp.com/add-user',
+               'https://class-cash-api-ejlt.herokuapp.com/register',
                {
                   users_first_name: userFirstName,
                   users_last_name: userLastName,
