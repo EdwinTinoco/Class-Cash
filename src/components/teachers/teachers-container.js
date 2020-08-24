@@ -143,9 +143,18 @@ export default function TeachersContainer() {
             handleSubmitInsertNewGroup={handleSubmitInsertNewGroup}
          />
 
-         <div className="grade-groups-items-wrapper">
-            {teachersGradesGroupsItems()}
-         </div>
+         {gradesGroups.length > 0 ? (
+            <div className="grade-groups-items-wrapper">
+               {teachersGradesGroupsItems()}
+            </div>
+
+         )
+            :
+            (
+               <div className="message-no-groups">
+                  <p>There's no groups yet. Click in Add Group to start adding groups to your class grade.</p>
+               </div>
+            )}
       </div>
    )
 }

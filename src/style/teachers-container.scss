@@ -1,5 +1,4 @@
 .grade-groups-main-wrapper{  
-
    .teacher-info-add-group{
       height: 50px;
       background-color: #ebf0ee;      
@@ -55,4 +54,14 @@
          }
       }
    }   
+
+   .message-no-groups{
+      margin-top: 50px;
+      text-align: center;
+
+      p{
+         color: $amethyst;
+         font-size: 1.2em;
+      }
+   }
 }
