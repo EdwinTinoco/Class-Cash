@@ -21,7 +21,7 @@ export default function Register(props) {
       if (validate()) {
          axios
             .post(
-               'https://class-cash-api-ejlt.herokuapp.com/register',
+               'https://class-cash-api-ed.herokuapp.com/register',
                {
                   users_first_name: userFirstName,
                   users_last_name: userLastName,
@@ -184,11 +184,12 @@ export default function Register(props) {
                         name="grade"
                      >
                         <option value=''>Select a grade</option>
-                        <option value={1}>First Grade</option>
-                        <option value={11}>Second Grade</option>
-                        <option value={21}>Third Grade</option>
-                        <option value={31}>Fourth Grade</option>
-                        <option value={41}>Fifth Grade</option>
+                        <option value={1}>Kinder Garden</option>
+                        <option value={11}>First Grade</option>
+                        <option value={21}>Second Grade</option>
+                        <option value={31}>Third Grade</option>
+                        <option value={41}>Fourth Grade</option>
+                        <option value={51}>Fifth Grade</option>
                      </select>
                      <div className="error-message">{errorsMessage.userGrade}</div>
                   </div>

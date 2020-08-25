@@ -46,7 +46,7 @@ export default class BankModal extends Component {
       console.log(newBankTotal, this.state.studentId);
 
       fetch
-         (`https://class-cash-api-ejlt.herokuapp.com/update-bank/${this.state.studentId}`,
+         (`https://class-cash-api-ed.herokuapp.com/update-bank/${this.state.studentId}`,
             {
                method: "PATCH",
                headers: { "Content-Type": "application/json" },
@@ -70,7 +70,7 @@ export default class BankModal extends Component {
       console.log(newBankTotal, this.state.studentId);
 
       fetch
-         (`https://class-cash-api-ejlt.herokuapp.com/update-bank/${this.state.studentId}`,
+         (`https://class-cash-api-ed.herokuapp.com/update-bank/${this.state.studentId}`,
             {
                method: "PATCH",
                headers: { "Content-Type": "application/json" },

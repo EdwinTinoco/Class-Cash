@@ -37,7 +37,7 @@ export default function StudentDetail(props) {
    }
 
    const handleDeleteStudent = (studentId) => {
-      fetch(`https://class-cash-api-ejlt.herokuapp.com/delete-student/${studentId}`, {
+      fetch(`https://class-cash-api-ed.herokuapp.com/delete-student/${studentId}`, {
          method: "DELETE"
       })
          .then(response => {
@@ -53,7 +53,7 @@ export default function StudentDetail(props) {
    const handleSubmitEditStudent = (item) => {
       console.log('item student from modal', item);
 
-      axios.put(`https://class-cash-api-ejlt.herokuapp.com/student-update/${item.students_id}`,
+      axios.put(`https://class-cash-api-ed.herokuapp.com/student-update/${item.students_id}`,
          {
             students_first_name: item.students_first_name,
             students_last_name: item.students_last_name,
@@ -73,7 +73,7 @@ export default function StudentDetail(props) {
    }
 
    const getStudentItem = () => {
-      axios.get(`https://class-cash-api-ejlt.herokuapp.com/student/${props.match.params.slug}`)
+      axios.get(`https://class-cash-api-ed.herokuapp.com/student/${props.match.params.slug}`)
          .then(response => {
             console.log('student', response.data);
 
@@ -158,7 +158,15 @@ export default function StudentDetail(props) {
 
                      <div className="gender">
                         <label htmlFor="gen">Gender</label>
-                        <p name="gen">{students_gender}</p>
+                        {students_gender === "M" ?
+                           (
+                              <p name="gen">Boy</p>
+
+                           )
+                           :
+                           (
+                              <p name="gen">Girl</p>
+                           )}
                      </div>
 
                      <div className="grade-group">

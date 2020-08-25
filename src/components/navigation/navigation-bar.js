@@ -38,7 +38,7 @@ const NavigationBar = () => {
 
          let userId = userIdArr.join('')
 
-         axios.get(`https://class-cash-api-ejlt.herokuapp.com/user/${userId}`)
+         axios.get(`https://class-cash-api-ed.herokuapp.com/user/${userId}`)
             .then(response => {
                console.log('response navbar', response.data);
 

@@ -43,7 +43,7 @@ export default function AddStudent(props) {
       } else {
          axios
             .post(
-               'https://class-cash-api-ejlt.herokuapp.com/add-student',
+               'https://class-cash-api-ed.herokuapp.com/add-student',
                {
                   students_first_name: studentFirstName,
                   students_last_name: studentLastName,

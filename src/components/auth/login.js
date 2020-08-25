@@ -32,7 +32,7 @@ export default class Login extends Component {
       event.preventDefault();
 
       if (this.validate()) {
-         axios.post("https://class-cash-api-ejlt.herokuapp.com/login",
+         axios.post("https://class-cash-api-ed.herokuapp.com/login",
             {
                email: this.state.email.toLowerCase(),
                password: this.state.password

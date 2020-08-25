@@ -49,7 +49,7 @@ export default function GradeAndGroupsItem(props) {
    }
 
    const handleEditGroupName = item => {
-      axios.patch(`https://class-cash-api-ejlt.herokuapp.com/update-group/${item.groupId}`,
+      axios.patch(`https://class-cash-api-ed.herokuapp.com/update-group/${item.groupId}`,
          {
             grades_groups_name: item.nameGroup
          }
@@ -63,7 +63,7 @@ export default function GradeAndGroupsItem(props) {
    }
 
    const handleDeleteGroup = id => {
-      fetch(`https://class-cash-api-ejlt.herokuapp.com/delete-group/${id}`, {
+      fetch(`https://class-cash-api-ed.herokuapp.com/delete-group/${id}`, {
          method: "DELETE"
       })
          .then(response => {

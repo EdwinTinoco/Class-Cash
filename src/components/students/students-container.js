@@ -45,7 +45,7 @@ export default function Students(props) {
 
          let userId = userIdArr.join('')
 
-         axios.get(`https://class-cash-api-ejlt.herokuapp.com/user/${userId}`)
+         axios.get(`https://class-cash-api-ed.herokuapp.com/user/${userId}`)
             .then(response => {
                console.log('response get user', response.data);
 
@@ -66,7 +66,7 @@ export default function Students(props) {
    }
 
    const getStudentsItems = () => {
-      axios.get(`https://class-cash-api-ejlt.herokuapp.com/students/${props.groupId}`)
+      axios.get(`https://class-cash-api-ed.herokuapp.com/students/${props.groupId}`)
          .then(response => {
             console.log("class", response.data)
 

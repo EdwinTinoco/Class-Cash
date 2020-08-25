@@ -117,7 +117,7 @@ export default class ImportExcel extends Component {
 
             let gender = row[2].toUpperCase()
 
-            axios.post('https://class-cash-api-ejlt.herokuapp.com/add-student',
+            axios.post('https://class-cash-api-ed.herokuapp.com/add-student',
                {
                   students_first_name: row[0],
                   students_last_name: row[1],

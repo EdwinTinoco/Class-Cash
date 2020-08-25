@@ -36,7 +36,7 @@ export default function TeachersContainer() {
       console.log('nameClass', nameClass);
       console.log('user', user);
 
-      axios.post('https://class-cash-api-ejlt.herokuapp.com/grades-groups/add-group',
+      axios.post('https://class-cash-api-ed.herokuapp.com/grades-groups/add-group',
          {
             grades_groups_name: nameClass,
             grades_groups_grades_id: parseInt(user.grades_id),
@@ -72,7 +72,7 @@ export default function TeachersContainer() {
 
          let userId = userIdArr.join('')
 
-         axios.get(`https://class-cash-api-ejlt.herokuapp.com/user/${userId}`)
+         axios.get(`https://class-cash-api-ed.herokuapp.com/user/${userId}`)
             .then(response => {
                console.log('response navbar', response.data);
 
@@ -81,7 +81,7 @@ export default function TeachersContainer() {
                      response.data[0]
                   )
 
-                  axios.get(`https://class-cash-api-ejlt.herokuapp.com/grades-groups/${userId}`)
+                  axios.get(`https://class-cash-api-ed.herokuapp.com/grades-groups/${userId}`)
                      .then(response => {
                         console.log('response groups', response.data);
 

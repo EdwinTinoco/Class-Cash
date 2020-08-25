@@ -29,11 +29,6 @@ export default class NewGroupForm extends Component {
 
       if (this.validate()) {
          this.props.handleSubmitInsertNewGroup(this.state.nameClass)
-
-         // this.setState({
-         //    nameClass: "",
-         //    errorsMessage: {}
-         // })
       }
    }
 
