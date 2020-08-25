@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import axios from 'axios';
 
 import NavigationBar from "../navigation/navigation-bar"
-import Footer from "../footer/footer"
 import StudentProfileImage from "./student-profile-image";
 
 export default function AddStudent(props) {
@@ -225,8 +224,6 @@ export default function AddStudent(props) {
                <button type='submit' className='add-button'>Add Student</button>
             </div>
          </form>
-
-         <Footer />
       </div>
    )
 }

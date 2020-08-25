@@ -2,7 +2,6 @@ import React from "react";
 
 import NavigationBar from "../navigation/navigation-bar"
 import StudentsContainer from './students-container';
-import Footer from "../footer/footer"
 
 export default function (props) {
    return (
@@ -10,8 +9,6 @@ export default function (props) {
          <NavigationBar />
 
          <StudentsContainer groupId={props.match.params.slug} groupName={props.location.state.groupName} />
-
-         <Footer />
       </div>
    )
 }

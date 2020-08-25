@@ -2,23 +2,18 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import Logo from '../../../static/assets/images/logo/class-cash-logo.png'
-import SchoolImage from "../../../static/assets/images/content/school.jpg"
-import Footer from "../footer/footer"
 
 export default class Home extends Component {
    constructor(props) {
       super(props)
    }
 
-
    render() {
       return (
          <div className="home-main-wrapper">
             <div className="navbar">
                <div className="left-column">
-                  <Link to="/">
-                     <img src={Logo} alt='Logo' />
-                  </Link>
+                  <img src={Logo} alt='Logo' />
                </div>
 
                <div className="right-column">
@@ -58,9 +53,6 @@ export default class Home extends Component {
                   <img src={Logo} alt='Logo' />
                </div>
             </div>
-
-
-            <Footer />
          </div>
       )
    }

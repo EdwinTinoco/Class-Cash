@@ -14,6 +14,7 @@ import TeachersHome from "./teachers/teachers-home"
 import AddStudent from "./students/add-student"
 import StudentsHome from "./students/students-home"
 import StudentDetail from "./students/students-detail"
+import Footer from "./footer/footer"
 import NoMatch from "./pages/no-match";
 import Icons from "../helpers/icons"
 
@@ -61,6 +62,7 @@ export default function App(props) {
             <Route component={NoMatch} />
           </Switch>
 
+          < Footer />
         </div>
       </Router>
 

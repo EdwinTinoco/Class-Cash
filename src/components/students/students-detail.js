@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NavigationBar from "../navigation/navigation-bar"
 import ModalEditStudent from "../modals/modal-edit-student"
 import ModalDeleteStudent from "../modals/modal-delete-student"
-import Footer from "../footer/footer"
 
 export default function StudentDetail(props) {
    const [studentItem, setStudentItem] = useState({})
@@ -180,8 +179,6 @@ export default function StudentDetail(props) {
                </div>
             )
          }
-
-         <Footer />
       </div>
    )
 }

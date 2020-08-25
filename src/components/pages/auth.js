@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Login from "../auth/login";
 import loginImg from '../../../static/assets/images/logo/Students-Bank-transparent.png'
 
@@ -12,7 +13,6 @@ export default class Auth extends Component {
    handleSuccessfulAuth() {
       this.props.history.push("/teachers-home");
    }
-
 
    render() {
       return (

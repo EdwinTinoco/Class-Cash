@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Cookies from 'js-cookie'
 
 import Logo from '../../../static/assets/images/logo/class-cash-logo.png'
-import Footer from "../footer/footer"
 
 export default class Login extends Component {
    constructor(props) {
@@ -98,12 +97,12 @@ export default class Login extends Component {
          <div className="login-main-wrapper">
             <div className="login-form-center">
                <div className="login-container">
-
                   <div className="logo">
                      <Link to="/">
                         <img src={Logo} alt='Logo' />
                      </Link>
                   </div>
+
                   <div className="title">
                      <p>Log in to your account</p>
                   </div>
@@ -144,10 +143,7 @@ export default class Login extends Component {
                      <Link to="/signup">Don't have an account? Sign up</Link>
                   </div>
                </div>
-
             </div>
-
-            <Footer />
          </div>
       );
    }

@@ -1,10 +1,8 @@
-import React, { useState, useContext, useEffect } from "react"
+import React, { useState } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom";
 
 import Logo from '../../../static/assets/images/content/school-3.jpg'
-import Footer from "../footer/footer"
-
 
 export default function Register(props) {
    const [userFirstName, setUserFirstName] = useState('')
@@ -243,11 +241,7 @@ export default function Register(props) {
                   <p className="required">*Required</p>
                </form>
             </div>
-
          </div>
-
-
-         <Footer />
       </div>
    )
 }
