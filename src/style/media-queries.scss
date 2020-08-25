@@ -131,11 +131,7 @@
          }
       }
 
-      .signup-form-wrapper{
-         // display: flex;         
-         // justify-content: center;
-         // align-items: center;
-   
+      .signup-form-wrapper{   
          .left-side{
             .image{
                img{        
@@ -180,8 +176,6 @@
    // Navigation bar
    .nav-wrapper{
       height: 47px;
-      // flex-direction: column;
-      // height: 100%;
 
       .left-column{
          a{
@@ -355,6 +349,8 @@
       
             .icon-edit{
                p{
+                  font-size: 0.9em;
+
                   svg{
                      font-size: 1.2em;
                   }
@@ -363,6 +359,8 @@
       
             .icon-delete{
                p{
+                  font-size: 0.9em;
+
                   svg{
                      font-size: 1.2em;
                   }

@@ -143,7 +143,7 @@ export default function Students(props) {
          ) :
             (
                <div className="message-no-students">
-                  <p>There's no students in this group yet</p>
+                  <p>There's no students in this group yet.</p>
                </div>
             )
          }
