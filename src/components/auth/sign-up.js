@@ -37,14 +37,18 @@ export default function Register(props) {
             .then(response => {
                console.log("new user", response.data)
 
-               setUserFirstName('')
-               setUserLastName('')
-               setUserPhoneNumber('')
-               setUserGrade("")
-               setUserEmail('')
-               setUserPassword('')
-               setUserConfirmPassword('')
-               setMessageUser("User Added Succesfully. You can login now!")
+               if (response.data === "A user with that email already exist") {
+                  setMessageUser(`${response.data}. Try it with another email`)
+               } else {
+                  setUserFirstName('')
+                  setUserLastName('')
+                  setUserPhoneNumber('')
+                  setUserGrade("")
+                  setUserEmail('')
+                  setUserPassword('')
+                  setUserConfirmPassword('')
+                  setMessageUser(`${response.data}. You can login now!`)
+               }
             })
             .catch(error => {
                console.log('handleSubmitRegisterNewUser error', error)

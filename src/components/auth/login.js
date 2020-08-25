@@ -33,13 +33,19 @@ export default class Login extends Component {
       event.preventDefault();
 
       if (this.validate()) {
-         axios.post("https://class-cash-api-ejlt.herokuapp.com/user",
+         axios.post("https://class-cash-api-ejlt.herokuapp.com/login",
             {
                email: this.state.email,
                password: this.state.password
             }
          ).then(response => {
-            if (response.data.length > 0) {
+            console.log('response login', response.data);
+
+            if (response.data === "Email or password is wrong") {
+               this.setState({
+                  message: "Email or password is wrong"
+               })
+            } else if (response.data.length > 0) {
                this.setState({
                   user: response.data[0]
                })
@@ -48,10 +54,6 @@ export default class Login extends Component {
                Cookies.set("_sb%_user%_session", `%encript%${this.state.user.users_id}`, { expires: 15 })
 
                this.props.handleSuccessfulAuth();
-            } else {
-               this.setState({
-                  message: "Email or password is wrong"
-               })
             }
          }).catch(error => {
             this.setState({
