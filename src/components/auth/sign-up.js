@@ -29,7 +29,7 @@ export default function Register(props) {
                   users_last_name: userLastName,
                   users_phone_number: userPhoneNumber,
                   users_grades_id: parseInt(userGrade),
-                  users_email: userEmail,
+                  users_email: userEmail.toLowerCase(),
                   users_password: userPassword,
                   users_active: "Y"
                },
