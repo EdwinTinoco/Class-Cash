@@ -178,13 +178,11 @@
       height: 47px;
 
       .left-column{
-         a{
-            img{
-               margin-left: 0px;
-               height: 55px;
-               width: 80px; 
-            }
-         }  
+         img{
+            margin-left: 10px;
+            width: 80px; 
+            height: 55px;
+         }         
       }
 
       .center-column{   
@@ -419,7 +417,7 @@
                   }
       
                   p{
-                     font-size: 1.5em;
+                     font-size: 1.3em;
                   }
                }
       

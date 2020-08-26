@@ -62,9 +62,7 @@ const NavigationBar = () => {
    return (
       <div className="nav-wrapper">
          <div className="left-column">
-            <NavLink to="/teachers-home">
-               <img src={Logo} alt='Logo' />
-            </NavLink>
+            <img src={Logo} alt='Logo' />
          </div>
 
          <div className="center-column">
