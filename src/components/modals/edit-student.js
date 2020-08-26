@@ -49,9 +49,8 @@ export default function EditStudentForm(props) {
             bank_current_total: tempCash
          }
 
-         console.log('item student edit', item);
-
          props.handleSubmitEditStudent(item)
+
          setMessage('Student updated successfully!')
       }
    }

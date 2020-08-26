@@ -41,8 +41,6 @@ export default function StudentDetail(props) {
          method: "DELETE"
       })
          .then(response => {
-            console.log('response delete student', response.data);
-
             window.location.reload(false);
          })
          .catch(error => {
@@ -51,8 +49,6 @@ export default function StudentDetail(props) {
    }
 
    const handleSubmitEditStudent = (item) => {
-      console.log('item student from modal', item);
-
       axios.put(`https://class-cash-api-ed.herokuapp.com/student-update/${item.students_id}`,
          {
             students_first_name: item.students_first_name,
@@ -63,8 +59,6 @@ export default function StudentDetail(props) {
          }
       )
          .then(response => {
-            console.log('respnse update student', response.data);
-
             window.location.reload(false);
          })
          .catch(error => {
@@ -75,8 +69,6 @@ export default function StudentDetail(props) {
    const getStudentItem = () => {
       axios.get(`https://class-cash-api-ed.herokuapp.com/student/${props.match.params.slug}`)
          .then(response => {
-            console.log('student', response.data);
-
             if (response.data.length > 0) {
                setStudentItem(response.data[0])
             } else {

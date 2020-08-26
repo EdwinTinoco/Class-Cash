@@ -25,16 +25,13 @@ export default function App(props) {
 
   const getUserCookie = () => {
     if (Cookies.get("_sb%_user%_session") !== undefined) {
-      console.log('usuario logeado');
 
       setUserCookie(
         Cookies.get("_sb%_user%_session")
       )
     } else {
-      console.log('usuario no logeado');
+      console.log('User not logged');
     }
-
-    console.log("userCookie", Cookies.get("_sb%_user%_session"))
   }
 
   useEffect(() => {
@@ -71,7 +68,6 @@ export default function App(props) {
 }
 
 const ProtectedHome = ({ user, component: Component, ...rest }) => {
-  console.log("from protected home", user)
   return (
     <Route
       {...rest}
@@ -88,7 +84,6 @@ const ProtectedHome = ({ user, component: Component, ...rest }) => {
 }
 
 const ProtectedAuth = ({ user, component: Component, ...rest }) => {
-  console.log("from protected auth", user)
   return (
     <Route
       {...rest}
@@ -105,7 +100,6 @@ const ProtectedAuth = ({ user, component: Component, ...rest }) => {
 }
 
 const ProtectedSignUp = ({ user, component: Component, ...rest }) => {
-  console.log("from protected signup", user)
   return (
     <Route
       {...rest}
@@ -123,7 +117,6 @@ const ProtectedSignUp = ({ user, component: Component, ...rest }) => {
 
 const ProtectedTeachersHome = ({ component: Component, ...rest }) => {
   let currentUser = Cookies.get("_sb%_user%_session")
-  console.log("from protected teachers home", currentUser)
 
   return (
     <Route
@@ -142,7 +135,6 @@ const ProtectedTeachersHome = ({ component: Component, ...rest }) => {
 
 const ProtectedStudentsHome = ({ component: Component, ...rest }) => {
   let currentUser = Cookies.get("_sb%_user%_session")
-  console.log("from protected students home", currentUser)
 
   return (
     <Route
@@ -161,7 +153,6 @@ const ProtectedStudentsHome = ({ component: Component, ...rest }) => {
 
 const ProtectedStudentDetail = ({ component: Component, ...rest }) => {
   let currentUser = Cookies.get("_sb%_user%_session")
-  console.log("from protected students home", currentUser)
 
   return (
     <Route
@@ -180,7 +171,6 @@ const ProtectedStudentDetail = ({ component: Component, ...rest }) => {
 
 const ProtectedAddStudent = ({ component: Component, ...rest }) => {
   let currentUser = Cookies.get("_sb%_user%_session")
-  console.log("from protected students home", currentUser)
 
   return (
     <Route

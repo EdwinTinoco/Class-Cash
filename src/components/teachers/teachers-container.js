@@ -24,7 +24,6 @@ export default function TeachersContainer() {
    }
 
    const handleLogout = () => {
-      console.log('logout');
       setUser({})
       setGradesGroups([])
       setOneItem({})
@@ -33,9 +32,6 @@ export default function TeachersContainer() {
    }
 
    const handleSubmitInsertNewGroup = (nameClass) => {
-      console.log('nameClass', nameClass);
-      console.log('user', user);
-
       axios.post('https://class-cash-api-ed.herokuapp.com/grades-groups/add-group',
          {
             grades_groups_name: nameClass,
@@ -43,8 +39,6 @@ export default function TeachersContainer() {
             grades_groups_users_id: parseInt(user.users_id)
          })
          .then(response => {
-            console.log('response insert new class', response.data);
-
             window.location.reload(false);
          })
          .catch(error => {
@@ -74,8 +68,6 @@ export default function TeachersContainer() {
 
          axios.get(`https://class-cash-api-ed.herokuapp.com/user/${userId}`)
             .then(response => {
-               console.log('response navbar', response.data);
-
                if (response.data.length > 0) {
                   setUser(
                      response.data[0]
@@ -83,12 +75,9 @@ export default function TeachersContainer() {
 
                   axios.get(`https://class-cash-api-ed.herokuapp.com/grades-groups/${userId}`)
                      .then(response => {
-                        console.log('response groups', response.data);
-
                         setGradesGroups(
                            response.data
                         )
-
                      }).catch(error => {
                         console.log('getGradesGroups error', error);
                      });
@@ -96,7 +85,6 @@ export default function TeachersContainer() {
                } else {
                   handleLogout()
                }
-
             }).catch(error => {
                console.log('getUser error', error);
             });

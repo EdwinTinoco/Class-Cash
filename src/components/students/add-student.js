@@ -24,9 +24,6 @@ export default function AddStudent(props) {
 
    const handleSubmitAddStudent = () => {
       event.preventDefault();
-      console.log('new student');
-      console.log('gradeId, groupId', studentGradesId, studentGradesGroupsId);
-
 
       if (studentGender === "") {
          setMessage(
@@ -55,8 +52,6 @@ export default function AddStudent(props) {
                },
             )
             .then(response => {
-               console.log("new user", response.data)
-
                setStudentFirstName('')
                setStudentLastName('')
                setStudentUrlProfileImage('')

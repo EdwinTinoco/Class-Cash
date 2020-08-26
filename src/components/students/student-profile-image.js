@@ -28,10 +28,7 @@ export default class StudentProfileImage extends Component {
 
    handleBackgroundColorAndImageUrl(val) {
       if (val === 1) {
-         console.log('val', val);
-
          let tempImgUrl1 = this.state.imgUrl1
-         console.log('tempimgurl', tempImgUrl1);
 
          this.setState({
             backgroungColorImg1: '#aeebf3',
@@ -46,10 +43,7 @@ export default class StudentProfileImage extends Component {
          this.handleProfileImage(tempImgUrl1)
       }
       if (val === 2) {
-         console.log('val', val);
-
          let tempImgUrl2 = this.state.imgUrl2
-         console.log('tempimgurl', tempImgUrl2);
 
          this.setState({
             backgroungColorImg1: '#fff',
@@ -64,10 +58,7 @@ export default class StudentProfileImage extends Component {
          this.handleProfileImage(tempImgUrl2)
       }
       if (val === 3) {
-         console.log('val', val);
-
          let tempImgUrl3 = this.state.imgUrl3
-         console.log('tempimgurl', tempImgUrl3);
 
          this.setState({
             backgroungColorImg1: '#fff',
@@ -82,10 +73,7 @@ export default class StudentProfileImage extends Component {
          this.handleProfileImage(tempImgUrl3)
       }
       if (val === 4) {
-         console.log('val', val);
-
          let tempImgUrl4 = this.state.imgUrl4
-         console.log('tempimgurl', tempImgUrl4);
 
          this.setState({
             backgroungColorImg1: '#fff',
@@ -100,10 +88,7 @@ export default class StudentProfileImage extends Component {
          this.handleProfileImage(tempImgUrl4)
       }
       if (val === 5) {
-         console.log('val', val);
-
          let tempImgUrl5 = this.state.imgUrl5
-         console.log('tempimgurl', tempImgUrl5);
 
          this.setState({
             backgroungColorImg1: '#fff',
@@ -118,10 +103,7 @@ export default class StudentProfileImage extends Component {
          this.handleProfileImage(tempImgUrl5)
       }
       if (val === 6) {
-         console.log('val', val);
-
          let tempImgUrl6 = this.state.imgUrl6
-         console.log('tempimgurl', tempImgUrl6);
 
          this.setState({
             backgroungColorImg1: '#fff',
@@ -143,7 +125,6 @@ export default class StudentProfileImage extends Component {
 
    componentDidMount() {
       if (this.state.imgUrlEdit === this.state.imgUrl1) {
-
          this.setState({
             backgroungColorImg1: '#aeebf3',
             backgroungColorImg2: '#fff',
@@ -156,7 +137,6 @@ export default class StudentProfileImage extends Component {
          this.handleProfileImage(this.state.imgUrl1)
 
       } else if (this.state.imgUrlEdit === this.state.imgUrl2) {
-
          this.setState({
             backgroungColorImg1: '#fff',
             backgroungColorImg2: '#aeebf3',
@@ -169,7 +149,6 @@ export default class StudentProfileImage extends Component {
          this.handleProfileImage(this.state.imgUrl2)
 
       } else if (this.state.imgUrlEdit === this.state.imgUrl3) {
-
          this.setState({
             backgroungColorImg1: '#fff',
             backgroungColorImg2: '#fff',
@@ -182,7 +161,6 @@ export default class StudentProfileImage extends Component {
          this.handleProfileImage(this.state.imgUrl3)
 
       } else if (this.state.imgUrlEdit === this.state.imgUrl4) {
-
          this.setState({
             backgroungColorImg1: '#fff',
             backgroungColorImg2: '#fff',
@@ -195,7 +173,6 @@ export default class StudentProfileImage extends Component {
          this.handleProfileImage(this.state.imgUrl4)
 
       } else if (this.state.imgUrlEdit === this.state.imgUrl5) {
-
          this.setState({
             backgroungColorImg1: '#fff',
             backgroungColorImg2: '#fff',
@@ -208,7 +185,6 @@ export default class StudentProfileImage extends Component {
          this.handleProfileImage(this.state.imgUrl5)
 
       } else if (this.state.imgUrlEdit === this.state.imgUrl6) {
-
          this.setState({
             backgroungColorImg1: '#fff',
             backgroungColorImg2: '#fff',

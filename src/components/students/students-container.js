@@ -47,8 +47,6 @@ export default function Students(props) {
 
          axios.get(`https://class-cash-api-ed.herokuapp.com/user/${userId}`)
             .then(response => {
-               console.log('response get user', response.data);
-
                if (response.data.length > 0) {
                   setUser(
                      response.data[0]
@@ -68,8 +66,6 @@ export default function Students(props) {
    const getStudentsItems = () => {
       axios.get(`https://class-cash-api-ed.herokuapp.com/students/${props.groupId}`)
          .then(response => {
-            console.log("class", response.data)
-
             if (response.data.length > 0) {
                setStudents(
                   response.data
