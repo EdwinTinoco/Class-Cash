@@ -369,8 +369,8 @@
          }
 
          .student-detail-wrapper{
-            justify-content: left;
-            padding-top: 10px;            
+            justify-content: center;
+            padding-top: 20px;            
       
             .image{
                text-align: center;
@@ -398,7 +398,7 @@
                      }
 
                      p{
-                        font-size: 1.5em;
+                        font-size: 1.3em;
                      }
                   }
 
@@ -408,7 +408,7 @@
                      }
 
                      p{
-                        font-size: 1.5em;
+                        font-size: 1.3em;
                      }
                   }                  
                }
@@ -423,22 +423,16 @@
                   }
                }
       
-               .grade-group{
-                  margin: 40px 0px 0px 0px;
-      
+               .grade-group{ 
                   p{
-                     margin: 5px 0px;
-                     font-size: 1.5em;
-                     color: $capri;
-                     margin-right: 30px;
+                     width: 300px;
+                     font-size: 1.3em;
                   }
                }
       
                .bank-total{
                   p{
-                     margin: 20px 0px 40px 0px;
-                     font-size: 1.6em;
-                     color: $capri;
+                     font-size: 1.3em;
                   }
                }     
             }

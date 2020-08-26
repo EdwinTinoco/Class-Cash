@@ -110,8 +110,8 @@ export default function AddStudent(props) {
                      id="gn"
                   >
                      <option value=''>Select a gender</option>
-                     <option value="M">Girl</option>
-                     <option value="F">Boy</option>
+                     <option value="M">Boy</option>
+                     <option value="F">Girl</option>
                   </select>
                </div>
 
