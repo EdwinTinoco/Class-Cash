@@ -43,7 +43,6 @@ export default class BankModal extends Component {
 
    handleDecrementBankTotal = (selectedOption) => {
       let newBankTotal = parseInt(this.state.studentBankTotal) - parseInt(selectedOption)
-      console.log(newBankTotal, this.state.studentId);
 
       fetch
          (`https://class-cash-api-ed.herokuapp.com/update-bank/${this.state.studentId}`,
@@ -67,7 +66,6 @@ export default class BankModal extends Component {
 
    handleIncrementBankTotal = (selectedOption) => {
       let newBankTotal = parseInt(this.state.studentBankTotal) + parseInt(selectedOption)
-      console.log(newBankTotal, this.state.studentId);
 
       fetch
          (`https://class-cash-api-ed.herokuapp.com/update-bank/${this.state.studentId}`,

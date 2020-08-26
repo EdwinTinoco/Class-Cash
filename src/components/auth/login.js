@@ -38,8 +38,6 @@ export default class Login extends Component {
                password: this.state.password
             }
          ).then(response => {
-            console.log('response login', response.data);
-
             if (response.data === "Email or password is wrong") {
                this.setState({
                   message: "Email or password is wrong"
@@ -49,7 +47,6 @@ export default class Login extends Component {
                   user: response.data[0]
                })
 
-               console.log('You can come in', this.state.user);
                Cookies.set("_sb%_user%_session", `%encript%${this.state.user.users_id}`, { expires: 15 })
 
                this.props.handleSuccessfulAuth();

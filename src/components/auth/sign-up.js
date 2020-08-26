@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom";
 
@@ -9,6 +9,7 @@ export default function Register(props) {
    const [userLastName, setUserLastName] = useState('')
    const [userPhoneNumber, setUserPhoneNumber] = useState('')
    const [userGrade, setUserGrade] = useState("")
+   const [grades, setGrades] = useState([])
    const [userEmail, setUserEmail] = useState('')
    const [userPassword, setUserPassword] = useState("")
    const [userConfirmPassword, setUserConfirmPassword] = useState("")
@@ -33,8 +34,6 @@ export default function Register(props) {
                },
             )
             .then(response => {
-               console.log("new user", response.data)
-
                if (response.data === "A user with that email already exist") {
                   setMessageUser(`${response.data}. Try it with another email`)
                } else {
@@ -52,6 +51,16 @@ export default function Register(props) {
                console.log('handleSubmitRegisterNewUser error', error)
             })
       }
+   }
+
+   const getGrades = () => {
+      axios.get('https://class-cash-api-ed.herokuapp.com/grades')
+         .then(response => {
+            setGrades(response.data)
+         })
+         .catch(error => {
+            console.log('getGrades error', error);
+         })
    }
 
    const validate = () => {
@@ -111,6 +120,10 @@ export default function Register(props) {
 
       return isValid;
    }
+
+   useEffect(() => {
+      getGrades()
+   }, [])
 
 
    return (
@@ -184,12 +197,14 @@ export default function Register(props) {
                         name="grade"
                      >
                         <option value=''>Select a grade</option>
-                        <option value={1}>Kinder Garden</option>
-                        <option value={11}>First Grade</option>
-                        <option value={21}>Second Grade</option>
-                        <option value={31}>Third Grade</option>
-                        <option value={41}>Fourth Grade</option>
-                        <option value={51}>Fifth Grade</option>
+                        {grades.map((item, index) =>
+                           <option
+                              value={item.grades_id}
+                              key={index}
+                           >
+                              {item.grades_name}
+                           </option>
+                        )}
                      </select>
                      <div className="error-message">{errorsMessage.userGrade}</div>
                   </div>

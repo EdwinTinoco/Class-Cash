@@ -11,8 +11,6 @@ const NavigationBar = () => {
    const [error, setError] = useState("")
 
    const handleLogout = () => {
-      console.log('logout');
-
       setUser({})
       Cookies.remove("_sb%_user%_session")
       window.location.reload(false);
@@ -40,8 +38,6 @@ const NavigationBar = () => {
 
          axios.get(`https://class-cash-api-ed.herokuapp.com/user/${userId}`)
             .then(response => {
-               console.log('response navbar', response.data);
-
                if (response.data.length > 0) {
                   setUser(
                      response.data[0]

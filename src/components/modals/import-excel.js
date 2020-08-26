@@ -41,27 +41,15 @@ export default class ImportExcel extends Component {
             console.log(err);
          }
          else {
-            console.log('cols', resp.cols);
-            console.log('rows', resp.rows);
-
             if (resp.cols.length < 3 || resp.cols.length > 3) {
-               console.log('holaa val cols true');
-
                valCols = true
             } else {
-
-               console.log('holaa valgender');
-
                let firstItem = resp.rows.shift()
 
                resp.rows.map(row => {
-                  console.log('row', row[0], row[1], row[2]);
-
                   if (row[2] !== undefined) {
                      if (typeof row[2] !== 'number') {
-                        console.log('gender', row[2].toUpperCase());
                         let gender = row[2].toUpperCase()
-                        console.log('gender', gender);
 
                         if (gender !== "F") {
                            if (gender !== 'M') {
@@ -110,11 +98,7 @@ export default class ImportExcel extends Component {
 
    handleSubmit() {
       if (this.state.saveDatabase) {
-         console.log('Import students list excel file to Database');
-
          this.state.rows.map(row => {
-            console.log('row', row[0], row[1], row[2]);
-
             let gender = row[2].toUpperCase()
 
             axios.post('https://class-cash-api-ed.herokuapp.com/add-student',
@@ -129,8 +113,6 @@ export default class ImportExcel extends Component {
                },
             )
                .then(response => {
-                  console.log('response', response.data);
-
                   this.setState({
                      displayError: "none",
                      messageImportSuccefully: "Excel file was succesfully imported!"
@@ -139,7 +121,6 @@ export default class ImportExcel extends Component {
                })
                .catch(error => {
                   console.log('handleSubmit error', error);
-
                })
          })
       } else {

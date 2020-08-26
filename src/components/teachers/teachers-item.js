@@ -54,7 +54,6 @@ export default function GradeAndGroupsItem(props) {
             grades_groups_name: item.nameGroup
          }
       ).then(response => {
-         console.log('response update group name', response.data);
          window.location.reload(false);
       })
          .catch(error => {
