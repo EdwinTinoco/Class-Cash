@@ -2,22 +2,16 @@ import {
    faTrash,
    faSignOutAlt,
    faEdit,
-   faSpinner,
    faPlusCircle,
    faMinusCircle,
-   faPhone,
-   faEnvelope,
-   faMapMarkedAlt,
    faLock,
    faLink,
-   faMapMarkerAlt,
-   faCalculator,
-   faCamera,
    faBars,
    faTimes,
    faUser,
    faFileExcel
 } from "@fortawesome/free-solid-svg-icons";
+
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 const Icons = () => {
@@ -25,17 +19,10 @@ const Icons = () => {
       faTrash,
       faSignOutAlt,
       faEdit,
-      faSpinner,
       faPlusCircle,
       faMinusCircle,
-      faPhone,
-      faEnvelope,
-      faMapMarkedAlt,
       faLock,
       faLink,
-      faMapMarkerAlt,
-      faCalculator,
-      faCamera,
       faBars,
       faTimes,
       faUser,
