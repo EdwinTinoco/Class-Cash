@@ -288,8 +288,28 @@
                }
             }
 
-            p{
+            .group-name{
                font-size: 1.1em;
+            }
+
+            .total-students{
+               .total{
+                  p{
+                     font-size: 0.9em;
+                  }
+               }
+
+               .total-boys{
+                  p{
+                     font-size: 0.9em;
+                  }
+               }
+
+               .total-girls{
+                  p{
+                     font-size: 0.9em;
+                  }
+               }
             }
 
             .filter-buttons{

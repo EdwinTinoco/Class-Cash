@@ -31,12 +31,43 @@
             }
          }
 
-         p{
+         .group-name{
             margin: 0px;
             width: 280px;
             font-size: 1.3em;
             color: $magenta-crayola;
             text-align: center;
+         }
+
+         .total-students{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .total{
+               margin-right: 10px;
+
+               p{
+                  font-size: 1em;
+                  color: $amethyst;
+               }
+            }
+
+            .total-boys{
+               margin-right: 10px;
+
+               p{
+                  font-size: 1em;
+                  color: $amethyst;
+               }
+            }
+
+            .total-girls{
+               p{
+                  font-size: 1em;
+                  color: $amethyst;
+               }
+            }
          }
 
          .filter-buttons{

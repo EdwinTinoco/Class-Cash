@@ -10,6 +10,9 @@ import StudentsItem from "./students-item"
 export default function Students(props) {
    const [user, setUser] = useState({})
    const [students, setStudents] = useState([])
+   const [totalStudents, setTotalStudents] = useState(0)
+   const [totalBoys, setTotalBoys] = useState(0)
+   const [totalGirls, setTotalGirls] = useState(0)
    const [noStudentsInGroup, setNoStudentsInGroup] = useState(false)
    const [studentsFilter, setStudentsFilter] = useState([])
    const [groupName, setGroupName] = useState(props.groupName)
@@ -76,6 +79,21 @@ export default function Students(props) {
                )
 
                setNoStudentsInGroup(false)
+
+               setTotalStudents(response.data.length)
+
+               let boys = 0
+               let girls = 0
+               response.data.map(student => {
+                  if (student.students_gender === "F") {
+                     girls += 1
+                     setTotalGirls(girls)
+                  } else if (student.students_gender === "M") {
+                     boys += 1
+                     setTotalBoys(boys)
+                  }
+               })
+
             } else {
                setNoStudentsInGroup(true)
             }
@@ -113,7 +131,21 @@ export default function Students(props) {
                </Link>
             </div>
 
-            <p >Group: {groupName}</p>
+            <p className="group-name">Group: {groupName}</p>
+
+            <div className="total-students">
+               <div className="total">
+                  <p>Total: {totalStudents}</p>
+               </div>
+
+               <div className="total-boys">
+                  <p>Boys: {totalBoys}</p>
+               </div>
+
+               <div className="total-girls">
+                  <p>Girls: {totalGirls}</p>
+               </div>
+            </div>
 
             <div className="filter-buttons">
                <p>Filter by: </p>

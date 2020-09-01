@@ -14,6 +14,7 @@ export default class ImportExcel extends Component {
          gradesGroupsName: this.props.item.grades_groups_name,
          cols: [],
          rows: [],
+         totalRows: 0,
          validateCols: false,
          validateGender: false,
          displayError: "none",
@@ -85,6 +86,7 @@ export default class ImportExcel extends Component {
                this.setState({
                   cols: resp.cols,
                   rows: resp.rows,
+                  totalRows: resp.rows.length,
                   validateCols: false,
                   validateGender: false,
                   displayError: "none",
@@ -165,6 +167,7 @@ export default class ImportExcel extends Component {
 
             <div className="choose-file">
                <input type="file" name="file" onChange={this.fileHandler} />
+               <p>Total students in the excel file to import: {this.state.totalRows}</p>
             </div>
 
             {this.state.displayError === "block" ? (
