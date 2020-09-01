@@ -9,9 +9,8 @@
          justify-content: space-between;
          align-items: center;   
          
-         .add-student{    
-            width: 200px;
-            margin-left: 20px; 
+         .add-student{  
+            margin-left: 15px; 
             display: flex;
             justify-content: left;
             align-items: center;
@@ -33,6 +32,7 @@
             }
 
             p{
+               width: 85px;
                margin: 0px;
                font-size: 1.2em;  
                color: $capri;
@@ -48,13 +48,13 @@
          }
 
          .total-students{
-            width: 220px;
             display: flex;
             justify-content: center;
             align-items: center;
 
             .total{
-               margin-right: 10px;
+               width: 55px;
+               margin-right: 5px;
 
                p{
                   font-size: 1em;
@@ -63,7 +63,8 @@
             }
 
             .total-boys{
-               margin-right: 10px;
+               width: 55px;
+               margin-right: 5px;
 
                p{
                   font-size: 1em;
@@ -72,6 +73,8 @@
             }
 
             .total-girls{
+               width: 55px;
+
                p{
                   font-size: 1em;
                   color: $amethyst;
@@ -80,12 +83,14 @@
          }
 
          .filter-buttons{
-            width: 300px;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-right: 10px;
 
             p{
+               text-align: right;
+               width: 80px;
                margin: 0px 7px 0px 0px;
                font-size: 1.1em;
                color: $magenta-crayola;

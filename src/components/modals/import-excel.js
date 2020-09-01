@@ -103,12 +103,19 @@ export default class ImportExcel extends Component {
          this.state.rows.map(row => {
             let gender = row[2].toUpperCase()
 
+            let imageUrl = ""
+            if (gender === "M") {
+               imageUrl = "https://toppng.com/uploads/preview/mickey-mouse-11549813294phgckvoyy5.png"
+            } else {
+               imageUrl = "https://toppng.com/uploads/preview/mickey-mouse-images-mickey-minnie-mouse-disney-mickey-minnie-mouse-mickey-mouse-11562862996vg9j2zhxdg.png"
+            }
+
             axios.post('https://class-cash-api-ed.herokuapp.com/add-student',
                {
                   students_first_name: row[0],
                   students_last_name: row[1],
                   students_gender: gender,
-                  students_image_url: "https://toppng.com/uploads/preview/mickey-mouse-11549813294phgckvoyy5.png",
+                  students_image_url: imageUrl,
                   students_grades_id: parseInt(this.state.gradesId),
                   students_grades_groups_id: parseInt(this.state.gradesGroupsId),
                   bank_current_total: 0
