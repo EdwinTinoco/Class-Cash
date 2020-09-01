@@ -10,7 +10,7 @@
          align-items: center;   
          
          .add-student{    
-            width: 160px;
+            width: 200px;
             margin-left: 20px; 
             display: flex;
             justify-content: left;
@@ -80,16 +80,15 @@
          }
 
          .filter-buttons{
+            width: 300px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-right: 15px;
 
             p{
-               width: 80px;
+               margin: 0px 7px 0px 0px;
                font-size: 1.1em;
                color: $magenta-crayola;
-               margin-right: 10px;
             }
 
             button{                
