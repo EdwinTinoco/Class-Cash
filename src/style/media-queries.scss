@@ -278,7 +278,9 @@
          .group-name-title{
             height: 32px;
 
-            .add-student{                 
+            .add-student{   
+               margin-left: 10px;     
+
                a{ 
                   svg{
                      margin-right: 3px;
@@ -287,6 +289,7 @@
                }
 
                p{
+                  width: 85px;
                   font-size: 0.9em;
                }
             }
@@ -316,6 +319,8 @@
             }
 
             .filter-buttons{
+               margin-right: 10px;
+
                p{
                   font-size: 0.8em;
                }
