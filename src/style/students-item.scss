@@ -10,12 +10,14 @@
          align-items: center;   
          
          .add-student{    
-            margin-left: 20px;   
+            width: 160px;
+            margin-left: 20px; 
+            display: flex;
+            justify-content: left;
+            align-items: center;
             
-            a{         
-               font-size: 1.2em;
-               color: $capri;
-               text-decoration: none;
+            a{               
+               text-decoration: none;              
                
                svg{
                   margin-right: 6px;
@@ -29,6 +31,12 @@
                   }
                }
             }
+
+            p{
+               margin: 0px;
+               font-size: 1.2em;  
+               color: $capri;
+            }
          }
 
          .group-name{
@@ -40,6 +48,7 @@
          }
 
          .total-students{
+            width: 220px;
             display: flex;
             justify-content: center;
             align-items: center;

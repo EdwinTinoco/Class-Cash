@@ -127,8 +127,9 @@ export default function Students(props) {
                   state: { gradeId: user.grades_id, gradeName: user.grades_name, groupId: props.groupId, groupName: groupName }
                }}>
                   <FontAwesomeIcon icon="plus-circle" />
-                  Add Student
                </Link>
+
+               <p>Add student</p>
             </div>
 
             <p className="group-name">Group: {groupName}</p>

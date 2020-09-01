@@ -279,17 +279,20 @@
             height: 32px;
 
             .add-student{                 
-               a{         
-                  font-size: 1.1em;
-                  
+               a{ 
                   svg{
-                     font-size: 1.2em;
+                     margin-right: 3px;
+                     font-size: 1.3em;
                   }
+               }
+
+               p{
+                  font-size: 1em;
                }
             }
 
             .group-name{
-               font-size: 1.1em;
+               font-size: 1em;
             }
 
             .total-students{
