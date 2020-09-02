@@ -20,7 +20,8 @@ export default class ImportExcel extends Component {
          displayError: "none",
          messageImportSuccefully: "",
          errorMessage: "",
-         saveDatabase: false
+         saveDatabase: false,
+         btnSaveDisable: false
       }
 
       this.fileHandler = this.fileHandler.bind(this)
@@ -33,7 +34,9 @@ export default class ImportExcel extends Component {
       let valGender = this.state.validateGender
 
       this.setState({
-         messageImportSuccefully: ""
+         totalRows: 0,
+         messageImportSuccefully: "",
+         btnSaveDisable: false
       })
 
       let fileObj = e.target.files[0];
@@ -100,6 +103,10 @@ export default class ImportExcel extends Component {
 
    handleSubmit() {
       if (this.state.saveDatabase) {
+         this.setState({
+            btnSaveDisable: true
+         })
+
          this.state.rows.map(row => {
             let gender = row[2].toUpperCase()
 
@@ -124,6 +131,7 @@ export default class ImportExcel extends Component {
                .then(response => {
                   this.setState({
                      displayError: "none",
+                     totalRows: 0,
                      messageImportSuccefully: "Excel file was succesfully imported!",
                      saveDatabase: false
                   })
@@ -164,7 +172,7 @@ export default class ImportExcel extends Component {
             </div>
 
             <div className="buttons">
-               <button type="button" onClick={this.handleSubmit}>Save</button>
+               <button type="button" disabled={this.state.btnSaveDisable} onClick={this.handleSubmit}>Save</button>
                <button type="button" onClick={this.handleModalClose}>Close</button>
             </div>
 
