@@ -135,6 +135,8 @@ export default class ImportExcel extends Component {
                      messageImportSuccefully: "Excel file was succesfully imported!",
                      saveDatabase: false
                   })
+
+                  window.location.reload(false);
                })
                .catch(error => {
                   console.log('handleSubmit error', error);
